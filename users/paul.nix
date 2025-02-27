@@ -85,8 +85,4 @@
 	userName = "Emtyffx";
   };
   
-  xdg.configFile.nvim = {
-	source = ../nvim;
-  };
-
 }
