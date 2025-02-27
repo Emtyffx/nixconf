@@ -83,7 +83,10 @@
 	userEmail = "p.verbytsky@gmail.com";
 	userName = "Emtyffx";
   };
+  
+  xdg.configFile."nvim" = {
+	source = ../nvim;
+	recursive = true;
+  };
 
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
 }
