@@ -1,11 +1,10 @@
-{ pkgs, ...}:
+{ config, pkgs, ...}:
 {
-	wayland.windowManager.sway = {
+	wayland.windowManager.hyprland = {
 		enable = true;
-		config = {
-			modifier = "Mod4";
-			terminal = "kitty";
-			startup = [];
-		};
+		package = pkgs.hyprland;
+		xwayland.enable = true;
+
+		systemd.enable = true;
 	};
 }

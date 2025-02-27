@@ -51,7 +51,8 @@
   services.desktopManager.plasma6 = {
 	enable = true;
   };
-  # Configure keymap in X11
+
+    # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us,ru,ua";
     variant = "";
@@ -145,6 +146,11 @@
 	nodejs_23
 
   ];
+  # system variables
+  environment.sessionVariables = {
+	SUDO_EDITOR = "nvim";	
+  };
+
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;
