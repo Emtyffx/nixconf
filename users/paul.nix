@@ -2,7 +2,8 @@
 
 {
   imports = [
-	../homeLib/sway.nix
+	../homeLib/hyprland.nix
+	../homeLib/kitty.nix
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -84,9 +85,8 @@
 	userName = "Emtyffx";
   };
   
-  xdg.configFile."nvim" = {
+  xdg.configFile.nvim = {
 	source = ../nvim;
-	recursive = true;
   };
 
 }
