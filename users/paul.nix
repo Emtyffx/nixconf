@@ -42,7 +42,15 @@
     telegram-desktop
     zoom-us
     obsidian
+    powerline-fonts
+    nerd-fonts.hack
+
   ];
+  
+
+  # enable font configuration
+  fonts.fontconfig.enable = true;
+
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
