@@ -10,6 +10,10 @@
         action = "<cmd>bn<CR>";
         key = "]b";
       }
+      {
+        action = "<cmd>bd<CR>";
+        key = "bd";
+      }
 
     ];
   };
