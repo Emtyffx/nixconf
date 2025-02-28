@@ -24,13 +24,13 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-
+  #
   # Set your time zone.
   time.timeZone = "Europe/Kyiv";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
-
+  
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "uk_UA.UTF-8";
     LC_IDENTIFICATION = "uk_UA.UTF-8";

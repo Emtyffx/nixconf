@@ -1,4 +1,4 @@
-{pkgs, ...}:
+{pkgs, inputs, ...}:
 {
   users.users.paul = {
     isNormalUser = true;
@@ -8,8 +8,13 @@
     #  thunderbird
     ];
   };
+  home-manager.extraSpecialArgs = { inherit inputs; };
   home-manager.useGlobalPkgs = true;
   home-manager.users = {
-    paul = import ./paul.nix;
+  	paul = {
+		imports = [
+			./paul.nix
+		];
+	};
   };
 }

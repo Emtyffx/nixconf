@@ -1,9 +1,10 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports = [
 	../homeLib/hyprland.nix
 	../homeLib/kitty.nix
+	../homeLib/neovim/default.nix
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
