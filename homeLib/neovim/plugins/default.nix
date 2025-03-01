@@ -6,5 +6,6 @@
     ./telescope.nix
     ./autopairs.nix
     ./neotree.nix
+    ./ui.nix
   ];
 }

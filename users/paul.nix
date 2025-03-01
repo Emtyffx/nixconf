@@ -7,9 +7,10 @@
 
 {
   imports = [
-    ../homeLib/hyprland.nix
     ../homeLib/kitty.nix
     ../homeLib/neovim
+    ../homeLib/sway.nix
+    ../homeLib/waybar.nix
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.

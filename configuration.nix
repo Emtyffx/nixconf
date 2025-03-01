@@ -64,6 +64,8 @@
     enable = true;
   };
 
+  # enable sway
+  programs.sway.enable = true;
   # enable graphics(nvidia)
   hardware.graphics.enable = true;
   # Enable CUPS to print documents.
@@ -119,6 +121,7 @@
     #media-session.enable = true;
   };
   # enable polkit(for home manager management of sway)
+  security.polkit.enable = true;
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 

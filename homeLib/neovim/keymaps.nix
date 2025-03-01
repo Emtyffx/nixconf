@@ -14,6 +14,10 @@
         action = "<cmd>bd<CR>";
         key = "bd";
       }
+      {
+        action = "<cmd>Neotree toggle<CR>";
+        key = "<leader>e";
+      }
 
     ];
   };
