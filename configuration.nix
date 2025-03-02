@@ -58,7 +58,12 @@
     layout = "us,ru,ua";
     variant = "";
   };
-
+  # xdg portals
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+    extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
+  };
   # enable git
   programs.git = {
     enable = true;
@@ -153,6 +158,7 @@
     nodejs_23
     cloudflare-warp
     nixfmt-rfc-style
+    python313
 
   ];
   # system variables

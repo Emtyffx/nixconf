@@ -52,6 +52,7 @@
     powerline-fonts
     nerd-fonts.hack
     ripgrep
+    obs-studio
   ];
 
   # enable font configuration

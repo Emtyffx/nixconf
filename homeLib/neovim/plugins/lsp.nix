@@ -10,6 +10,9 @@
       ts_ls = {
         enable = true;
       };
+      pyright = {
+        enable = true;
+      };
       vtsls = {
         enable = true;
         filetypes = [
