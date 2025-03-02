@@ -16,7 +16,8 @@
       # Use kitty as default terminal
       terminal = "kitty";
       startup = [
-        # Launch Firefox on start
+        # setup wallpaper
+        { command = "swaymsg output \"*\" bg ${./bg.jpg} fill"; }
       ];
       keybindings = lib.mkOptionDefault {
         "${modifier}+r" = "exec wofi --show drun";
@@ -27,6 +28,9 @@
           command = "waybar";
         }
       ];
+      gaps = {
+        inner = 20;
+      };
       input = {
         "*" = {
           xkb_layout = "us,ru,ua";
