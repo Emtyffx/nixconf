@@ -13,6 +13,9 @@
       pyright = {
         enable = true;
       };
+      ccls = {
+        enable = true;
+      };
       vtsls = {
         enable = true;
         filetypes = [

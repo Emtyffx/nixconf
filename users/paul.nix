@@ -53,6 +53,7 @@
     nerd-fonts.hack
     ripgrep
     obs-studio
+    jetbrains.clion
   ];
 
   # enable font configuration

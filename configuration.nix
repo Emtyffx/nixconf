@@ -47,10 +47,15 @@
   services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
-  services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6 = {
+  services.xserver.desktopManager.gnome = {
     enable = true;
+    extraGSettingsOverridePackages = with pkgs; [ mutter ];
+    extraGSettingsOverrides = ''
+      [org.gnome.mutter]
+      experimental-features=['scale-monitor-framebuffer']
+    '';
   };
+  services.xserver.displayManager.gdm.enable = true;
   programs.hyprland.enable = true;
 
   # Configure keymap in X11
@@ -62,7 +67,10 @@
   xdg.portal = {
     enable = true;
     wlr.enable = true;
-    extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gtk
+      xdg-desktop-portal-wlr
+    ];
   };
   # enable git
   programs.git = {
@@ -79,35 +87,16 @@
   services.xserver.videoDrivers = [ "nvidia" ];
 
   hardware.nvidia = {
+    open = true; # The open drivers are generally recommended these days
+    modesetting.enable = true; # Starts the nvidia with kms, ensuring that there is no tty flicker and enabling a variety of important things down the stack
+    # powermanagement.enable = true; Optional, this fixes suspend for me
 
-    # Modesetting is required.
-    modesetting.enable = true;
-
-    # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
-    # Enable this if you have graphical corruption issues or application crashes after waking
-    # up from sleep. This fixes it by saving the entire VRAM memory to /tmp/ instead
-    # of just the bare essentials.
-    powerManagement.enable = true;
-
-    # Fine-grained power management. Turns off GPU when not in use.
-    # Experimental and only works on modern Nvidia GPUs (Turing or newer).
-    powerManagement.finegrained = false;
-
-    # Use the NVidia open source kernel module (not to be confused with the
-    # independent third-party "nouveau" open source driver).
-    # Support is limited to the Turing and later architectures. Full list of
-    # supported GPUs is at:
-    # https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus
-    # Only available from driver 515.43.04+
-    open = true;
-
-    # Enable the Nvidia settings menu,
-    # accessible via `nvidia-settings`.
-    nvidiaSettings = true;
-
-    # Optionally, you may need to select the appropriate driver version for your specific GPU.
-    package = config.boot.kernelPackages.nvidiaPackages.beta;
-
+    # This is the default anyway
+    # hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
+    # This setting is for datacenter GPUs, not stuff you'd actually render desktops on
+    # hardware.nvidia.nvidiaPersistenced = false;
+    # See above
+    # hardware.nvidia.forceFullCompositionPipeline = false;
   };
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
@@ -159,7 +148,8 @@
     cloudflare-warp
     nixfmt-rfc-style
     python313
-
+    gcc
+    cmake
   ];
   # system variables
   environment.sessionVariables = {
