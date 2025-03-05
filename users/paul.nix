@@ -11,6 +11,7 @@
     ../homeLib/neovim
     ../homeLib/sway.nix
     ../homeLib/waybar.nix
+    inputs.nix-flatpak.homeManagerModules.nix-flatpak
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -46,7 +47,6 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
     telegram-desktop
-    zoom-us
     discord
     obsidian
     powerline-fonts
@@ -54,11 +54,39 @@
     ripgrep
     obs-studio
     jetbrains.clion
+    viber
+    adw-gtk3
+    qadwaitadecorations-qt6
+    gnomeExtensions.appindicator
+    gnomeExtensions.blur-my-shell
+    gnomeExtensions.vitals
+    gnomeExtensions.dash-to-dock
+  ];
+  # install flatpak apps
+  services.flatpak.enable = true;
+  services.flatpak.packages = [
+    "us.zoom.Zoom"
   ];
 
   # enable font configuration
   fonts.fontconfig.enable = true;
-
+  dconf.enable = true;
+  dconf.settings = {
+    "org/gnome/shell" = {
+      enabled-extensions = [
+        "appindicatorsupport@rgcjonas.gmail.com"
+        "blur-my-shell@aunetx"
+        "Vitals@CoreCoding.com"
+        "dash-to-dock@micxgx.gmail.com"
+      ];
+    };
+    "org/gnome/shell/extensions/blur-my-shell/dash-to-dock" = {
+      style-dash-to-dock = 2;
+    };
+    "org/gnome/shell/extensions/vitals" = {
+      show-gpu = true;
+    };
+  };
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
@@ -92,6 +120,8 @@
   #
   home.sessionVariables = {
     # EDITOR = "emacs";
+    GTK_THEME = "adw-gtk3-dark";
+    XDG_DATA_DIRS = "$XDG_DATA_DIRS:/usr/share:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share";
   };
 
   # setup git

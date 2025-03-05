@@ -13,7 +13,7 @@
       pyright = {
         enable = true;
       };
-      ccls = {
+      clangd = {
         enable = true;
       };
       vtsls = {

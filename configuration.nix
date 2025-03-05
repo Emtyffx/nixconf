@@ -2,7 +2,12 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   imports = [
@@ -42,11 +47,11 @@
     LC_TELEPHONE = "uk_UA.UTF-8";
     LC_TIME = "uk_UA.UTF-8";
   };
-
   # Enable the X11 windowing system.
   services.xserver.enable = true;
-
-  # Enable the GNOME Desktop Environment.
+  # enable dbus
+  services.dbus.enable = true;
+  # Enable the GNOME Desktop Environment
   services.xserver.desktopManager.gnome = {
     enable = true;
     extraGSettingsOverridePackages = with pkgs; [ mutter ];
@@ -56,7 +61,11 @@
     '';
   };
   services.xserver.displayManager.gdm.enable = true;
+
   programs.hyprland.enable = true;
+
+  # enable flatpak
+  services.flatpak.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -66,10 +75,11 @@
   # xdg portals
   xdg.portal = {
     enable = true;
+    xdgOpenUsePortal = false;
     wlr.enable = true;
     extraPortals = with pkgs; [
       xdg-desktop-portal-gtk
-      xdg-desktop-portal-wlr
+      xdg-desktop-portal-gnome
     ];
   };
   # enable git
@@ -81,19 +91,35 @@
   programs.sway.enable = true;
   # enable graphics(nvidia)
   hardware.graphics.enable = true;
+  # enable libvirtd
+  programs.virt-manager.enable = true;
+  virtualisation.libvirtd.enable = true;
+  virtualisation.spiceUSBRedirection.enable = true;
   # Enable CUPS to print documents.
   services.printing.enable = true;
+  services.printing.drivers = with pkgs; [ hplip ];
+  hardware.printers = {
+    ensurePrinters = [
+      {
+        name = "HP_LaserJet_1320";
+        location = "Home";
+        deviceUri = "socket://192.168.20.3:9100";
+        model = "drv:///hp/hpcups.drv/hp-laserjet_1320.ppd";
+        ppdOptions = {
+          PageSize = "A4";
+        };
+      }
+    ];
+  };
 
   services.xserver.videoDrivers = [ "nvidia" ];
 
   hardware.nvidia = {
     open = true; # The open drivers are generally recommended these days
     modesetting.enable = true; # Starts the nvidia with kms, ensuring that there is no tty flicker and enabling a variety of important things down the stack
-    # powermanagement.enable = true; Optional, this fixes suspend for me
-
+    powerManagement.enable = true; # Optional, this fixes suspend for me
     # This is the default anyway
-    # hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
-    # This setting is for datacenter GPUs, not stuff you'd actually render desktops on
+    package = config.boot.kernelPackages.nvidiaPackages.latest; # This setting is for datacenter GPUs, not stuff you'd actually render desktops on
     # hardware.nvidia.nvidiaPersistenced = false;
     # See above
     # hardware.nvidia.forceFullCompositionPipeline = false;
@@ -150,10 +176,12 @@
     python313
     gcc
     cmake
+    clang
   ];
   # system variables
   environment.sessionVariables = {
     SUDO_EDITOR = "nvim";
+    GSK_RENDERER = "ngl";
   };
 
   programs.steam = {
