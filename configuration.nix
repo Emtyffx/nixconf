@@ -66,6 +66,13 @@
 
   # enable flatpak
   services.flatpak.enable = true;
+  systemd.services.flatpak-repo = {
+    wantedBy = [ "multi-user.target" ];
+    path = [ pkgs.flatpak ];
+    script = ''
+      flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+    '';
+  };
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -75,11 +82,10 @@
   # xdg portals
   xdg.portal = {
     enable = true;
-    xdgOpenUsePortal = false;
     wlr.enable = true;
+    xdgOpenUsePortal = false;
     extraPortals = with pkgs; [
       xdg-desktop-portal-gtk
-      xdg-desktop-portal-gnome
     ];
   };
   # enable git
@@ -177,6 +183,10 @@
     gcc
     cmake
     clang
+    xdg-desktop-portal-gtk
+    xdg-desktop-portal-wlr
+    shared-mime-info
+    desktop-file-utils
   ];
   # system variables
   environment.sessionVariables = {
