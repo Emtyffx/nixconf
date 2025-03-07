@@ -61,6 +61,9 @@
     gnomeExtensions.blur-my-shell
     gnomeExtensions.vitals
     gnomeExtensions.dash-to-dock
+    libreoffice
+    hunspell
+    hunspellDicts.uk_UA
   ];
   # install flatpak apps
   services.flatpak.enable = true;

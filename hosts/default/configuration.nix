@@ -13,7 +13,7 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ./users/default.nix
+    ../../users/default.nix
   ];
 
   # Bootloader.
@@ -57,7 +57,7 @@
     extraGSettingsOverridePackages = with pkgs; [ mutter ];
     extraGSettingsOverrides = ''
       [org.gnome.mutter]
-      experimental-features=['scale-monitor-framebuffer']
+      experimental-features=['scale-monitor-framebuffer', 'xwayland-native-scaling']
     '';
   };
   services.xserver.displayManager.gdm.enable = true;
@@ -124,11 +124,17 @@
     open = true; # The open drivers are generally recommended these days
     modesetting.enable = true; # Starts the nvidia with kms, ensuring that there is no tty flicker and enabling a variety of important things down the stack
     powerManagement.enable = true; # Optional, this fixes suspend for me
+    powerManagement.finegrained = true;
     # This is the default anyway
-    package = config.boot.kernelPackages.nvidiaPackages.latest; # This setting is for datacenter GPUs, not stuff you'd actually render desktops on
+    package = config.boot.kernelPackages.nvidiaPackages.beta; # This setting is for datacenter GPUs, not stuff you'd actually render desktops on
     # hardware.nvidia.nvidiaPersistenced = false;
     # See above
     # hardware.nvidia.forceFullCompositionPipeline = false;
+    prime = {
+      amdgpuBusId = "PCI:10:0:0";
+      nvidiaBusId = "PCI:1:0:0";
+      offload.enable = true;
+    };
   };
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
