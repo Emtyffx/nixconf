@@ -28,5 +28,13 @@
           inputs.home-manager.nixosModules.default
         ];
       };
+      nixosConfigurations.laptop = nixpkgs.lib.nixosSystme {
+        specialArgs = { inherit inputs; };
+        modules = [
+          ./hosts/laptop/configuration.nix
+          inputs.home-manager.nixosModules.default
+        ];
+      };
     };
+
 }
