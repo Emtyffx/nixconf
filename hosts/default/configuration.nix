@@ -6,6 +6,7 @@
   config,
   lib,
   pkgs,
+  inputs,
   ...
 }:
 
@@ -62,6 +63,8 @@
   };
   services.xserver.displayManager.gdm.enable = true;
 
+  # services.desktopManager.plasma6.enable = true;
+  # services.displayManager.sddm.enable = true;
   programs.hyprland.enable = true;
 
   # enable flatpak
@@ -171,29 +174,41 @@
   };
 
   # Install firefox.
-  programs.firefox.enable = true;
+  # programs.firefox.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    #  wget
-    neovim
-    nodejs_23
-    cloudflare-warp
-    nixfmt-rfc-style
-    python313
-    gcc
-    cmake
-    clang
-    xdg-desktop-portal-gtk
-    xdg-desktop-portal-wlr
-    shared-mime-info
-    desktop-file-utils
-  ];
+  environment.systemPackages =
+    with pkgs;
+    let
+      thorium = import ../../nixosLib/thorium.nix {
+        inherit
+          pkgs
+          lib
+          ;
+      };
+
+    in
+    [
+      #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+      #  wget
+      neovim
+      nodejs_23
+      cloudflare-warp
+      nixfmt-rfc-style
+      python313
+      gcc
+      cmake
+      clang
+      xdg-desktop-portal-gtk
+      xdg-desktop-portal-wlr
+      shared-mime-info
+      desktop-file-utils
+      thorium
+    ];
   # system variables
   environment.sessionVariables = {
     SUDO_EDITOR = "nvim";
