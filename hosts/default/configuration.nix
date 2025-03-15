@@ -174,7 +174,7 @@
   };
 
   # Install firefox.
-  # programs.firefox.enable = true;
+  programs.firefox.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -207,7 +207,7 @@
       xdg-desktop-portal-wlr
       shared-mime-info
       desktop-file-utils
-      thorium
+      # thorium
     ];
   # system variables
   environment.sessionVariables = {
