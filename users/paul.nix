@@ -126,6 +126,7 @@
     # EDITOR = "emacs";
     GTK_THEME = "adw-gtk3-dark";
     XDG_DATA_DIRS = "$XDG_DATA_DIRS:/usr/share:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share";
+    XCURSOR_SIZE = 12;
   };
 
   # setup git
@@ -134,5 +135,16 @@
     userEmail = "p.verbytsky@gmail.com";
     userName = "Emtyffx";
   };
+
+  # Removing until gnome 48
+  # programs.ghostty = {
+  #   enable = true;
+  #   settings = {
+  #     gtk-titlebar = true;
+  #     font-size = 10;
+  #     theme = "catppuccin-mocha";
+  #     background-opacity = 0.8;
+  #   };
+  # };
 
 }

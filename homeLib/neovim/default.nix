@@ -8,7 +8,8 @@
 
   programs.nixvim = {
     enable = true;
-    colorschemes.gruvbox.enable = true;
+    extraPlugins = with pkgs; [ vimPlugins.sonokai ];
+    colorscheme = "sonokai";
     opts = {
       # Show line numbers
       number = true;
@@ -88,6 +89,9 @@
         eob = " ";
       };
     };
+    globals = {
+	sonokai_transparent_background = 1;
+      };
     globals.mapleader = " ";
     plugins = {
       web-devicons.enable = true;
