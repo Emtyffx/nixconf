@@ -69,6 +69,7 @@
   services.flatpak.enable = true;
   services.flatpak.packages = [
     "us.zoom.Zoom"
+    "org.chromium.Chromium"
   ];
 
   # enable font configuration
@@ -126,7 +127,6 @@
     # EDITOR = "emacs";
     GTK_THEME = "adw-gtk3-dark";
     XDG_DATA_DIRS = "$XDG_DATA_DIRS:/usr/share:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share";
-    XCURSOR_SIZE = 12;
   };
 
   # setup git

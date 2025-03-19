@@ -74,6 +74,52 @@
           desc = "Horizontal split";
         };
       }
+      # configuration of the clipboard
+      {
+        action = "\"+y";
+        key = "<leader>y";
+        mode = [
+          "n"
+          "x"
+        ];
+        options = {
+          desc = "Copy from system clipboard";
+        };
+      }
+      {
+        action = "\"+yg_";
+        key = "<leader>Y";
+        mode = [
+          "n"
+          "x"
+        ];
+        options = {
+          desc = "Copy from system clipboard";
+        };
+      }
+      {
+        action = "\"+p";
+        key = "<leader>p";
+        mode = [
+          "n"
+          "x"
+        ];
+        options = {
+          desc = "Paste from system clipboard";
+        };
+      }
+      {
+        action = "\"+P";
+        key = "<leader>P";
+        mode = [
+          "n"
+          "x"
+        ];
+        options = {
+          desc = "Paste from system clipboard";
+        };
+      }
+
     ];
   };
 }

@@ -53,18 +53,19 @@
   # enable dbus
   services.dbus.enable = true;
   # Enable the GNOME Desktop Environment
-  services.xserver.desktopManager.gnome = {
-    enable = true;
-    extraGSettingsOverridePackages = with pkgs; [ mutter ];
-    extraGSettingsOverrides = ''
-      [org.gnome.mutter]
-      experimental-features=['scale-monitor-framebuffer', 'xwayland-native-scaling']
-    '';
-  };
-  services.xserver.displayManager.gdm.enable = true;
+  # services.xserver.desktopManager.gnome = {
+  #   enable = true;
+  #   extraGSettingsOverridePackages = with pkgs; [ mutter ];
+  #   extraGSettingsOverrides = ''
+  #     [org.gnome.mutter]
+  #     experimental-features=['scale-monitor-framebuffer', 'xwayland-native-scaling']
+  #   '';
+  # };
+  # services.xserver.displayManager.gdm.enable = true;
 
-  # services.desktopManager.plasma6.enable = true;
-  # services.displayManager.sddm.enable = true;
+  services.desktopManager.plasma6.enable = true;
+  services.displayManager.sddm.enable = true;
+  programs.kdeconnect.enable = true;
   programs.hyprland.enable = true;
 
   # enable flatpak
@@ -93,6 +94,10 @@
   };
   # enable git
   programs.git = {
+    enable = true;
+  };
+  # enable opengl
+  hardware.opengl = {
     enable = true;
   };
 
@@ -208,6 +213,8 @@
       shared-mime-info
       desktop-file-utils
       # thorium
+      librewolf
+      wl-clipboard
     ];
   # system variables
   environment.sessionVariables = {
@@ -242,6 +249,16 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
+  networking.firewall = rec {
+    enable = true;
+    allowedTCPPortRanges = [
+      {
+        from = 1714;
+        to = 1764;
+      }
+    ];
+    allowedUDPPortRanges = allowedTCPPortRanges;
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

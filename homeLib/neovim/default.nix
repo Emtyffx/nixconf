@@ -8,6 +8,7 @@
 
   programs.nixvim = {
     enable = true;
+    extraPackages = with pkgs; [ wl-clipboard ];
     extraPlugins = with pkgs; [ vimPlugins.sonokai ];
     colorscheme = "sonokai";
     opts = {
@@ -18,7 +19,7 @@
       relativenumber = true;
 
       # Use the system clipboard
-      clipboard = "unnamedplus";
+      clipboard = "";
 
       # Number of spaces that represent a <TAB>
       tabstop = 2;
@@ -90,14 +91,21 @@
       };
     };
     globals = {
-	sonokai_transparent_background = 1;
-      };
+      sonokai_transparent_background = 1;
+    };
     globals.mapleader = " ";
     plugins = {
       web-devicons.enable = true;
       lualine.enable = true;
       bufferline.enable = true;
     };
+    extraConfigLua = ''
+      vim.api.nvim_create_autocmd("TextYankPost", {
+        callback = function()
+          vim.highlight.on_yank({ higroup = "IncSearch", timeout = 300 })
+        end,
+      }) 
+    '';
 
   };
 }
