@@ -53,19 +53,22 @@
   # enable dbus
   services.dbus.enable = true;
   # Enable the GNOME Desktop Environment
-  # services.xserver.desktopManager.gnome = {
-  #   enable = true;
-  #   extraGSettingsOverridePackages = with pkgs; [ mutter ];
-  #   extraGSettingsOverrides = ''
-  #     [org.gnome.mutter]
-  #     experimental-features=['scale-monitor-framebuffer', 'xwayland-native-scaling']
-  #   '';
-  # };
-  # services.xserver.displayManager.gdm.enable = true;
+  services.xserver.desktopManager.gnome = {
+    enable = true;
+    extraGSettingsOverridePackages = with pkgs; [ mutter ];
+    extraGSettingsOverrides = ''
+      [org.gnome.mutter]
+      experimental-features=['scale-monitor-framebuffer', 'xwayland-native-scaling']
+    '';
+  };
+  services.xserver.displayManager.gdm.enable = true;
 
-  services.desktopManager.plasma6.enable = true;
-  services.displayManager.sddm.enable = true;
-  programs.kdeconnect.enable = true;
+  # services.desktopManager.plasma6.enable = true;
+  # services.displayManager.sddm.enable = true;
+  programs.kdeconnect = {
+    enable = true;
+    package = pkgs.gnomeExtensions.gsconnect;
+  };
   programs.hyprland.enable = true;
 
   # enable flatpak
@@ -215,6 +218,8 @@
       # thorium
       librewolf
       wl-clipboard
+      gnome-boxes
+      gnome-tweaks
     ];
   # system variables
   environment.sessionVariables = {
