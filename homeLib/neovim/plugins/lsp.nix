@@ -16,6 +16,15 @@
       clangd = {
         enable = true;
       };
+      cssls = {
+        enable = true;
+      };
+      html = {
+        enable = true;
+      };
+      tailwindcss = {
+        enable = true;
+      };
       vtsls = {
         enable = true;
         filetypes = [
