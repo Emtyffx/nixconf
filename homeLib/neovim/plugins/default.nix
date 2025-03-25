@@ -8,5 +8,6 @@
     ./autopairs.nix
     ./neotree.nix
     ./ui.nix
+    ./trouble.nix
   ];
 }

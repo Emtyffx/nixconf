@@ -119,7 +119,55 @@
           desc = "Paste from system clipboard";
         };
       }
-
+      {
+        action = "<cmd>qa!<CR>";
+        key = "<leader>qq";
+        options = {
+          desc = "Quit all";
+        };
+      }
+      {
+        action = "<cmd>Trouble diagnostics toggle<CR>";
+        key = "<leader>xx";
+        options = {
+          desc = "Diagnostics (Trouble)";
+        };
+      }
+      {
+        action = "<cmd>Trouble diagnostics toggle filter.buf=0<CR>";
+        key = "<leader>xX";
+        options = {
+          desc = "Buffer Diagnostics (Trouble)";
+        };
+      }
+      {
+        action = "<cmd>Trouble symbols toggle focus=false<CR>";
+        key = "<leader>cs";
+        options = {
+          desc = "Symbols (Trouble)";
+        };
+      }
+      {
+        action = "<cmd>Trouble lsp toggle focus=false win.position=right<CR>";
+        key = "<leader>cl";
+        options = {
+          desc = "LSP Definitions / references / ... (Trouble)";
+        };
+      }
+      {
+        action = "<cmd>Trouble loclist toggle<CR>";
+        key = "<leader>xL";
+        options = {
+          desc = "Location List (Trouble)";
+        };
+      }
+      {
+        action = "<cmd>Trouble qflist toggle<CR>";
+        key = "<leader>xQ";
+        options = {
+          desc = "Quickfix List (Trouble)";
+        };
+      }
     ];
   };
 }
