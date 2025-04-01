@@ -9,6 +9,7 @@
       "audio"
       "video"
       "libvirtd"
+      "docker"
     ];
     packages = with pkgs; [
       #  thunderbird

@@ -8,7 +8,7 @@
         enable = true;
       };
       ts_ls = {
-        enable = true;
+        enable = false;
       };
       pyright = {
         enable = true;

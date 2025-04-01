@@ -28,8 +28,14 @@
           command = "waybar";
         }
       ];
+      output = {
+        "*" = {
+          scale = "1.25";
+          bg = "${./bg.jpg} fill";
+        };
+      };
       gaps = {
-        inner = 20;
+        inner = 0;
       };
       input = {
         "*" = {

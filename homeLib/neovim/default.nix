@@ -8,7 +8,10 @@
 
   programs.nixvim = {
     enable = true;
-    extraPackages = with pkgs; [ wl-clipboard ];
+    extraPackages = with pkgs; [
+      wl-clipboard
+      vtsls
+    ];
     extraPlugins = with pkgs; [ vimPlugins.sonokai ];
     colorscheme = "sonokai";
     opts = {

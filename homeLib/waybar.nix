@@ -6,7 +6,7 @@
       mainBar = {
         layer = "top";
         position = "top";
-        height = 40;
+        height = 35;
 
         modules-left = [
           "custom/logo"

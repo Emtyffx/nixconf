@@ -12,6 +12,7 @@
     ../homeLib/sway.nix
     ../homeLib/waybar.nix
     ../homeLib/tmux.nix
+    ../homeLib/ranger.nix
     inputs.nix-flatpak.homeManagerModules.nix-flatpak
   ];
   # Home Manager needs a bit of information about you and the paths it should

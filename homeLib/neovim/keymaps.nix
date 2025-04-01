@@ -23,13 +23,14 @@
           desc = "Close current buffer";
         };
       }
-      {
-        action = "<cmd>Neotree toggle<CR>";
-        key = "<leader>e";
-        options = {
-          desc = "Toggle Neotree view";
-        };
-      }
+      # Neotree removed
+      # {
+      #   action = "<cmd>Neotree toggle<CR>";
+      #   key = "<leader>e";
+      #   options = {
+      #     desc = "Toggle Neotree view";
+      #   };
+      # }
       {
         action = "<cmd>wincmd k<CR>";
         key = "<C-k>";
@@ -38,8 +39,8 @@
         };
       }
       {
-        action = "<cmd>wincmd h<CR>";
-        key = "<C-h>";
+        action = "<cmd>wincmd h<cr>";
+        key = "<c-h>";
         options = {
           desc = "Move left window";
         };
@@ -166,6 +167,21 @@
         key = "<leader>xQ";
         options = {
           desc = "Quickfix List (Trouble)";
+        };
+      }
+      {
+        action = "<cmd>Ex<CR>";
+        key = "<leader>au";
+        options = {
+          desc = "Open file browser";
+        };
+
+      }
+      {
+        action = "<cmd>Oil<CR>";
+        key = "-";
+        options = {
+          desc = "Open OIL";
         };
       }
     ];

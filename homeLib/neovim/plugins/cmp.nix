@@ -2,6 +2,7 @@
 {
   programs.nixvim = {
     plugins.luasnip.enable = true;
+    plugins.nvim-surround.enable = true;
     plugins.cmp = {
       enable = true;
       autoEnableSources = true;
@@ -12,9 +13,9 @@
         { name = "luasnip"; }
       ];
       settings.mapping = {
-        "<CR>" = "cmp.mapping.confirm({ select = true; })";
+        "<CR>" = "require('cmp').mapping.confirm({ select = true; })";
         "<Tab>" = ''
-          				    cmp.mapping(function(fallback)
+          				    require('cmp').mapping(function(fallback)
                                                 local luasnip = require('luasnip')
           				      local check_backspace = function()
           					local col = vim.fn.col "." - 1
@@ -34,6 +35,13 @@
           				      end
           				    end, { "i", "s" })	
           				'';
+        "<C-n>" = ''
+          require('cmp').mapping.select_next_item()
+        '';
+        "<C-p>" = ''
+          require('cmp').mapping.select_prev_item()
+        '';
+
       };
       luaConfig.post = ''
         local cmp_autopairs = require('nvim-autopairs.completion.cmp')

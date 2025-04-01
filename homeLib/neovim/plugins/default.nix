@@ -9,5 +9,9 @@
     ./neotree.nix
     ./ui.nix
     ./trouble.nix
+    ./flash.nix
+    ./lazy.nix
+    ./harpoon.nix
+    ./oil.nix
   ];
 }
