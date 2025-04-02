@@ -10,7 +10,7 @@ in
       lazyLoad.settings = {
         keys = [
           {
-            __unkeyed-1 = "s";
+            __unkeyed-1 = "ss";
             mode = [
               "n"
               "x"
@@ -22,7 +22,7 @@ in
             desc = "Flash";
           }
           {
-            __unkeyed-1 = "S";
+            __unkeyed-1 = "sS";
             mode = [
               "n"
               "x"

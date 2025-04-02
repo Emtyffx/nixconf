@@ -6,20 +6,22 @@
       mainBar = {
         layer = "top";
         position = "top";
-        height = 35;
+        height = 30;
 
         modules-left = [
           "custom/logo"
-          "sway/workspaces"
+          "hyprland/workspaces"
           "sway/mode"
         ];
         modules-right = [
           "tray"
-          "sway/language"
+          # "sway/language"
+          "network"
+          "wireplumber"
           "clock"
-          "battery"
+          # "battery"
         ];
-        "sway/workspaces" = {
+        "hyprland/workspaces" = {
           persistent-workspaces = {
             "1" = [ ];
             "2" = [ ];
@@ -39,14 +41,44 @@
           icon-size = 21;
           spacing = 15;
         };
-        "sway/language" = {
-          format = "{shortDescription}";
-          tooltip = false;
-          on-click = "swaymsg input \"*\" xkb_switch_layout next";
-        };
         "clock" = {
           interval = 60;
           format = "{:%a %d/%m %I:%M}";
+        };
+        "network" = {
+          format = "{icon}";
+          format-icons = [
+            "󰤯"
+            "󰤟"
+            "󰤢"
+            "󰤥"
+            "󰤨"
+          ];
+
+          format-ethernet = "󰀂";
+          format-alt = "󱛇";
+
+          tooltip-format-wifi = "{icon} {essid}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}";
+          tooltip-format-ethernet = "󰀂  {ifname}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}";
+          tooltip-format-disconnected = "Disconnected";
+          interval = 5;
+          nospacing = 1;
+
+        };
+        "wireplumber" = {
+          format-bluetooth = "󰂰";
+          tooltip-format = "Volume : {volume}%";
+          format-muted = "󰝟";
+          format-icons = {
+            headphone = "";
+            default = [
+              "󰖀"
+              "󰕾"
+              ""
+            ];
+          };
+          on-click = "pamixer -t";
+          scroll-step = 1;
         };
 
         "battery" = {
@@ -56,55 +88,82 @@
       };
     };
     style = ''
-      * {
-         border: none;
-         border-radius: 0;
-         padding: 0;
-         margin: 0;
-         font-size: 22px;
-       }
+            * {
+               border: none;
+               border-radius: 0;
+               padding: 0;
+               margin: 0;
+               font-size: 18px;
+               font-family: Source Code Pro Medium;
+             }
 
-       window#waybar {
-         background: #292828;
-         color: #ffffff;
-       }
+             window#waybar {
+               color: #ffffff;
+               background: rgba(0,0,0,0);
+             }
 
-       #custom-logo {
-         font-size: 32px;
-         margin: 0;
-         margin-left: 14px;
-         margin-right: 36px;
-         padding: 0;
-         font-family: NotoSans Nerd Font Mono;
-       }
+             #custom-logo {
+               font-size:  28px;
+               margin-left: 14px;
+               margin-right: 20px;
+               font-family: Source Code Pro;
+             }
 
-       #workspaces button {
-         margin-right: 0;
-         padding-left: 15px;
-         padding-right: 15px;
-         padding-top: 10px;
-         padding-bottom: 10px;
-         color: #ffffff;
-       }
-       #workspaces button:hover, #workspaces button:active {
-         background-color: #292828;
-         color: #ffffff;
-       }
-       #workspaces button.focused {
-         background-color: #383737;
-       }
-       
-       #tray {
-         margin-right: 14px;
-       }
-       #language {
-         margin-right: 14px;		
-       }
+             #workspaces button {
+               margin: 5px;
+               padding: 10px 20px;
+               background-color: rgba(63,61,61,0.65);
+               border-radius: 10px;
+               color: #ffffff;
+             }
+             #workspaces button.active {
 
-       #battery {
-         margin-left: 14px;
-         margin-right: 6px;
-       }
+             }
+             #workspaces button:hover {
+               background-color: #545353;
+               color: #ffffff;
+             }
+             #workspaces button.focused {
+               background-color: #383737;
+             }
+             #workspaces button.active {
+               background-color: rgba(197, 224, 161, 1);
+               color: #333333;
+             }
+             #workspaces button.urgent {
+               background-color:  #d1cc92;
+               color: #333333;
+             }
+             
+             #tray {
+               margin-right: 14px;
+             }
+             #language {
+               margin-right: 14px;		
+             }
+             #clock  {
+               margin-left: 10px;
+             }
+
+
+             #battery {
+               margin-left: 14px;
+               margin-right: 6px;
+             }
+             #network ,
+             #clock,
+             #tray, #wireplumber
+      {
+               padding: 10px 15px;
+               margin: 5px;
+               background-color: rgba(63,61,61,0.65);
+               border-radius: 10px;
+               border: 1px solid #9e9a9b;
+             }
+
+             #network {
+               padding-right: 19.5px;
+             }
     '';
   };
 }

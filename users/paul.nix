@@ -13,6 +13,7 @@
     ../homeLib/waybar.nix
     ../homeLib/tmux.nix
     ../homeLib/ranger.nix
+    ../homeLib/hyprland
     inputs.nix-flatpak.homeManagerModules.nix-flatpak
   ];
   # Home Manager needs a bit of information about you and the paths it should
@@ -69,6 +70,7 @@
     hunspell
     hunspellDicts.uk_UA
     qalculate-gtk
+    pamixer
   ];
   # install flatpak apps
   services.flatpak.enable = true;
