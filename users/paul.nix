@@ -49,7 +49,6 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
-    telegram-desktop
     discord
     obsidian
     powerline-fonts
@@ -72,11 +71,21 @@
     qalculate-gtk
     pamixer
   ];
+  services.mpd.enable = true;
+  services.mpd.musicDirectory = "/home/paul/Music/";
+  services.mpd.extraConfig = ''
+    audio_output {
+      type "pipewire"
+      name "Pipewire"
+    }
+  '';
   # install flatpak apps
   services.flatpak.enable = true;
   services.flatpak.packages = [
     "us.zoom.Zoom"
     "org.chromium.Chromium"
+    "org.telegram.desktop"
+    "com.viber.Viber"
   ];
 
   # enable font configuration

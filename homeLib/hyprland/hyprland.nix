@@ -31,6 +31,7 @@
         allow_tearing = true;
         layout = "dwindle";
       };
+      exec-once = [ "waybar" ];
 
       decoration = {
         rounding = 10;
@@ -86,6 +87,7 @@
           "$mod, C, killactive,"
           "$mod, E, exec, $fileManager"
           "$mod, V, togglefloating,"
+          "$mod, M, exit,"
           "$mod, R, exec, $menu"
           "$mod, P, pseudo,"
           "$mod, S, togglesplit,"

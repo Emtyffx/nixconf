@@ -20,6 +20,7 @@
           "wireplumber"
           "clock"
           # "battery"
+          "custom/power"
         ];
         "hyprland/workspaces" = {
           persistent-workspaces = {
@@ -80,6 +81,36 @@
           on-click = "pamixer -t";
           scroll-step = 1;
         };
+        "mpd" = {
+          format = "{stateIcon} {artist} - {title}";
+          format-disconnected = "🎶";
+          format-stopped = "♪";
+          interval = 10;
+          consume-icons = {
+            on = " ";
+          };
+          random-icons = {
+            off = "<span color=\"#f53c3c\"></span> ";
+            on = " ";
+          };
+          repeat-icons = {
+            on = " ";
+          };
+          single-icons = {
+            on = "1 ";
+          };
+          state-icons = {
+            paused = "";
+            playing = "";
+          };
+          tooltip-format = "MPD (connected)";
+          tooltip-format-disconnected = "MPD (disconnected)";
+          max-length = 45;
+        };
+        "custom/power" = {
+          format = "⏻";
+          on-click = "wlogout";
+        };
 
         "battery" = {
           tooltip = false;
@@ -127,7 +158,7 @@
                background-color: #383737;
              }
              #workspaces button.active {
-               background-color: rgba(197, 224, 161, 1);
+               background-color: #7ea859;
                color: #333333;
              }
              #workspaces button.urgent {
@@ -136,7 +167,8 @@
              }
              
              #tray {
-               margin-right: 14px;
+               margin-right: 10px;
+               background: rgba(0,0,0,0);
              }
              #language {
                margin-right: 14px;		
@@ -151,8 +183,8 @@
                margin-right: 6px;
              }
              #network ,
-             #clock,
-             #tray, #wireplumber
+             #clock, #custom-power,
+              #wireplumber, #mpd
       {
                padding: 10px 15px;
                margin: 5px;

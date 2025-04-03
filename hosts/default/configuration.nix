@@ -88,15 +88,18 @@
   };
   # xdg portals
   xdg.portal = {
+    xdgOpenUsePortal = true;
     enable = true;
     wlr.enable = true;
-    xdgOpenUsePortal = false;
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-gtk
-      xdg-desktop-portal-hyprland
+    # lxqt.enable = true;
+    extraPortals = [
+      pkgs.xdg-desktop-portal-gnome
+      pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal-hyprland
+      pkgs.kdePackages.xdg-desktop-portal-kde
+      pkgs.xdg-desktop-portal-wlr
     ];
-  };
-  # enable git
+  }; # enable git
   programs.git = {
     enable = true;
   };
@@ -215,6 +218,9 @@
       clang
       xdg-desktop-portal-gtk
       xdg-desktop-portal-wlr
+      xdg-desktop-portal-hyprland
+      xdg-desktop-portal-gnome
+      kdePackages.xdg-desktop-portal-kde
       shared-mime-info
       desktop-file-utils
       # thorium
@@ -223,6 +229,7 @@
       gnome-boxes
       gnome-tweaks
       appimage-run
+      xdg-utils
     ];
   # system variables
   environment.sessionVariables = {
@@ -279,4 +286,29 @@
     "nix-command"
     "flakes"
   ];
+  systemd.user.services."wait-for-full-path" = {
+    description = "wait for systemd units to have full PATH";
+    wantedBy = [ "xdg-desktop-portal.service" ];
+    before = [ "xdg-desktop-portal.service" ];
+    path = with pkgs; [
+      systemd
+      coreutils
+      gnugrep
+    ];
+    script = ''
+      ispresent () {
+        systemctl --user show-environment | grep -E '^PATH=.*/.nix-profile/bin'
+      }
+      while ! ispresent; do
+        sleep 0.1;
+      done
+    '';
+    serviceConfig = {
+      Type = "oneshot";
+      TimeoutStartSec = "60";
+    };
+  };
+  systemd.user.extraConfig = ''
+    DefaultEnvironment="PATH=/run/current-system/sw/bin"
+  '';
 }
