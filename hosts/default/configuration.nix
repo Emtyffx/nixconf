@@ -90,7 +90,6 @@
   xdg.portal = {
     xdgOpenUsePortal = true;
     enable = true;
-    wlr.enable = true;
     # lxqt.enable = true;
     extraPortals = [
       pkgs.xdg-desktop-portal-gnome
