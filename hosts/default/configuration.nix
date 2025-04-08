@@ -199,38 +199,27 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages =
-    with pkgs;
-    let
-      thorium = import ../../nixos/thorium.nix {
-        inherit
-          pkgs
-          lib
-          ;
-      };
-
-    in
-    [
-      #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-      #  wget
-      neovim
-      nodejs_23
-      cloudflare-warp
-      nixfmt-rfc-style
-      python313
-      gcc
-      cmake
-      clang
-      shared-mime-info
-      desktop-file-utils
-      # thorium
-      librewolf
-      wl-clipboard
-      gnome-boxes
-      gnome-tweaks
-      appimage-run
-      xdg-utils
-    ];
+  environment.systemPackages = with pkgs; [
+    #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    #  wget
+    neovim
+    nodejs_23
+    cloudflare-warp
+    nixfmt-rfc-style
+    python313
+    gcc
+    cmake
+    clang
+    shared-mime-info
+    desktop-file-utils
+    # thorium
+    librewolf
+    wl-clipboard
+    gnome-boxes
+    gnome-tweaks
+    appimage-run
+    xdg-utils
+  ];
   # system variables
   environment.sessionVariables = {
     SUDO_EDITOR = "nvim";

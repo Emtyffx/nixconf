@@ -8,7 +8,7 @@
 {
   imports = [
     ../home/kitty.nix
-    ../home/neovim
+    # ../home/neovim
     # ../home/sway.nix
     ../home/waybar
     ../home/tmux.nix
@@ -53,6 +53,8 @@
     obsidian
     powerline-fonts
     nerd-fonts.hack
+    nerd-fonts.jetbrains-mono
+    nerd-fonts.fira-code
     adwaita-fonts
     ripgrep
     obs-studio
@@ -71,6 +73,7 @@
     qalculate-gtk
     pamixer
     wofi
+    inputs.neovim-config.packages."x86_64-linux".default
   ];
   services.mpd.enable = true;
   services.mpd.musicDirectory = "/home/paul/Music/";

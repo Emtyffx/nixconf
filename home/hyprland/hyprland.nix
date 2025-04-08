@@ -13,7 +13,7 @@
     settings = {
       "$mod" = "SUPER";
       monitor = [
-        ",preferred,auto,auto"
+        ",preferred,auto,1.25"
         "DP-5, preferred,auto,1.25"
       ];
       "$terminal" = "kitty";
@@ -100,7 +100,7 @@
           "$mod, E, exec, $fileManager"
           "$mod, V, togglefloating,"
           "$mod, M, exit,"
-          "$mod, R, exec, $menu"
+          "$mod, R, exec, ${./scripts/rofi.sh} drun"
           "$mod, P, pseudo,"
           "$mod, S, togglesplit,"
           "$mod, F, fullscreen,"
@@ -155,7 +155,7 @@
       windowrule = [
         "suppressevent maximize, class:.*"
         "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
-        "stayfocused,class:zoom,^(menu window|Send chat to(\.\.\.|.*)?)$"
+        "stayfocused,class:zoom,title:^(menu window|Send chat to(\.\.\.|.*)?)$"
       ];
       xwayland = {
         force_zero_scaling = "true";
