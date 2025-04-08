@@ -5,8 +5,11 @@
   ...
 }:
 {
+
   wayland.windowManager.hyprland = {
     enable = true;
+    portalPackage = null;
+    package = null;
     settings = {
       "$mod" = "SUPER";
       monitor = [
@@ -19,7 +22,7 @@
 
       env = [
         "XCURSOR_SIZE,24"
-        "HYPRCURSOR_SIZE,24"
+        "HYPRCURSOR_THEME,Adwaita"
       ];
       general = {
         gaps_in = 5;
@@ -31,7 +34,11 @@
         allow_tearing = true;
         layout = "dwindle";
       };
-      exec-once = [ "waybar" ];
+      exec-once = [
+        "waybar"
+        "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"
+        "hyprctl setcursor Adwaita 24"
+      ];
 
       decoration = {
         rounding = 10;
@@ -51,6 +58,11 @@
           vibrancy = 0.1696;
 
         };
+      };
+      input = {
+        kb_layout = "us,ru,ua";
+        kb_options = "grp:win_space_toggle";
+
       };
       animations = {
         enabled = "yes, please :)";
@@ -143,6 +155,7 @@
       windowrule = [
         "suppressevent maximize, class:.*"
         "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
+        "stayfocused,class:zoom,^(menu window|Send chat to(\.\.\.|.*)?)$"
       ];
       xwayland = {
         force_zero_scaling = "true";

@@ -53,21 +53,21 @@
   # enable dbus
   services.dbus.enable = true;
   # Enable the GNOME Desktop Environment
-  # services.xserver.desktopManager.gnome = {
-  #   enable = true;
-  #   extraGSettingsOverridePackages = with pkgs; [ mutter ];
-  #   extraGSettingsOverrides = ''
-  #     [org.gnome.mutter]
-  #     experimental-features=['scale-monitor-framebuffer', 'xwayland-native-scaling']
-  #   '';
-  # };
-  # services.xserver.displayManager.gdm.enable = true;
+  services.xserver.desktopManager.gnome = {
+    enable = true;
+    extraGSettingsOverridePackages = with pkgs; [ mutter ];
+    extraGSettingsOverrides = ''
+      [org.gnome.mutter]
+      experimental-features=['scale-monitor-framebuffer', 'xwayland-native-scaling']
+    '';
+  };
+  services.xserver.displayManager.gdm.enable = true;
 
-  services.desktopManager.plasma6.enable = true;
-  services.displayManager.sddm.enable = true;
+  # services.desktopManager.plasma6.enable = true;
+  # services.displayManager.sddm.enable = true;
   programs.kdeconnect = {
     enable = true;
-    # package = pkgs.gnomeExtensions.gsconnect;
+    package = pkgs.gnomeExtensions.gsconnect;
   };
   programs.hyprland.enable = true;
 
@@ -87,18 +87,24 @@
     variant = "";
   };
   # xdg portals
+  # xdg.portal = {
+  #   xdgOpenUsePortal = true;
+  #   enable = true;
+  #   # lxqt.enable = true;
+  #   extraPortals = [
+  #     pkgs.xdg-desktop-portal-gnome
+  #     pkgs.xdg-desktop-portal-gtk
+  #     pkgs.xdg-desktop-portal-hyprland
+  #     pkgs.kdePackages.xdg-desktop-portal-kde
+  #     pkgs.xdg-desktop-portal-wlr
+  #   ];
   xdg.portal = {
-    xdgOpenUsePortal = true;
     enable = true;
-    # lxqt.enable = true;
     extraPortals = [
-      pkgs.xdg-desktop-portal-gnome
       pkgs.xdg-desktop-portal-gtk
-      pkgs.xdg-desktop-portal-hyprland
-      pkgs.kdePackages.xdg-desktop-portal-kde
-      pkgs.xdg-desktop-portal-wlr
     ];
-  }; # enable git
+  };
+  # }; # enable git
   programs.git = {
     enable = true;
   };
@@ -196,7 +202,7 @@
   environment.systemPackages =
     with pkgs;
     let
-      thorium = import ../../nixosLib/thorium.nix {
+      thorium = import ../../nixos/thorium.nix {
         inherit
           pkgs
           lib
@@ -215,11 +221,6 @@
       gcc
       cmake
       clang
-      xdg-desktop-portal-gtk
-      xdg-desktop-portal-wlr
-      xdg-desktop-portal-hyprland
-      xdg-desktop-portal-gnome
-      kdePackages.xdg-desktop-portal-kde
       shared-mime-info
       desktop-file-utils
       # thorium
@@ -285,28 +286,6 @@
     "nix-command"
     "flakes"
   ];
-  systemd.user.services."wait-for-full-path" = {
-    description = "wait for systemd units to have full PATH";
-    wantedBy = [ "xdg-desktop-portal.service" ];
-    before = [ "xdg-desktop-portal.service" ];
-    path = with pkgs; [
-      systemd
-      coreutils
-      gnugrep
-    ];
-    script = ''
-      ispresent () {
-        systemctl --user show-environment | grep -E '^PATH=.*/.nix-profile/bin'
-      }
-      while ! ispresent; do
-        sleep 0.1;
-      done
-    '';
-    serviceConfig = {
-      Type = "oneshot";
-      TimeoutStartSec = "60";
-    };
-  };
   systemd.user.extraConfig = ''
     DefaultEnvironment="PATH=/run/current-system/sw/bin"
   '';

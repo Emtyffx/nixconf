@@ -7,13 +7,13 @@
 
 {
   imports = [
-    ../homeLib/kitty.nix
-    ../homeLib/neovim
-    ../homeLib/sway.nix
-    ../homeLib/waybar.nix
-    ../homeLib/tmux.nix
-    ../homeLib/ranger.nix
-    ../homeLib/hyprland
+    ../home/kitty.nix
+    ../home/neovim
+    # ../home/sway.nix
+    ../home/waybar
+    ../home/tmux.nix
+    ../home/ranger.nix
+    ../home/hyprland
     inputs.nix-flatpak.homeManagerModules.nix-flatpak
   ];
   # Home Manager needs a bit of information about you and the paths it should
@@ -70,6 +70,7 @@
     hunspellDicts.uk_UA
     qalculate-gtk
     pamixer
+    wofi
   ];
   services.mpd.enable = true;
   services.mpd.musicDirectory = "/home/paul/Music/";
@@ -141,11 +142,11 @@
   #
   #  /etc/profiles/per-user/paul/etc/profile.d/hm-session-vars.sh
   #
-  home.sessionVariables = {
-    # EDITOR = "emacs";
-    GTK_THEME = "adw-gtk3-dark";
-    XDG_DATA_DIRS = "$XDG_DATA_DIRS:/usr/share:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share";
-  };
+  # home.sessionVariables = {
+  #   # EDITOR = "emacs";
+  #   GTK_THEME = "adw-gtk3-dark";
+  #   XDG_DATA_DIRS = "$XDG_DATA_DIRS:/usr/share:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share";
+  # };
 
   # setup git
   programs.git = {
