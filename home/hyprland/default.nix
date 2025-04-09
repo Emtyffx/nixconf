@@ -5,5 +5,7 @@
     ./hyprlock.nix
     ./wlogout.nix
     ./rofi
+    ./dunst.nix
+
   ];
 }

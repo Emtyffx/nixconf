@@ -17,7 +17,7 @@
       }
       {
         "label" = "logout";
-        "action" = "loginctl terminate-user $USER";
+        "action" = "${./scripts/exit_hyprland.sh}";
         "text" = "Logout";
         "keybind" = "e";
       }

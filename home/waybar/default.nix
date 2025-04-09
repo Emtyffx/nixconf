@@ -161,7 +161,7 @@
               7
               8
               9
-              0
+              10
             ];
           };
         };
@@ -344,7 +344,7 @@
 
         "custom/power" = {
           format = "{}";
-          on-click = "wlogout -b 4";
+          on-click = "wlogout -b 6";
           interval = 86400; # once every day
           tooltip = true;
         };

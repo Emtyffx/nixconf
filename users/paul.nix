@@ -67,6 +67,7 @@
     gnomeExtensions.vitals
     gnomeExtensions.dash-to-dock
     gnomeExtensions.search-light
+    grimblast
     libreoffice
     hunspell
     hunspellDicts.uk_UA
@@ -90,6 +91,7 @@
     "org.chromium.Chromium"
     "org.telegram.desktop"
     "com.viber.Viber"
+    "com.spotify.Client"
   ];
 
   # enable font configuration

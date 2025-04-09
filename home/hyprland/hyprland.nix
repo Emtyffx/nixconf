@@ -35,9 +35,10 @@
         layout = "dwindle";
       };
       exec-once = [
-        "waybar"
+        "pkillwaybar; waybar &"
         "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"
         "hyprctl setcursor Adwaita 24"
+        "dunst"
       ];
 
       decoration = {
@@ -99,11 +100,17 @@
           "$mod, C, killactive,"
           "$mod, E, exec, $fileManager"
           "$mod, V, togglefloating,"
-          "$mod, M, exit,"
+          "$mod, M, exec, ${./scripts/exit_hyprland.sh}"
           "$mod, R, exec, ${./scripts/rofi.sh} drun"
           "$mod, P, pseudo,"
           "$mod, S, togglesplit,"
           "$mod, F, fullscreen,"
+        ]
+        # grimblast
+        ++ [
+          "$mod, Print, exec, grimblast --notify copysave output"
+          "$mod SHIFT, Print, exec, grimblast --notify copysave area"
+          "$mod Ctrl, Print, exec, grimblast --notify copysave active"
         ]
         # vim-like movement
         ++ [
@@ -129,6 +136,10 @@
             ]
           ) 9
         )
+        ++ [
+          "$mod, 0, workspace, 10"
+          "$mod SHIFT, 0, movetoworkspace, 10"
+        ]
         # scratchpad
         ++ [
           "$mod, S, togglespecialworkspace, magic"
