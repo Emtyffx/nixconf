@@ -35,7 +35,7 @@
         layout = "dwindle";
       };
       exec-once = [
-        "pkillwaybar; waybar &"
+        "pkill waybar; waybar &"
         "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"
         "hyprctl setcursor Adwaita 24"
         "dunst"
@@ -100,7 +100,7 @@
           "$mod, C, killactive,"
           "$mod, E, exec, $fileManager"
           "$mod, V, togglefloating,"
-          "$mod, M, exec, ${./scripts/exit_hyprland.sh}"
+          "$mod, M, exit,"
           "$mod, R, exec, ${./scripts/rofi.sh} drun"
           "$mod, P, pseudo,"
           "$mod, S, togglesplit,"
