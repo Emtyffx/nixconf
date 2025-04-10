@@ -102,6 +102,7 @@
           "$mod, V, togglefloating,"
           "$mod, M, exit,"
           "$mod, R, exec, ${./scripts/rofi.sh} drun"
+          "$mod SHIFT, R, exec, ${./scripts/rofi.sh} emoji"
           "$mod, P, pseudo,"
           "$mod, S, togglesplit,"
           "$mod, F, fullscreen,"
