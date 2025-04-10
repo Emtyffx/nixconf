@@ -74,6 +74,7 @@
     qalculate-gtk
     pamixer
     wofi
+    swappy
     inputs.neovim-config.packages."x86_64-linux".default
   ];
   services.mpd.enable = true;

@@ -106,12 +106,13 @@
           "$mod, P, pseudo,"
           "$mod, S, togglesplit,"
           "$mod, F, fullscreen,"
+          "$mod SHIFT, L, exec, hyprlock"
         ]
-        # grimblast
+        # screenshot
         ++ [
-          "$mod, Print, exec, grimblast --notify copysave output"
-          "$mod SHIFT, Print, exec, grimblast --notify copysave area"
-          "$mod Ctrl, Print, exec, grimblast --notify copysave active"
+          "$mod, Print, exec, ${./scripts/screenshot.sh} m"
+          "$mod SHIFT, Print, exec, ${./scripts/screenshot.sh} sf"
+          "$mod Ctrl, Print, exec, ${./scripts/screenshot.sh} p"
         ]
         # vim-like movement
         ++ [
