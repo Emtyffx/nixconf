@@ -75,6 +75,7 @@
     pamixer
     wofi
     swappy
+    pavucontrol
     inputs.neovim-config.packages."x86_64-linux".default
   ];
   services.mpd.enable = true;
