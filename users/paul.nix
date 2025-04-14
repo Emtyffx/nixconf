@@ -15,7 +15,7 @@
     ../home/ranger.nix
     ../home/hyprland
     ../home/direnv.nix
-    ../home/bash.nix
+    ../home/zsh.nix
     inputs.nix-flatpak.homeManagerModules.nix-flatpak
   ];
   # Home Manager needs a bit of information about you and the paths it should
