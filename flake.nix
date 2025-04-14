@@ -46,6 +46,7 @@
           inputs.neovim-config.packages.x86_64-linux.default
         ];
       };
+      templates = import ./dev-shells;
     };
 
 }

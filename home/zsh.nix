@@ -97,6 +97,9 @@
         cmake -B build
         cmake --build build
       }
+      function ns {
+        nix shell nixpkgs#$1
+      }
     '';
     shellAliases = {
       dots = "cd ~/nixconf";
