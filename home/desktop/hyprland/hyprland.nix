@@ -5,7 +5,13 @@
   ...
 }:
 {
-
+  home.packages = lib.mkAfter (
+    with pkgs;
+    [
+      swappy
+      grimblast
+    ]
+  );
   wayland.windowManager.hyprland = {
     enable = true;
     portalPackage = null;

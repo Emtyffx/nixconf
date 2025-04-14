@@ -1,5 +1,17 @@
-{ config, pkgs, ... }:
 {
+  config,
+  pkgs,
+  lib,
+  ...
+}:
+{
+  home.packages = lib.mkAfter (
+    with pkgs;
+    [
+      pamixer
+      pavucontrol
+    ]
+  );
   programs.waybar = {
     enable = true;
     systemd = {

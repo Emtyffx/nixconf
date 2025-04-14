@@ -7,15 +7,17 @@
 
 {
   imports = [
-    ../home/kitty.nix
+    ../home/programs/terminal/kitty
     # ../home/neovim
     # ../home/sway.nix
-    ../home/waybar
-    ../home/tmux.nix
-    ../home/ranger.nix
-    ../home/hyprland
-    ../home/direnv.nix
-    ../home/zsh.nix
+    ../home/desktop/waybar
+    ../home/programs/cli/tmux
+    ../home/programs/cli/ranger
+    ../home/desktop/hyprland
+    ../home/programs/cli/direnv
+    ../home/programs/shell/zsh
+    ../home/programs/cli/git
+    ../home/desktop/gnome
     inputs.nix-flatpak.homeManagerModules.nix-flatpak
   ];
   # Home Manager needs a bit of information about you and the paths it should
@@ -58,36 +60,17 @@
     nerd-fonts.jetbrains-mono
     nerd-fonts.fira-code
     adwaita-fonts
-    ripgrep
     obs-studio
     jetbrains.clion
     viber
     adw-gtk3
     qadwaitadecorations-qt6
-    gnomeExtensions.appindicator
-    gnomeExtensions.blur-my-shell
-    gnomeExtensions.vitals
-    gnomeExtensions.dash-to-dock
-    gnomeExtensions.search-light
-    grimblast
     libreoffice
     hunspell
     hunspellDicts.uk_UA
     qalculate-gtk
-    pamixer
-    wofi
-    swappy
-    pavucontrol
     inputs.neovim-config.packages."x86_64-linux".default
   ];
-  services.mpd.enable = true;
-  services.mpd.musicDirectory = "/home/paul/Music/";
-  services.mpd.extraConfig = ''
-    audio_output {
-      type "pipewire"
-      name "Pipewire"
-    }
-  '';
   # install flatpak apps
   services.flatpak.enable = true;
   services.flatpak.packages = [
@@ -100,25 +83,6 @@
 
   # enable font configuration
   fonts.fontconfig.enable = true;
-  dconf.enable = true;
-  dconf.settings = {
-    "org/gnome/shell" = {
-      enabled-extensions = [
-        "appindicatorsupport@rgcjonas.gmail.com"
-        "blur-my-shell@aunetx"
-        "Vitals@CoreCoding.com"
-        "dash-to-dock@micxgx.gmail.com"
-        # "search-light@icedman.github.com"
-        "gsconnect@andyholmes.github.io"
-      ];
-    };
-    "org/gnome/shell/extensions/blur-my-shell/dash-to-dock" = {
-      style-dash-to-dock = 2;
-    };
-    "org/gnome/shell/extensions/vitals" = {
-      show-gpu = true;
-    };
-  };
   programs.gh.enable = true;
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
@@ -156,23 +120,4 @@
   #   GTK_THEME = "adw-gtk3-dark";
   #   XDG_DATA_DIRS = "$XDG_DATA_DIRS:/usr/share:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share";
   # };
-
-  # setup git
-  programs.git = {
-    enable = true;
-    userEmail = "p.verbytsky@gmail.com";
-    userName = "Emtyffx";
-  };
-
-  # Removing until gnome 48
-  # programs.ghostty = {
-  #   enable = true;
-  #   settings = {
-  #     gtk-titlebar = true;
-  #     font-size = 10;
-  #     theme = "catppuccin-mocha";
-  #     background-opacity = 0.8;
-  #   };
-  # };
-
 }
