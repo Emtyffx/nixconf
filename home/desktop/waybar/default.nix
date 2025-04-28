@@ -600,11 +600,8 @@
       }
 
       #workspaces button:hover {
-      	border-radius: 10px;
       	color: @overlay0;
       	background-color: @surface0;
-       	padding-left: 2px;
-          padding-right: 2px;
           animation: gradient_f 20s ease-in infinite;
           transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
       }
