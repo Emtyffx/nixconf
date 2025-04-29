@@ -16,7 +16,7 @@
       ];
       theme = "robbyrussell";
     };
-    initExtra = ''
+    initContent = ''
       eval "$(direnv hook zsh)"
       function ex {
          if [ -z "$1" ]; then
@@ -104,6 +104,7 @@
     shellAliases = {
       dots = "cd ~/nixconf";
       proj = "cd ~/Projects";
+      nconf = "cd ~/neovim-config";
     };
   };
   home.packages = lib.mkAfter (

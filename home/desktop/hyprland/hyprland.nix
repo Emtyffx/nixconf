@@ -18,14 +18,15 @@
     package = null;
     settings = {
       "$mod" = "SUPER";
-      monitor = [
-        ",preferred,auto,1.25"
-        "DP-5, preferred,auto,1.25"
-      ];
-      "$terminal" = "kitty";
-      "$fileManager" = "dolphin";
-      "$menu" = "wofi --show drun";
 
+      "$terminal" = "kitty";
+      "$fileManager" = "nautilus";
+      "$menu" = "wofi --show drun";
+      "$browser" = "firefox";
+
+      monitor = [
+        ",preferred,auto,1.25,bitdepth,10"
+      ];
       env = [
         "XCURSOR_SIZE,24"
         "HYPRCURSOR_THEME,Adwaita"
@@ -105,6 +106,7 @@
           "$mod, Return, exec, $terminal"
           "$mod, C, killactive,"
           "$mod, E, exec, $fileManager"
+          "$mod, B, exec, $browser"
           "$mod, V, togglefloating,"
           "$mod, M, exit,"
           "$mod, R, exec, ${./scripts/rofi.sh} drun"
