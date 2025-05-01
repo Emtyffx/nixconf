@@ -22,7 +22,7 @@
       "$terminal" = "kitty";
       "$fileManager" = "nautilus";
       "$menu" = "wofi --show drun";
-      "$browser" = "firefox";
+      "$browser" = "org.chromium.Chromium";
 
       monitor = [
         ",preferred,auto,1.25,bitdepth,10"

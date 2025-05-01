@@ -98,7 +98,10 @@
     #   org.gradle.daemon.idletimeout=3600000
     # '';
   };
-
+  home.sessionVariables = {
+    EDITOR = "nvim";
+    SHELL = "zsh";
+  };
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. These will be explicitly sourced when using a
   # shell provided by Home Manager. If you don't want to manage your shell
@@ -120,4 +123,5 @@
   #   GTK_THEME = "adw-gtk3-dark";
   #   XDG_DATA_DIRS = "$XDG_DATA_DIRS:/usr/share:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share";
   # };
+
 }
