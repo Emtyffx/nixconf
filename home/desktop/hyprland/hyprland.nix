@@ -68,9 +68,8 @@
         };
       };
       input = {
-        kb_layout = "us,ru,ua";
+        kb_layout = "us,us,ru,ua";
         kb_options = "grp:win_space_toggle";
-
       };
       animations = {
         enabled = "yes, please :)";

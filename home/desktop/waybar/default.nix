@@ -154,7 +154,7 @@
           interval = 10;
         };
         "hyprland/language" = {
-          format = "{short}"; # can use {short} and {variant}
+          format = "{short} {variant}";
           on-click = "${./scripts/keyboardswitch.sh}";
         };
         "hyprland/workspaces" = {
