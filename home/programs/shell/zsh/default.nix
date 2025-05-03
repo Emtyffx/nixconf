@@ -13,6 +13,7 @@
       enable = true;
       plugins = [
         "git"
+        "zsh"
       ];
       theme = "robbyrussell";
     };
