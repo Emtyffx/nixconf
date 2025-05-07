@@ -203,7 +203,7 @@
     #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     #  wget
     neovim
-    nodejs_23
+    nodejs_24
     cloudflare-warp
     nixfmt-rfc-style
     python313
@@ -219,7 +219,13 @@
     gnome-tweaks
     appimage-run
     xdg-utils
+    postgresql
   ];
+
+  # enable postgres(for development)
+  services.postgresql.enable = true;
+  services.postgresql.package = pkgs.postgresql_17;
+
   # system variables
   environment.sessionVariables = {
     SUDO_EDITOR = "nvim";

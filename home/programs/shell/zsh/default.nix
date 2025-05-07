@@ -5,6 +5,7 @@
   ...
 }:
 {
+
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -13,7 +14,7 @@
       enable = true;
       plugins = [
         "git"
-        "zsh"
+        "fzf"
       ];
       theme = "robbyrussell";
     };
@@ -101,6 +102,24 @@
       function ns {
         nix shell nixpkgs#$1
       }
+      fo() {
+          local fd_options fzf_options target
+
+          fd_options=(
+              --hidden
+              --type directory
+          )
+
+          fzf_options=(
+              --preview='tree -L 1 {}'
+              --bind=ctrl-space:toggle-preview
+              --exit-0
+          )
+
+          target="$(fd . "''${1:-/home/paul}" ''${fd_options[@]} | fzf "''${fzf_options[@]}")"
+
+          cd "$target" || return 1
+      }
     '';
     shellAliases = {
       dots = "cd ~/nixconf";
@@ -112,6 +131,8 @@
     with pkgs;
     [
       fzf
+      fd
+      tree
     ]
   );
 }
