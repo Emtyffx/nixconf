@@ -68,7 +68,7 @@
         };
       };
       input = {
-        kb_layout = "us,us,ru,ua";
+        kb_layout = "us,ru,ua";
         kb_options = "grp:win_space_toggle";
       };
       animations = {
@@ -176,6 +176,7 @@
         "suppressevent maximize, class:.*"
         "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
         "stayfocused,class:zoom,title:^(menu window|Send chat to(\.\.\.|.*)?)$"
+        "float,title:^Qalculate!"
       ];
       xwayland = {
         force_zero_scaling = "true";
