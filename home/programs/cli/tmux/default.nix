@@ -60,7 +60,7 @@
       set -g status-bg "#343F44"
       set -g status-fg white
 
-      set -g status-position bottom
+      set -g status-position top
       set -g status-justify left
       set -g status-style 'bg=colour18 fg=white'
       set -g status-left ""
