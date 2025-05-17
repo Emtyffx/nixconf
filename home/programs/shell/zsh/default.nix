@@ -102,7 +102,7 @@
       function ns {
         nix shell nixpkgs#$1
       }
-      fo() {
+      f() {
           local fd_options fzf_options target
 
           fd_options=(

@@ -56,23 +56,40 @@
       setw -g monitor-activity off
       set -g bell-action none
 
-      # Status Bar
-      set -g status-bg "#343F44"
-      set -g status-fg white
+      # # Status Bar
+      # set -g status-bg "#343F44"
+      # set -g status-fg white
+      #
+      # set -g status-position top
+      # set -g status-justify left
+      # set -g status-style 'bg=colour18 fg=white'
+      # set -g status-left ""
+      # set -g status-right '#[fg=#3D484D,bg=#343F44]#[fg=white,bg=#3D484D] %d/%m #[fg=#83C092,bg=#3D484D]#[fg=#2D353B,bg=#83C092] %H:%M:%S '
+      # set -g status-right-length 50
+      # set -g status-left-length 20
+      #
+      # setw -g window-status-current-style 'fg=#3D484D bg=#A7C080 bold'
+      # setw -g window-status-current-format ' #I#[fg=#475258]:#[fg=#3D484D]#W#[fg=#56635f]#F '
+      #
+      # setw -g window-status-style 'fg=white bg=#475258'
+      # setw -g window-status-format ' #I#[fg=white]:#[fg=white]#W#[fg=white]#F '
+      set -g status-left ' #[fg=#B279A7,bold]#{s/root//:client_key_table} '
+      set -g status-right '#[fg=#B279A7,bold] [#S]#[fg=#B279A7,bold] [%d/%m] #[fg=#B279A7,bold][%I:%M%p] '
+      set -g status-style fg='#B279A7',bg='#B4BDC3'
 
-      set -g status-position top
-      set -g status-justify left
-      set -g status-style 'bg=colour18 fg=white'
-      set -g status-left ""
-      set -g status-right '#[fg=#3D484D,bg=#343F44]#[fg=white,bg=#3D484D] %d/%m #[fg=#83C092,bg=#3D484D]#[fg=#2D353B,bg=#83C092] %H:%M:%S '
-      set -g status-right-length 50
-      set -g status-left-length 20
+      set -g window-status-current-style fg='#B279A7',bg='#B4BDC3',bold
 
-      setw -g window-status-current-style 'fg=#3D484D bg=#A7C080 bold'
-      setw -g window-status-current-format ' #I#[fg=#475258]:#[fg=#3D484D]#W#[fg=#56635f]#F #[fg=#A7C080,bg=#343F44]'
+      set -g pane-border-style fg='#B279A7'
+      set -g pane-active-border-style fg='#B279A7'
 
-      setw -g window-status-style 'fg=white bg=#475258'
-      setw -g window-status-format ' #I#[fg=white]:#[fg=white]#W#[fg=white]#F '
+      set -g message-style fg='#1C1917',bg='#3D4042'
+
+      set -g display-panes-active-colour '#B279A7'
+      set -g display-panes-colour '#B279A7'
+
+      set -g clock-mode-colour '#B279A7'
+
+      set -g mode-style fg='#1C1917',bg='#3D4042'
     '';
   };
 }

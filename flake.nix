@@ -14,7 +14,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-flatpak.url = "github:gmodena/nix-flatpak";
-    neovim-config.url = "github:Emtyffx/neovim-config";
+    neovim-config.url = "github:Emtyffx/neovim";
   };
 
   outputs =
