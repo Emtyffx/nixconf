@@ -124,7 +124,7 @@
     shellAliases = {
       dots = "cd ~/nixconf";
       proj = "cd ~/Projects";
-      nconf = "cd ~/neovim-config";
+      nconf = "cd ~/neovim";
     };
   };
   home.packages = lib.mkAfter (
