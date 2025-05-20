@@ -109,6 +109,7 @@
           "$mod, V, togglefloating,"
           "$mod, M, exit,"
           "$mod, R, exec, ${./scripts/rofi.sh} drun"
+          "$mod, Q, exec, ${./scripts/rofi.sh} calc"
           "$mod SHIFT, R, exec, ${./scripts/rofi.sh} emoji"
           "$mod, P, pseudo,"
           "$mod, S, togglesplit,"

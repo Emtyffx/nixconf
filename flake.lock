@@ -93,11 +93,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1747638159,
-        "narHash": "sha256-tJKQPOlvWGCcaJEMgHQLjJYLik84mbtXq0csqdBjXKw=",
+        "lastModified": 1747723935,
+        "narHash": "sha256-lDAhrxSQ8j6cjXOiAIDa3ncIu5DWsAtzOcMl/L+lS8o=",
         "owner": "Emtyffx",
         "repo": "neovim",
-        "rev": "c64b472e3d7d61ac685ed7d991840b1d58fce2d5",
+        "rev": "5c5ed0d58473f921ec268b257d0c28a759ef2d12",
         "type": "github"
       },
       "original": {

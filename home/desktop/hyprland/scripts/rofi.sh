@@ -33,6 +33,13 @@ games)
 
   pkill rofi || rofi -show games -modi games -theme "${rofi_theme}" -theme-str "$r_override"
   ;;
+
+calc)
+  r_override="entry{placeholder:'Calculate...';}listview{lines:15;}"
+  rofi_theme="${XDG_CONFIG_HOME:-$HOME/.config}/rofi/launchers/type-1/style-5.rasi"
+
+  pkill rofi || rofi -show calc -modi calc -no-show-match -theme "${rofi_theme}" -theme-str "$r_override"
+  ;;
 help | --help)
   echo "Usage: launch.sh [ACTION]"
   echo "Launch various rofi modes with custom themes and settings."

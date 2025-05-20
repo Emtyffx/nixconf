@@ -16,6 +16,7 @@
       plugins = with pkgs; [
         rofi-emoji-wayland # https://github.com/Mange/rofi-emoji 🤯
         rofi-games # https://github.com/Rolv-Apneseth/rofi-games 🎮
+        rofi-calc
       ];
     };
   xdg.configFile."rofi/config-music.rasi".source = ./config-music.rasi;
