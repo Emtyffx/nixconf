@@ -107,7 +107,7 @@
           "$mod, E, exec, $fileManager"
           "$mod, B, exec, $browser"
           "$mod, V, togglefloating,"
-          "$mod, M, exit,"
+          "$mod, M, exec, wlogout &"
           "$mod, R, exec, ${./scripts/rofi.sh} drun"
           "$mod, Q, exec, ${./scripts/rofi.sh} calc"
           "$mod SHIFT, R, exec, ${./scripts/rofi.sh} emoji"

@@ -291,4 +291,8 @@
   systemd.user.extraConfig = ''
     DefaultEnvironment="PATH=/run/current-system/sw/bin"
   '';
+
+  # configure envfs(for shebangs)
+
+  services.envfs.enable = true;
 }

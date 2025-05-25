@@ -20,6 +20,10 @@
     };
     settings = [
       {
+        output = [
+          "!grimblastVD"
+          "*"
+        ];
         layer = "top";
         position = "top";
         exclusive = true;
@@ -33,6 +37,7 @@
         margin-bottom = 0;
 
         modules-left = [
+          "custom/icon"
           "hyprland/workspaces"
           "hyprland/window"
         ];
@@ -117,7 +122,8 @@
         "custom/icon" = {
           # format = " ";
           exec = "echo ' '";
-          format = "{}";
+          format = " {}";
+          on-click = "${./../hyprland/scripts/rofi.sh} drun";
         };
         "mpris" = {
           format = "{player_icon} {title} - {artist}";
@@ -179,7 +185,7 @@
         };
 
         "hyprland/window" = {
-          format = "  {}";
+          format = " {}";
           separate-outputs = true;
           rewrite = {
             "harvey@hyprland =(.*)" = "$1 ";
@@ -548,7 +554,7 @@
       }
 
       #custom-icon {
-        font-size: 15px;
+        font-size: 20px;
         color: #cba6f7;
       }
 

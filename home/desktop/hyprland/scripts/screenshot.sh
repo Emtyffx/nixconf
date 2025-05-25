@@ -29,13 +29,13 @@ EOF
 
 case $1 in
 p)  # print all outputs
-    grimblast copysave screen $temp_screenshot && swappy -f $temp_screenshot ;;
+    GRIMBLAST_HIDE_CURSOR=0 grimblast copysave screen $temp_screenshot && swappy -f $temp_screenshot ;;
 s)  # drag to manually snip an area / click on a window to print it
-    grimblast copysave area $temp_screenshot && swappy -f $temp_screenshot ;;
+    GRIMBLAST_HIDE_CURSOR=0 grimblast copysave area $temp_screenshot && swappy -f $temp_screenshot ;;
 sf)  # frozen screen, drag to manually snip an area / click on a window to print it
-    grimblast --freeze copysave area $temp_screenshot && swappy -f $temp_screenshot ;;
+    GRIMBLAST_HIDE_CURSOR=0 grimblast --freeze copysave area $temp_screenshot && swappy -f $temp_screenshot ;;
 m)  # print focused monitor
-    grimblast copysave output $temp_screenshot && swappy -f $temp_screenshot ;;
+    GRIMBLAST_HIDE_CURSOR=0 grimblast copysave output $temp_screenshot && swappy -f $temp_screenshot ;;
 *)  # invalid option
     print_error ;;
 esac

@@ -33,6 +33,25 @@
       unbind r
       bind r source-file ~/.config/tmux/tmux.conf \; display "Reloaded tmux config!"
 
+      # set mode-keys
+      set -g mode-keys vi
+      bind 'v' copy-mode
+
+      # configure vim-like navigation
+      bind -r ^ last-window
+      bind -r k select-pane -U
+      bind -r j select-pane -D
+      bind -r l select-pane -R
+      bind -r h select-pane -L
+
+      # configure creating new window
+
+      bind -r o neww -c "#{pane_current_path}"
+
+      # configure closing all panes
+
+      bind -r e kill-pane -a
+
       # Automatically set the window title
       set-window-option -g automatic-rename off
 
