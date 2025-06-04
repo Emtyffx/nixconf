@@ -73,6 +73,15 @@
           halign = "center";
           valign = "top";
         }
+        {
+          monitor = "";
+          text = "$LAYOUT";
+          color = "$foreground";
+          font_size = 12;
+          position = "0, 10";
+          halign = "center";
+          valign = "bottom";
+        }
       ];
 
       image = [

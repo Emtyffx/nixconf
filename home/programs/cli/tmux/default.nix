@@ -13,11 +13,11 @@
       tmux-fzf
     ];
     extraConfig = ''
-      # Make split keys better
-      unbind % 
-      unbind '"'
-      bind '\' split-window -h -c '#{pane_current_path}'           
-      bind '-' split-window -v -c '#{pane_current_path}'
+      # Make split keys better(disabled)
+      # unbind % 
+      # unbind '"'
+      # bind '\' split-window -h -c '#{pane_current_path}'           
+      # bind '-' split-window -v -c '#{pane_current_path}'
 
       # Quickly move through panes with ALT+Arrow Key
       bind -n M-Left select-pane -L

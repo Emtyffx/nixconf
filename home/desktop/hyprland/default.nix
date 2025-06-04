@@ -6,6 +6,6 @@
     ./wlogout.nix
     ./rofi
     ./dunst.nix
-
+    ./hypridle.nix
   ];
 }

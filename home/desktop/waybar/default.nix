@@ -39,7 +39,7 @@
         modules-left = [
           "custom/icon"
           "hyprland/workspaces"
-          "hyprland/window"
+          # "hyprland/window"
         ];
         # modules-center = ["clock" "custom/notification"];
         modules-center = [

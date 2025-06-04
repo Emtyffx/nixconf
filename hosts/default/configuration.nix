@@ -86,6 +86,9 @@
     layout = "us,ru,ua";
     variant = "";
   };
+  services.cloudflare-warp = {
+    enable = true;
+  };
   # xdg portals
   # xdg.portal = {
   #   xdgOpenUsePortal = true;
@@ -295,4 +298,10 @@
   # configure envfs(for shebangs)
 
   services.envfs.enable = true;
+  programs.nh = {
+    enable = true;
+    clean.enable = true;
+    clean.extraArgs = "--keep 3 --keep-since 4d";
+    flake = "/home/paul/nixconf";
+  };
 }
