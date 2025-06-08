@@ -119,6 +119,7 @@
             ];
           };
           "format-bluetooth" = "  {volume}% via ";
+          "on-click" = "pavucontrol -t 3";
         };
 
         cpu = {
