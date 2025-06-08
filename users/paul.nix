@@ -71,6 +71,7 @@
     qalculate-gtk
     btop
     inputs.neovim-config.packages."x86_64-linux".default
+    devenv
   ];
   # install flatpak apps
   services.flatpak.enable = true;
