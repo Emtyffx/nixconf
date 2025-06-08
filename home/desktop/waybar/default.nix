@@ -190,7 +190,7 @@
 
         "hyprland/language" = {
           format = "{short} {variant}";
-          "on-click" = "\${./scripts/keyboardswitch.sh}";
+          "on-click" = "${./scripts/keyboardswitch.sh}";
         };
       }
     ];
