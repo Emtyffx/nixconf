@@ -10,6 +10,8 @@
     [
       pamixer
       pavucontrol
+      jq
+      blueman
     ]
   );
   programs.waybar = {
@@ -47,7 +49,7 @@
         ];
 
         "hyprland/workspaces" = {
-          format = "{icon}";
+          format = "{id}: {icon}";
           "format-icons" = {
             active = "";
             default = "";
@@ -318,6 +320,7 @@
 
       #idle_inhibitor {
         color: @sky;
+        padding-right: 12px;
       }
 
 
@@ -332,7 +335,7 @@
       #custom-power,
       #tray,
       #language {
-        padding: 0 5px;
+        padding: 0 7px;
       }
 
 

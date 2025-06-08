@@ -27,7 +27,7 @@
       },
       "locked": {
         "lastModified": 1749291741,
-        "narHash": "sha256-dApWwy7/qZxkA+pU5fKc9KRCzIvNlHpUuceDyDycmt0=",
+        "narHash": "sha256-J6ZEFxpZmPD3ne0FVyvu84JXcxlpxHtAlITlMkaN0A4=",
         "owner": "Emtyffx",
         "repo": "neovim",
         "rev": "1d860bc8c4f451200bf70a5628e346164523f2c1",
