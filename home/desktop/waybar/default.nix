@@ -49,7 +49,7 @@
         ];
 
         "hyprland/workspaces" = {
-          format = "{id}: {icon}";
+          format = "{icon}";
           "format-icons" = {
             active = "";
             default = "";
