@@ -27,8 +27,12 @@
   boot.kernelModules = [
     "kvm-amd"
     "v4l2loopback"
+    "rtl88xxau-aircrack"
   ];
-  boot.extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
+  boot.extraModulePackages = [
+    config.boot.kernelPackages.v4l2loopback
+    config.boot.kernelPackages.rtl88xxau-aircrack
+  ];
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/3efc4b91-b0e9-40d5-96fe-a90682ccb5db";
