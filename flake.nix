@@ -10,6 +10,8 @@
     };
     nix-flatpak.url = "github:gmodena/nix-flatpak";
     neovim-config.url = "github:Emtyffx/neovim";
+    ags.url = "github:aylur/ags";
+    astal.url = "github:aylur/astal";
   };
 
   outputs =

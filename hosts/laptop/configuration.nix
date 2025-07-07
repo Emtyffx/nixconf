@@ -221,7 +221,8 @@
   services.openssh.enable = true;
 
   #enable the ssh agent
-  programs.ssh.startAgent = true;
+  programs.ssh.enable = true;
+  programs.ssh.startAgent
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];

@@ -207,6 +207,9 @@
     #  wget
     neovim
     nodejs_24
+    wineWowPackages.stable
+    winetricks
+    wineWowPackages.waylandFull
     cloudflare-warp
     nixfmt-rfc-style
     python313
@@ -263,7 +266,6 @@
   services.openssh.enable = true;
 
   #enable the ssh agent
-  programs.ssh.startAgent = true;
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
@@ -298,10 +300,17 @@
   # configure envfs(for shebangs)
 
   services.envfs.enable = true;
+
+  #configure nh(for nh os switch)
   programs.nh = {
     enable = true;
     clean.enable = true;
     clean.extraArgs = "--keep 3 --keep-since 4d";
     flake = "/home/paul/nixconf";
   };
+  nix.settings.trusted-users = [
+    "root"
+    "paul"
+    "@wheel"
+  ];
 }

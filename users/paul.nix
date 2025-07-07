@@ -18,6 +18,7 @@
     ../home/programs/shell/zsh
     ../home/programs/cli/git
     ../home/desktop/gnome
+    ../home/desktop/ags
     inputs.nix-flatpak.homeManagerModules.nix-flatpak
   ];
   # Home Manager needs a bit of information about you and the paths it should
