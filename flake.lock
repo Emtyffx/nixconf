@@ -101,11 +101,11 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1751885242,
-        "narHash": "sha256-fmvJ3qlHYt7IBlTcnQIsHb313hgNkghEzRYZI++XR10=",
+        "lastModified": 1751901329,
+        "narHash": "sha256-PQQ9/youaHiBuCDXbIAtLYMjm3mW6Z45ed2vPoF3j/Y=",
         "owner": "Emtyffx",
         "repo": "neovim",
-        "rev": "923961102076538e9948537152641a2ac8b96662",
+        "rev": "58e94d1db1cfb42992b6e03843f63d7709572d50",
         "type": "github"
       },
       "original": {

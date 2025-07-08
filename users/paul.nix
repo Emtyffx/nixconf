@@ -19,6 +19,7 @@
     ../home/programs/cli/git
     ../home/desktop/gnome
     ../home/desktop/ags
+    ../home/programs/editors/nvim
     inputs.nix-flatpak.homeManagerModules.nix-flatpak
   ];
   # Home Manager needs a bit of information about you and the paths it should
@@ -71,7 +72,7 @@
     hunspellDicts.uk_UA
     qalculate-gtk
     btop
-    inputs.neovim-config.packages."x86_64-linux".default
+    # inputs.neovim-config.packages."x86_64-linux".default
     devenv
   ];
   # install flatpak apps
