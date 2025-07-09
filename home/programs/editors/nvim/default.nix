@@ -1,66 +1,18 @@
 { pkgs, lib, ... }:
 let
-  reqs = with pkgs; [
-    git
-    gcc
-    gnumake
-    unzip
-    wget
-    curl
-    tree-sitter
-    ripgrep
-    fd
-    fzf
-    cargo
-    lazygit
-    nodePackages.npm
-    python3
-    luajitPackages.luarocks
-    lua51Packages.lua
-    libxml2
-    imagemagick
-    lua-language-server
-    stylua
-    nixd
-
-    nodejs
-    deno
-    bun
-    yarn
-    pnpm
-    nixfmt-rfc-style
-  ];
-  linuxOnlyReqs =
-    if pkgs.stdenv.isDarwin then
-      with pkgs; [ ]
-    else
-      with pkgs;
-      [
-        wl-clipboard
-        xsel
-        ninja
-        meson
-        pkg-config
-      ];
-
-  nvim-pkg =
-    with pkgs;
-    wrapNeovimUnstable neovim-unwrapped {
-      withRuby = true;
-      withNodeJs = true;
-      withPython3 = true;
-      wrapRc = false;
-      wrapperArgs = ''--suffix PATH : "${lib.makeBinPath (reqs ++ linuxOnlyReqs)}"'';
-    };
+  nvim-pkg = import ../../../../nvim {inherit pkgs; };
 in
 {
-  home.packages = with pkgs; lib.mkAfter [ nvim-pkg ];
+  home.packages = with pkgs; lib.mkBefore [ nvim-pkg ];
   home.sessionVariables = {
     EDITOR = "nvim";
     VISUAL = "nvim";
   };
   xdg = {
-    configFile.nvim.source = ./.;
+    configFile."nvim".source = ../../../../nvim;
+    configFile."nvim".recursive = true;
+    configFile."nvim".target = "nvim";
+
     desktopEntries."nvim" = lib.mkIf pkgs.stdenv.isLinux {
       name = "Neovim";
       comment = "Best text editor";

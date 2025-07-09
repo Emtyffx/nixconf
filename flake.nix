@@ -9,7 +9,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-flatpak.url = "github:gmodena/nix-flatpak";
-    neovim-config.url = "github:Emtyffx/neovim";
+    # neovim-config.url = "github:Emtyffx/neovim";
     ags.url = "github:aylur/ags";
     astal.url = "github:aylur/astal";
   };
@@ -40,7 +40,7 @@
 
       devShells.${system}.default = pkgs.mkShell {
         packages = [
-          inputs.neovim-config.packages.x86_64-linux.default
+          # inputs.neovim-config.packages.x86_64-linux.default
         ];
       };
       templates = import ./dev-shells;

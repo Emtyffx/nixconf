@@ -95,25 +95,6 @@
         "type": "github"
       }
     },
-    "neovim-config": {
-      "inputs": {
-        "nixCats": "nixCats",
-        "nixpkgs": "nixpkgs_3"
-      },
-      "locked": {
-        "lastModified": 1751901329,
-        "narHash": "sha256-PQQ9/youaHiBuCDXbIAtLYMjm3mW6Z45ed2vPoF3j/Y=",
-        "owner": "Emtyffx",
-        "repo": "neovim",
-        "rev": "58e94d1db1cfb42992b6e03843f63d7709572d50",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Emtyffx",
-        "repo": "neovim",
-        "type": "github"
-      }
-    },
     "nix-flatpak": {
       "locked": {
         "lastModified": 1751276396,
@@ -126,21 +107,6 @@
       "original": {
         "owner": "gmodena",
         "repo": "nix-flatpak",
-        "type": "github"
-      }
-    },
-    "nixCats": {
-      "locked": {
-        "lastModified": 1748760778,
-        "narHash": "sha256-i0xBOGCDtrJ29sIelwbSATUJK4AP6McPMxBA0dthK0o=",
-        "owner": "BirdeeHub",
-        "repo": "nixCats-nvim",
-        "rev": "88cde33af841e2aa1ea0c83c4d9dcfefdde54fb3",
-        "type": "github"
-      },
-      "original": {
-        "owner": "BirdeeHub",
-        "repo": "nixCats-nvim",
         "type": "github"
       }
     },
@@ -178,22 +144,6 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1748856973,
-        "narHash": "sha256-RlTsJUvvr8ErjPBsiwrGbbHYW8XbB/oek0Gi78XdWKg=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "e4b09e47ace7d87de083786b404bf232eb6c89d8",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "ref": "nixpkgs-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs_4": {
-      "locked": {
         "lastModified": 1751792365,
         "narHash": "sha256-J1kI6oAj25IG4EdVlg2hQz8NZTBNYvIS0l4wpr9KcUo=",
         "owner": "nixos",
@@ -213,9 +163,8 @@
         "ags": "ags",
         "astal": "astal_2",
         "home-manager": "home-manager",
-        "neovim-config": "neovim-config",
         "nix-flatpak": "nix-flatpak",
-        "nixpkgs": "nixpkgs_4"
+        "nixpkgs": "nixpkgs_3"
       }
     }
   },

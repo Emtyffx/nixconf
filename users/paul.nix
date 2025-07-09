@@ -19,7 +19,7 @@
     ../home/programs/cli/git
     ../home/desktop/gnome
     ../home/desktop/ags
-    ../home/programs/editors/nvim
+    ../home/programs/editors/nvim/default.nix
     inputs.nix-flatpak.homeManagerModules.nix-flatpak
   ];
   # Home Manager needs a bit of information about you and the paths it should
