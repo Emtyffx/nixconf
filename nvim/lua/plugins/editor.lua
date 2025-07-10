@@ -37,6 +37,7 @@ return {
 	{
 		"echasnovski/mini.surround",
 		version = false,
+		opts = {},
 	},
 	{
 		"folke/flash.nvim",
