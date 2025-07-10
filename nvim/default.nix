@@ -34,6 +34,9 @@ let
     vtsls
     pyright
     vscode-langservers-extracted
+
+    # debuggers
+    delve
   ];
   linuxOnlyReqs =
     if pkgs.stdenv.isDarwin then

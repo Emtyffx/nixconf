@@ -74,6 +74,7 @@
     btop
     # inputs.neovim-config.packages."x86_64-linux".default
     devenv
+    cachix
   ];
   # install flatpak apps
   services.flatpak.enable = true;
@@ -104,6 +105,9 @@
   };
   home.sessionVariables = {
     EDITOR = "nvim";
+    VISUAL = "nvim";
+    GTK_THEME = "adw-gtk3-dark";
+    XDG_DATA_DIRS = "$XDG_DATA_DIRS:/usr/share:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share";
     SHELL = "zsh";
   };
   # Home Manager can also manage your environment variables through

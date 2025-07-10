@@ -3,6 +3,9 @@ return {
 		"folke/trouble.nvim",
 		opts = {},
 		cmd = "Trouble",
+		config = function(_, opts)
+			require("trouble.config").setup(opts)
+		end,
 		keys = {
 			{
 				"<leader>xx",

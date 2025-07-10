@@ -7,32 +7,25 @@ return {
 		opts = {},
 		keys = {
 			{
-				"<leader>ff",
+				"<leader>sf",
 				function()
 					require("telescope.builtin").find_files()
 				end,
 				desc = "Telescope find files",
 			},
 			{
-				"<leader>fg",
+				"<leader>sg",
 				function()
 					require("telescope.builtin").live_grep()
 				end,
 				desc = "Telescope live grep",
 			},
 			{
-				"<leader>fb",
+				"<leader>sb",
 				function()
-					require("telescope.builtin").find_files()
+					require("telescope.builtin").buffers()
 				end,
 				desc = "Telescope buffers",
-			},
-			{
-				"<leader>fh",
-				function()
-					require("telescope.builtin").help_tags()
-				end,
-				desc = "Telescope help tags",
 			},
 		},
 	},
@@ -77,25 +70,49 @@ return {
 		dependencies = {
 			"nvim-tree/nvim-web-devicons",
 		},
-		opts = {},
-	},
-	{
-		"akinsho/bufferline.nvim",
-		version = "*",
-		dependencies = { "nvim-tree/nvim-web-devicons" },
 		opts = {
 			options = {
-				offsets = {
+				icons_enabled = true,
+				component_separators = "|",
+				section_separators = "",
+			},
+			sections = {
+				lualine_x = {
 					{
-						filetype = "neo-tree",
-						text = "Neotree",
-						separator = true,
-						text_align = "left",
+						require("noice").api.status.mode.get,
+						cond = require("noice").api.status.mode.has,
+					},
+					{
+						require("noice").api.status.command.get,
+						cond = require("noice").api.status.command.has,
+					},
+				},
+				lualine_a = {
+					{
+						"buffers",
 					},
 				},
 			},
 		},
 	},
+	-- replaced with buffers in lualine
+	-- {
+	-- 	"akinsho/bufferline.nvim",
+	-- 	version = "*",
+	-- 	dependencies = { "nvim-tree/nvim-web-devicons" },
+	-- 	opts = {
+	-- 		options = {
+	-- 			offsets = {
+	-- 				{
+	-- 					filetype = "neo-tree",
+	-- 					text = "Neotree",
+	-- 					separator = true,
+	-- 					text_align = "left",
+	-- 				},
+	-- 			},
+	-- 		},
+	-- 	},
+	-- },
 	{
 		"folke/which-key.nvim",
 		opts = {},
@@ -106,5 +123,14 @@ return {
 		config = function()
 			require("alpha").setup(require("alpha.themes.dashboard").config)
 		end,
+	},
+	{
+		"folke/noice.nvim",
+		event = "VeryLazy",
+		opts = {},
+		dependencies = {
+			"MunifTanjim/nui.nvim",
+			"rcarriga/nvim-notify",
+		},
 	},
 }

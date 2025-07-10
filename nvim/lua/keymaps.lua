@@ -16,3 +16,10 @@ vim.keymap.set("n", "<leader>wv", "<cmd>vsplit<cr>", { desc = "Split window vert
 
 -- diagnostic error
 vim.keymap.set("n", "<leader>q", vim.diagnostic.open_float, { desc = "Current error" })
+
+--setup yank highlighting
+vim.api.nvim_create_autocmd("TextYankPost", {
+	callback = function()
+		vim.highlight.on_yank()
+	end,
+})

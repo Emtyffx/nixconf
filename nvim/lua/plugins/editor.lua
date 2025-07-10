@@ -17,4 +17,49 @@ return {
 			},
 		},
 	},
+	{
+		"theprimeagen/harpoon",
+		branch = "harpoon2",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		config = function()
+			local harpoon = require("harpoon")
+			harpoon:setup({})
+
+			vim.keymap.set("n", "<leader>a", function()
+				harpoon:list():add()
+			end, { desc = "Add to harpoon" })
+
+			vim.keymap.set("n", "<leader>sh", function()
+				require("utils").toggle_telescope_for_harpoon(harpoon:list())
+			end, { desc = "Open harpoon files" })
+		end,
+	},
+	{
+		"echasnovski/mini.surround",
+		version = false,
+	},
+	{
+		"folke/flash.nvim",
+		event = "VeryLazy",
+		---@type Flash.Config
+		opts = {},
+		keys = {
+			{
+				"zk",
+				mode = { "n", "x", "o" },
+				function()
+					require("flash").jump()
+				end,
+				desc = "Flash",
+			},
+			{
+				"zl",
+				mode = { "n", "x", "o" },
+				function()
+					require("flash").treesitter()
+				end,
+				desc = "Flash treesitter",
+			},
+		},
+	},
 }
