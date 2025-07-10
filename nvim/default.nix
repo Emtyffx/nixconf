@@ -18,12 +18,16 @@ let
     python3
     luajitPackages.luarocks
     lua51Packages.lua
+    rustc
+    cargo
 
     libxml2
     imagemagick
     lua-language-server
     stylua
     nixd
+    rust-analyzer
+    ruff
 
     nodejs
     deno
@@ -34,7 +38,7 @@ let
     vtsls
     pyright
     vscode-langservers-extracted
-
+    # clippy
     # debuggers
     delve
     vscode-extensions.vadimcn.vscode-lldb.adapter

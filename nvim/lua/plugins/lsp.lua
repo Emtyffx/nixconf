@@ -64,6 +64,33 @@ return {
 				require("telescope.builtin").lsp_type_definitions,
 				{ desc = "[G]oto [T]ype Definition" }
 			)
+
+			-- configure virtual text diagnostics
+			vim.diagnostic.config({
+				virtual_text = true,
+			})
+		end,
+	},
+	{
+		"mrcjkb/rustaceanvim",
+		version = "^6", -- Recommended
+		lazy = false, -- This plugin is already lazy
+		config = function()
+			vim.g.rustaceanvim = {
+				server = {
+					default_settings = {
+						["rust-analyzer"] = {
+							checkOnSave = false,
+							diagnostics = {
+								enable = true,
+								experimental = {
+									enable = true,
+								},
+							},
+						},
+					},
+				},
+			}
 		end,
 	},
 }
