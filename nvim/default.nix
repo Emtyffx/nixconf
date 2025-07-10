@@ -37,6 +37,7 @@ let
 
     # debuggers
     delve
+    vscode-extensions.vadimcn.vscode-lldb.adapter
   ];
   linuxOnlyReqs =
     if pkgs.stdenv.isDarwin then

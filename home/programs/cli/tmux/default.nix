@@ -77,16 +77,16 @@
       set -g bell-action none
 
       # Status Bar
-      set -g status-left '#[fg=#1F1F28,bg=#DCA561,bold] tmux #[bg=#1F1F28,fg=#DCA561,bold]'
-      set -g status-right '#[fg=#1F1F28,bold] [#S]#[fg=#C8C093,bold] %d/%m #[fg=#1F1F28,bg=#2A2A37,bold]#[fg=#C8C093,bg=#2A2A37,bold]  %I:%M %p '
+      set -g status-left '#[fg=#1F1F28,bg=#DCA561,bold]  #{session_windows} #[bg=#1F1F28,fg=#DCA561,bold] '
+      set -g status-right '#[fg=#1F1F28,bold] [#S]#[fg=#C8C093,bold] %d/%m #[fg=#1F1F28,bg=#2A2A37,bold]#[fg=#C8C093,bg=#2A2A37,bold]  %I:%M %p '
       set -g status-style fg='#C8C093',bg='#1F1F28'
       set-option -g status-position top
 
-      set -g window-status-current-style fg='#1F1F28',bg='#E6C384',bold
-      setw -g window-status-current-format ' #I #W #F #[fg=#E6C384,bg=#1F1F28]'
+      set -g window-status-current-style fg='#E6C384',bg='#1F1F28',bold
+      setw -g window-status-current-format '  #W '
 
       set -g window-status-style fg='#C8C093',bg='#49443C'
-      setw -g window-status-format '#[fg=#1F1F28,bg=#49443C,bold]#[fg=#C8C093,bg=#49443c,bold] #I #W #F #[bg=#1F1F28,fg=#49443C,bold]'
+      setw -g window-status-format '#[fg=#717C7C,bg=#1F1F28,bold]  #W '
 
       setw -g window-status-separator '''
 
