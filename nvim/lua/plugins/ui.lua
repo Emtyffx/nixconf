@@ -69,7 +69,7 @@ return {
 		},
 
 		keys = {
-			{ "<leader>g", "<cmd>LazyGit<cr>", desc = "Toggle LazyGit" },
+			{ "<leader>lg", "<cmd>LazyGit<cr>", desc = "Toggle LazyGit" },
 		},
 	},
 	{
@@ -100,5 +100,11 @@ return {
 		"folke/which-key.nvim",
 		opts = {},
 		event = "VeryLazy",
+	},
+	{
+		"goolord/alpha-nvim",
+		config = function()
+			require("alpha").setup(require("alpha.themes.dashboard").config)
+		end,
 	},
 }
