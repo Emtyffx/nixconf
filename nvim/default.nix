@@ -37,7 +37,11 @@ let
     nixfmt-rfc-style
     vtsls
     pyright
+    gopls
+    clang-tools
     vscode-langservers-extracted
+    vue-language-server
+    svelte-language-server
     # clippy
     # debuggers
     delve

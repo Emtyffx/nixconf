@@ -6,6 +6,15 @@ return {
 			local servers = {}
 			servers.lua_ls = {}
 			servers.nixd = {}
+			servers.gopls = {}
+			servers.vtsls = {}
+			servers.clangd = {}
+			servers.pyright = {}
+			servers.cssls = {}
+			servers.html = {}
+			servers.vue_ls = {}
+			servers.svelte = {}
+			-- the rust-analyzer is enabled via the rustaceanvim plugin
 			for name, opts in pairs(servers) do
 				vim.lsp.enable(name)
 				vim.lsp.config(name, opts)
