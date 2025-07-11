@@ -12,7 +12,7 @@ return {
 			servers.pyright = {}
 			servers.cssls = {}
 			servers.html = {}
-			servers.vue_ls = {}
+			servers.vuels = {}
 			servers.svelte = {}
 			-- the rust-analyzer is enabled via the rustaceanvim plugin
 			for name, opts in pairs(servers) do
