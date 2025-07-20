@@ -38,7 +38,7 @@ let
     vtsls
     pyright
     gopls
-    clangd
+    clang-tools
     vscode-langservers-extracted
     vue-language-server
     neocmakelsp
