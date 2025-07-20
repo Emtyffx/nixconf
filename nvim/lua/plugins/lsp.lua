@@ -14,6 +14,7 @@ return {
 			servers.html = {}
 			servers.vuels = {}
 			servers.svelte = {}
+			servers.neocmake = {}
 			-- the rust-analyzer is enabled via the rustaceanvim plugin
 			for name, opts in pairs(servers) do
 				vim.lsp.enable(name)
@@ -119,5 +120,9 @@ return {
 				},
 			}
 		end,
+	},
+	{
+		"civitasv/cmake-tools.nvim",
+		opts = {},
 	},
 }

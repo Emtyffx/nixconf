@@ -18,7 +18,6 @@
     package = null;
     settings = {
       "$mod" = "SUPER";
-
       "$terminal" = "kitty";
       "$fileManager" = "nautilus";
       "$menu" = "wofi --show drun";
@@ -178,6 +177,12 @@
         "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
         "stayfocused,class:zoom,title:^(menu window|Send chat to(\.\.\.|.*)?)$"
         "float,title:^Qalculate!"
+        "opacity 0.0 override, class:^(xwaylandvideobridge)$"
+        "noanim, class:^(xwaylandvideobridge)$"
+        "noinitialfocus, class:^(xwaylandvideobridge)$"
+        "maxsize 1 1, class:^(xwaylandvideobridge)$"
+        "noblur, class:^(xwaylandvideobridge)$"
+        "nofocus, class:^(xwaylandvideobridge)$"
       ];
       xwayland = {
         force_zero_scaling = "true";

@@ -219,6 +219,7 @@
     shared-mime-info
     desktop-file-utils
     # thorium
+    kdePackages.xwaylandvideobridge
     librewolf
     wl-clipboard
     gnome-boxes

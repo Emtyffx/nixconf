@@ -38,9 +38,10 @@ let
     vtsls
     pyright
     gopls
-    clang-tools
+    clangd
     vscode-langservers-extracted
     vue-language-server
+    neocmakelsp
     svelte-language-server
     # clippy
     # debuggers
