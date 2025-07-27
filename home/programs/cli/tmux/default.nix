@@ -3,6 +3,8 @@
   programs.tmux = {
     enable = true;
     terminal = "xterm-256color";
+    # enable tmuxinator for tmux session management
+    tmuxinator.enable = true;
     shell = "${pkgs.zsh}/bin/zsh";
     historyLimit = 100000;
     plugins = with pkgs.tmuxPlugins; [

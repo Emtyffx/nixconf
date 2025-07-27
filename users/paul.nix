@@ -12,6 +12,7 @@
     # ../home/sway.nix
     ../home/desktop/waybar
     ../home/programs/cli/tmux
+    ../home/programs/terminal/wezterm
     ../home/programs/cli/ranger
     ../home/desktop/hyprland
     ../home/programs/cli/direnv
@@ -63,7 +64,7 @@
     nerd-fonts.fira-code
     adwaita-fonts
     obs-studio
-    jetbrains.clion
+    # jetbrains.clion
     viber
     adw-gtk3
     qadwaitadecorations-qt6

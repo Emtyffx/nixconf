@@ -4,6 +4,12 @@
   lib,
   ...
 }:
+let
+
+  dev-shell-list = builtins.concatStringsSep "\n" (
+    builtins.attrNames (import ./../../../../dev-shells)
+  );
+in
 {
 
   programs.zsh = {
@@ -70,6 +76,10 @@
       function finit {
         nix flake init --template ${self}/dev-shells#$1
         direnv allow
+      }
+
+      function flist {
+        echo "${dev-shell-list}"
       }
 
       function cgen {

@@ -133,4 +133,18 @@ return {
 			"rcarriga/nvim-notify",
 		},
 	},
+	{
+		"nvzone/typr",
+		dependencies = "nvzone/volt",
+		opts = {},
+		keys = {
+			{ "<leader>tp", "<cmd>Typr<cr>", desc = "Toggle Typr" },
+			{ "<leader>ts", "<cmd>Typr<cr>", desc = "Toggle Typr" },
+		},
+		cmd = { "Typr", "TyprStats" },
+	},
+	{
+		"tris203/precognition.nvim",
+		opts = {},
+	},
 }
