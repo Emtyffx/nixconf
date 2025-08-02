@@ -147,4 +147,8 @@ return {
 		"tris203/precognition.nvim",
 		opts = {},
 	},
+	{
+		"andweeb/presence.nvim",
+		opts = {},
+	},
 }
