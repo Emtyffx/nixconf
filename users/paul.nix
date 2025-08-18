@@ -76,6 +76,7 @@
     # inputs.neovim-config.packages."x86_64-linux".default
     devenv
     cachix
+    vesktop
   ];
   # install flatpak apps
   services.flatpak.enable = true;
@@ -87,7 +88,6 @@
     "com.spotify.Client"
     # replaced with vesktop
     # "com.discordapp.Discord"
-    "dev.vencord.Vesktop"
   ];
 
   # enable font configuration

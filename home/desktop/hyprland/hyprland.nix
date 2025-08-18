@@ -24,7 +24,7 @@
       "$browser" = "org.chromium.Chromium";
 
       monitor = [
-        ",preferred,auto,1.25,bitdepth,10"
+        ",preferred,auto,1.25"
       ];
       env = [
         "XCURSOR_SIZE,24"
