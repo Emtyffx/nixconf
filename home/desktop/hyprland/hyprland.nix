@@ -45,6 +45,7 @@
         "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"
         "hyprctl setcursor Adwaita 24"
         "dunst"
+        "${./scripts/autostart.sh}"
       ];
 
       decoration = {
@@ -99,66 +100,65 @@
         ];
       };
 
-      bind =
-        [
-          "$mod, Return, exec, $terminal"
-          "$mod, C, killactive,"
-          "$mod, E, exec, $fileManager"
-          "$mod, B, exec, $browser"
-          "$mod, V, togglefloating,"
-          "$mod, M, exec, wlogout &"
-          "$mod, R, exec, ${./scripts/rofi.sh} drun"
-          "$mod, Q, exec, ${./scripts/rofi.sh} calc"
-          "$mod SHIFT, R, exec, ${./scripts/rofi.sh} emoji"
-          "$mod, P, pseudo,"
-          "$mod, S, togglesplit,"
-          "$mod, F, fullscreen,"
-          "$mod SHIFT, L, exec, hyprlock"
-        ]
-        # screenshot
-        ++ [
-          "$mod, Print, exec, ${./scripts/screenshot.sh} m"
-          "$mod SHIFT, Print, exec, ${./scripts/screenshot.sh} sf"
-          "$mod Ctrl, Print, exec, ${./scripts/screenshot.sh} p"
-        ]
-        # vim-like movement
-        ++ [
-          "$mod, left, movefocus, l"
-          "$mod, right, movefocus, r"
-          "$mod, up, movefocus, u"
-          "$mod, down, movefocus, d"
-          "$mod, H, movefocus, l"
-          "$mod, J, movefocus, d"
-          "$mod, K, movefocus, u"
-          "$mod, L, movefocus, r"
-        ]
-        # workspaces
-        ++ builtins.concatLists (
-          builtins.genList (
-            i:
-            let
-              ws = i + 1;
-            in
-            [
-              "$mod, code:1${toString i}, workspace, ${toString ws}"
-              "$mod SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
-            ]
-          ) 9
-        )
-        ++ [
-          "$mod, 0, workspace, 10"
-          "$mod SHIFT, 0, movetoworkspace, 10"
-        ]
-        # scratchpad
-        ++ [
-          "$mod, S, togglespecialworkspace, magic"
-          "$mod SHIFT, S, movetoworkspace, special:magic"
-        ]
-        # scrolling
-        ++ [
-          "$mod, mouse_down, workspace, e+1"
-          "$mod, mouse_up, workspace, e-1"
-        ];
+      bind = [
+        "$mod, Return, exec, $terminal"
+        "$mod, C, killactive,"
+        "$mod, E, exec, $fileManager"
+        "$mod, B, exec, $browser"
+        "$mod, V, togglefloating,"
+        "$mod, M, exec, wlogout &"
+        "$mod, R, exec, ${./scripts/rofi.sh} drun"
+        "$mod, Q, exec, ${./scripts/rofi.sh} calc"
+        "$mod SHIFT, R, exec, ${./scripts/rofi.sh} emoji"
+        "$mod, P, pseudo,"
+        "$mod, S, togglesplit,"
+        "$mod, F, fullscreen,"
+        "$mod SHIFT, L, exec, hyprlock"
+      ]
+      # screenshot
+      ++ [
+        "$mod, Print, exec, ${./scripts/screenshot.sh} m"
+        "$mod SHIFT, Print, exec, ${./scripts/screenshot.sh} sf"
+        "$mod Ctrl, Print, exec, ${./scripts/screenshot.sh} p"
+      ]
+      # vim-like movement
+      ++ [
+        "$mod, left, movefocus, l"
+        "$mod, right, movefocus, r"
+        "$mod, up, movefocus, u"
+        "$mod, down, movefocus, d"
+        "$mod, H, movefocus, l"
+        "$mod, J, movefocus, d"
+        "$mod, K, movefocus, u"
+        "$mod, L, movefocus, r"
+      ]
+      # workspaces
+      ++ builtins.concatLists (
+        builtins.genList (
+          i:
+          let
+            ws = i + 1;
+          in
+          [
+            "$mod, code:1${toString i}, workspace, ${toString ws}"
+            "$mod SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
+          ]
+        ) 9
+      )
+      ++ [
+        "$mod, 0, workspace, 10"
+        "$mod SHIFT, 0, movetoworkspace, 10"
+      ]
+      # scratchpad
+      ++ [
+        "$mod, S, togglespecialworkspace, magic"
+        "$mod SHIFT, S, movetoworkspace, special:magic"
+      ]
+      # scrolling
+      ++ [
+        "$mod, mouse_down, workspace, e+1"
+        "$mod, mouse_up, workspace, e-1"
+      ];
       bindm = [
         "$mod, mouse:272, movewindow"
         "$mod, mouse:273, resizewindow"
