@@ -85,7 +85,9 @@
     "org.telegram.desktop"
     "com.viber.Viber"
     "com.spotify.Client"
-    "com.discordapp.Discord"
+    # replaced with vesktop
+    # "com.discordapp.Discord"
+    "dev.vencord.Vesktop"
   ];
 
   # enable font configuration
