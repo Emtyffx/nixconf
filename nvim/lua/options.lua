@@ -9,3 +9,7 @@ vim.o.hlsearch = true
 vim.o.autoindent = true
 vim.o.shiftwidth = 4
 vim.o.tabstop = 4
+
+-- configure undofile
+vim.opt.undofile = true
+vim.opt.undodir = os.getenv("HOME") .. "/.config/nvim/undo"

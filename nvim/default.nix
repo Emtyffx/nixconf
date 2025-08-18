@@ -26,7 +26,7 @@ let
     lua-language-server
     stylua
     nixd
-    # rust-analyzer
+    rust-analyzer
     ruff
 
     nodejs
