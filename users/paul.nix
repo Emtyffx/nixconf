@@ -56,7 +56,7 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
-    discord
+    lazygit
     obsidian
     powerline-fonts
     nerd-fonts.hack
@@ -85,6 +85,7 @@
     "org.telegram.desktop"
     "com.viber.Viber"
     "com.spotify.Client"
+    "com.discordapp.Discord"
   ];
 
   # enable font configuration
