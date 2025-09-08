@@ -7,9 +7,9 @@
 {
   options.myWaybar = {
     enable = lib.mkEnableOption "Enable custom waybar config";
-    themeCSS = lib.mkOption {
-      type = lib.types.str;
-      description = "CSS containing color declarations for the theme";
+    colors = lib.mkOption {
+      type = lib.types.attrsOf lib.types.str;
+      description = "color declarations for the theme";
     };
   };
   config = lib.mkIf config.myWaybar.enable {
@@ -205,134 +205,170 @@
           };
         }
       ];
-      style = config.myWaybar.themeCSS + ''
+      style =
+        let
+          colors = config.myWaybar.colors;
+        in
+        ''
+          /* === Color Definitions === */
 
-        /* === Waybar Root === */
+          /* Warm colors */
+          @define-color flamingo ${colors.flamingo};
+          @define-color peach    ${colors.peach};
+          @define-color red      ${colors.red};
+          @define-color maroon   ${colors.maroon};
+          @define-color yellow   ${colors.yellow};
+          @define-color pink     ${colors.pink};
 
-        window#waybar {
-          background: none;
-          color: @text;
-          font-family: "JetBrainsMono Nerd Font";
-          font-size: 14px;
-        }
+          /* Cool colors */
+          @define-color green    ${colors.green};
+          @define-color teal     ${colors.teal};
+          @define-color sky      ${colors.sky};
+          @define-color sapphire ${colors.sapphire};
+          @define-color blue     ${colors.blue};
 
+          /* Neutral colors */
+          @define-color lavender  ${colors.lavender};
+          @define-color text      ${colors.text};
+          @define-color subtext1  ${colors.subtext1};
+          @define-color subtext0  ${colors.subtext0};
+          @define-color overlay2  ${colors.overlay2};
+          @define-color overlay1  ${colors.overlay1};
+          @define-color overlay0  ${colors.overlay0};
+          @define-color surface2  ${colors.surface2};
+          @define-color surface1  ${colors.surface1};
+          @define-color surface0  ${colors.surface0};
+          @define-color base      ${colors.base};
+          @define-color mantle    ${colors.mantle};
+          @define-color crust     ${colors.crust};
+           
 
-        /* === Module Containers === */
+          /* === Waybar Root === */
 
-        .modules-center,
-        .modules-right,
-        #window,
-        #workspaces,
-        #cava {
-          background: @base;
-          padding: 0px 10px;
-          margin-top: 10px;
-          margin-left: 15px;
-          margin-right: 15px;
-          border-radius: 7px;
-          border: 1px solid @overlay2;
-        }
-
-        .modules-right {
-          padding: 10px 15px;
-        }
-
-        #workspaces {
-          margin-right: 10px;
-          padding-right: 15px;
-        }
-
-        #cava {
-          margin-left: 0;
-          color: @pink;
-        }
-
-
-        /* === Widgets === */
-
-        #clock {
-          padding: 0px 10px;
-          color: @yellow;
-        }
-
-        #workspaces button {
-          padding: 7px;
-          color: @text;
-        }
-
-        #workspaces button:not(.active):not(.urgent):hover {
-          color: @subtext0;
-          background: none;
-          transition-duration: 0.1s;
-        }
-
-        #workspaces button.active:hover, #workspaces button.urgent:hover {
-          background: none;
-        }
-
-        #workspaces button.urgent {
-          color: @red;
-        }
-
-        #network {
-          color: @flamingo;
-          /* padding: 0px 10px; */
-        }
-
-        #pulseaudio {
-          color: @red;
-        }
-
-        #cpu {
-          color: @blue;
-        }
-
-        #memory {
-          color: @green;
-        }
-
-        #bluetooth {
-          color: @sapphire;
-        }
-
-        #custom-power {
-          color: @red;
-        }
-
-        #idle_inhibitor {
-          color: @sky;
-          padding-right: 12px;
-        }
+          window#waybar {
+            background: none;
+            color: @text;
+            font-family: "JetBrainsMono Nerd Font";
+            font-size: 14px;
+          }
 
 
-        /* === Universal Padding for Right Modules === */
+          /* === Module Containers === */
 
-        #network,
-        #pulseaudio,
-        #cpu,
-        #memory,
-        #bluetooth,
-        #idle_inhibitor,
-        #custom-power,
-        #tray,
-        #language {
-          padding: 0 7px;
-        }
+          .modules-center,
+          .modules-right,
+          #window,
+          #workspaces,
+          #cava {
+            background: @base;
+            padding: 0px 10px;
+            margin-top: 10px;
+            margin-left: 15px;
+            margin-right: 15px;
+            border-radius: 7px;
+            border: 1px solid @overlay2;
+          }
+
+          .modules-right {
+            padding: 10px 15px;
+          }
+
+          #workspaces {
+            margin-right: 10px;
+            padding-right: 15px;
+          }
+
+          #cava {
+            margin-left: 0;
+            color: @pink;
+          }
 
 
-        /* === Tooltip === */
+          /* === Widgets === */
 
-        tooltip {
-          background: #1e1e2e;
-          border-radius: 8px;
-        }
+          #clock {
+            padding: 0px 10px;
+            color: @yellow;
+          }
 
-        tooltip label {
-          color: #cad3f5;
-          margin-right: 5px;
-          margin-left: 5px;
-        }
-      '';
+          #workspaces button {
+            padding: 7px;
+            color: @text;
+          }
+
+          #workspaces button:not(.active):not(.urgent):hover {
+            color: @subtext0;
+            background: none;
+            transition-duration: 0.1s;
+          }
+
+          #workspaces button.active:hover, #workspaces button.urgent:hover {
+            background: none;
+          }
+
+          #workspaces button.urgent {
+            color: @red;
+          }
+
+          #network {
+            color: @flamingo;
+            /* padding: 0px 10px; */
+          }
+
+          #pulseaudio {
+            color: @red;
+          }
+
+          #cpu {
+            color: @blue;
+          }
+
+          #memory {
+            color: @green;
+          }
+
+          #bluetooth {
+            color: @sapphire;
+          }
+
+          #custom-power {
+            color: @red;
+          }
+
+          #idle_inhibitor {
+            color: @sky;
+            padding-right: 12px;
+          }
+
+
+          /* === Universal Padding for Right Modules === */
+
+          #network,
+          #pulseaudio,
+          #cpu,
+          #memory,
+          #bluetooth,
+          #idle_inhibitor,
+          #custom-power,
+          #tray,
+          #language {
+            padding: 0 7px;
+          }
+
+
+          /* === Tooltip === */
+
+          tooltip {
+            background: #1e1e2e;
+            border-radius: 8px;
+          }
+
+          tooltip label {
+            color: #cad3f5;
+            margin-right: 5px;
+            margin-left: 5px;
+          }
+        '';
     };
     programs.cava = {
       enable = true;
