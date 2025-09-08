@@ -148,7 +148,7 @@ return {
 		opts = {},
 	},
 	{
-		"andweeb/presence.nvim",
-		opts = {},
+		"IogaMaster/neocord",
+		event = "VeryLazy",
 	},
 }

@@ -6,7 +6,7 @@
 
       background = [
         {
-          path = "${./bg.jpg}";
+          path = "${config.myHyprland.wallpaper}";
           blur_passes = 2;
           contrast = 1;
           brightness = 0.5;

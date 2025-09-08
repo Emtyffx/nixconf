@@ -10,7 +10,7 @@
     ../home/programs/terminal/kitty
     # ../home/neovim
     # ../home/sway.nix
-    ../home/desktop/waybar
+    # ../home/desktop/waybar
     ../home/programs/cli/tmux
     ../home/programs/terminal/wezterm
     ../home/programs/cli/ranger
@@ -21,6 +21,7 @@
     ../home/desktop/gnome
     ../home/desktop/ags
     ../home/programs/editors/nvim
+    ../home/programs/cli/calendars/khal
     inputs.nix-flatpak.homeManagerModules.nix-flatpak
   ];
   # Home Manager needs a bit of information about you and the paths it should
