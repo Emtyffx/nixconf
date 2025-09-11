@@ -1,5 +1,5 @@
 let
-  theme = import ./themes/everforest.nix;
+  theme = import ./themes/gruvbox.nix;
 in
 {
   imports = [
@@ -18,4 +18,6 @@ in
   myWaybar.colors = theme.colors;
   myHyprland.enable = true;
   myHyprland.wallpaper = theme.wallpaper;
+  myKittyTheme.enable = true;
+  myKittyTheme.themePath = theme.kittyTheme;
 }

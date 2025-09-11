@@ -33,13 +33,14 @@
           position = "top";
           output = [
             "!grimblastVD"
-            "*"
+            "DP-4"
           ];
           height = 29;
 
           "modules-left" = [
             "hyprland/workspaces"
             "cava"
+            "hyprland/submap"
           ];
           "modules-center" = [
             "idle_inhibitor"
@@ -74,7 +75,7 @@
           };
 
           "hyprland/window" = {
-            format = "    {initialTitle}";
+            format = "{initialTitle}";
           };
 
           clock = {
@@ -107,7 +108,7 @@
             "format-linked" = "󱘖 {ifname} (No IP)";
             "format-disconnected" = "󰤮 Off";
             "format-alt" = "󰤨 {signalStrength}%";
-            "tooltip-format" = "󱘖  {ipaddr}     {bandwidthUpBytes}     {bandwidthDownBytes}";
+            "tooltip-format" = "󱘖 {ipaddr}    {bandwidthUpBytes}     {bandwidthDownBytes}";
           };
 
           pulseaudio = {
@@ -126,13 +127,13 @@
                 ""
               ];
             };
-            "format-bluetooth" = "  {volume}% via ";
+            "format-bluetooth" = " {volume}% via ";
             "on-click" = "pavucontrol -t 3";
           };
 
           cpu = {
             interval = 1;
-            format = "  {icon0}{icon1}{icon2}{icon3}{icon4}{icon5}{icon6}{icon7}{icon8}{icon9} {usage:>2}%";
+            format = " {icon0}{icon1}{icon2}{icon3}{icon4}{icon5}{icon6}{icon7}{icon8}{icon9} {usage:>2}%";
             "format-icons" = [
               "▁"
               "▂"
@@ -203,6 +204,11 @@
             format = "{short} {variant}";
             "on-click" = "${./scripts/keyboardswitch.sh}";
           };
+          "hyprland/submap" = {
+            format = "{}";
+            "default-submap" = "default";
+            tooltip = false;
+          };
         }
       ];
       style =
@@ -241,6 +247,7 @@
           @define-color base      ${colors.base};
           @define-color mantle    ${colors.mantle};
           @define-color crust     ${colors.crust};
+          @define-color border    ${colors.border};
            
 
           /* === Waybar Root === */
@@ -248,7 +255,7 @@
           window#waybar {
             background: none;
             color: @text;
-            font-family: "JetBrainsMono Nerd Font";
+            font-family: "JetBrainsMono NFP";
             font-size: 14px;
           }
 
@@ -259,28 +266,24 @@
           .modules-right,
           #window,
           #workspaces,
-          #cava {
+          #cava,
+          #submap {
             background: @base;
             padding: 0px 10px;
             margin-top: 10px;
             margin-left: 15px;
             margin-right: 15px;
             border-radius: 7px;
-            border: 1px solid @overlay2;
-          }
-
-          .modules-right {
-            padding: 10px 15px;
-          }
-
-          #workspaces {
-            margin-right: 10px;
-            padding-right: 15px;
+            border: 2px solid @border;
           }
 
           #cava {
             margin-left: 0;
             color: @pink;
+          }
+
+          #submap {
+            margin-left: 0;
           }
 
 
@@ -307,11 +310,11 @@
           }
 
           #workspaces button.urgent {
-            color: @red;
+            color: @peach;
           }
 
           #network {
-            color: @flamingo;
+            color: @peach;
             /* padding: 0px 10px; */
           }
 
@@ -348,10 +351,12 @@
           #cpu,
           #memory,
           #bluetooth,
-          #idle_inhibitor,
           #custom-power,
           #tray,
           #language {
+            padding: 0 10px;
+          }
+          #idle_inhibitor {
             padding: 0 7px;
           }
 
@@ -366,7 +371,7 @@
           tooltip label {
             color: #cad3f5;
             margin-right: 5px;
-            margin-left: 5px;
+           margin-left: 5px;
           }
         '';
     };

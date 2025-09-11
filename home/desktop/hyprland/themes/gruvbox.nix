@@ -1,5 +1,5 @@
 {
-  colors = {
+  colors = rec {
     # === Gruvbox Colors ===
 
     # Warm colors
@@ -31,7 +31,9 @@
     base = "#282828";
     mantle = "#1D2021";
     crust = "#1D2021";
-
+    border = sky;
+    main_color = sky;
   };
-  wallpaper = ./wallpapers/gruvbox.jpg;
+  wallpaper = ./wallpapers/gruvbox.png;
+  kittyTheme = ./kitty-themes/gruvbox-dark.conf;
 }

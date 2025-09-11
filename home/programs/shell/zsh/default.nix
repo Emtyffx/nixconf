@@ -130,6 +130,9 @@ in
 
           cd "$target" || return 1
       }
+
+      clear
+      fastfetch
     '';
     shellAliases = {
       dots = "cd ~/nixconf";
@@ -143,6 +146,7 @@ in
       fzf
       fd
       tree
+      fastfetch
     ]
   );
 }

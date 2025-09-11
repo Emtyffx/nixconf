@@ -4,6 +4,17 @@
   lib,
   ...
 }:
+let
+  convertColor =
+    colorString:
+    let
+      # Use builtins.substring to remove the leading '#' from the string.
+      rgbPart = builtins.substring 1 (builtins.stringLength colorString - 1) colorString;
+    in
+    # Concatenate the '0xff' prefix with the extracted RGB part.
+    "0xff${rgbPart}";
+
+in
 {
   options.myHyprland = {
     enable = lib.mkEnableOption "Enable custom hyprland config";
@@ -32,7 +43,8 @@
         "$browser" = "org.chromium.Chromium";
 
         monitor = [
-          ",preferred,auto,1.25"
+          "DP-4,preferred,0x0,1.25"
+          "DP-5,preferred,-3072x0,1.25"
         ];
         env = [
           "XCURSOR_SIZE,24"
@@ -41,12 +53,16 @@
         general = {
           gaps_in = 5;
           gaps_out = 20;
-          border_size = 0;
-          "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
-          "col.inactive_border" = "rgba(595959aa)";
+          border_size = 2;
+          "col.active_border" = convertColor config.myWaybar.colors.main_color;
+          "col.inactive_border" = convertColor config.myWaybar.colors.mantle;
           resize_on_border = false;
           allow_tearing = true;
           layout = "dwindle";
+        };
+        dwindle = {
+          pseudotile = true;
+          preserve_split = true;
         };
         exec-once = [
           "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"
@@ -61,8 +77,9 @@
         decoration = {
           rounding = 10;
           rounding_power = 2;
-          active_opacity = 1.0;
-          inactive_opacity = 1.0;
+          active_opacity = 1;
+          inactive_opacity = 0.9;
+          fullscreen_opacity = 1.0;
           shadow = {
             enabled = "true";
             range = 4;
@@ -71,9 +88,13 @@
           };
           blur = {
             enabled = "true";
-            size = 3;
-            passes = 1;
+            size = 2;
+            passes = 2;
             vibrancy = 0.1696;
+            ignore_opacity = true;
+            new_optimizations = true;
+            special = true;
+            popups = true;
 
           };
         };
@@ -168,6 +189,10 @@
         ++ [
           "$mod, mouse_down, workspace, e+1"
           "$mod, mouse_up, workspace, e-1"
+        ]
+        # submaps
+        ++ [
+          "ALT, R, submap, resize"
         ];
         bindm = [
           "$mod, mouse:272, movewindow"
@@ -194,8 +219,32 @@
           "noblur, class:^(xwaylandvideobridge)$"
           "nofocus, class:^(xwaylandvideobridge)$"
         ];
+        windowrulev2 = [
+          "bordersize 2, floating:1"
+          "noblur, class:zoom"
+        ];
         xwayland = {
           force_zero_scaling = "true";
+        };
+        workspace = [
+          "w[tv1], bordersize:0"
+        ];
+
+        # submaps
+      };
+      submaps = {
+        resize = {
+          settings = {
+            binde = [
+              ", right, resizeactive, 10 0"
+              ", left, resizeactive, -10 0"
+              ", up, resizeactive, 0 -10"
+              ", down, resizeactive, 0 10"
+            ];
+            bind = [
+              ", escape, submap, reset"
+            ];
+          };
         };
       };
     };

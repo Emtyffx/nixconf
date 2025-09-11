@@ -1,5 +1,5 @@
 {
-  colors = {
+  colors = rec {
     # Warm colors
     flamingo = "#bf616a";
     peach = "#d08770";
@@ -29,6 +29,9 @@
     base = "#2e3440";
     mantle = "#3b4252";
     crust = "#4c566a";
+    border = sky;
+    main_color = sky;
   };
-  wallpaper = ./wallpapers/nord.jpg;
+  wallpaper = ./wallpapers/nord.png;
+  kittyTheme = ./kitty-themes/Nord.conf;
 }

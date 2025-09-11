@@ -1,5 +1,5 @@
 {
-  colors = {
+  colors = rec {
     # === Color Definitions ===
 
     # Warm colors
@@ -31,7 +31,10 @@
     base = "#272e33";
     mantle = "#22282c";
     crust = "#1e2326";
+    border = teal;
+    main_color = teal;
 
   };
   wallpaper = ./wallpapers/everforest.jpg;
+  kittyTheme = ./kitty-themes/everforest_dark_medium.conf;
 }
