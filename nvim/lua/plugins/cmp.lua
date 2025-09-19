@@ -13,22 +13,6 @@ return {
 	{
 		"hrsh7th/nvim-cmp",
 		event = "InsertEnter",
-		keys = {
-			{
-				"<tab>",
-				function()
-					require("luasnip").jump(1)
-				end,
-				mode = { "s", "i" },
-			},
-			{
-				"<s-tab>",
-				function()
-					require("luasnip").jump(-1)
-				end,
-				mode = { "i", "s" },
-			},
-		},
 		dependencies = {
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-buffer",
@@ -65,6 +49,7 @@ return {
 		},
 		config = function()
 			local cmp = require("cmp")
+			local luasnip = require("luasnip")
 			cmp.setup({
 				snippet = {
 					-- REQUIRED - you must specify a snippet engine
@@ -93,19 +78,25 @@ return {
 					["<C-e>"] = cmp.mapping.abort(),
 					["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
 					["<Tab>"] = cmp.mapping(function(fallback)
+						-- Check if a completion menu is visible
 						if cmp.visible() then
+							-- If so, select the next item
 							cmp.select_next_item()
-						elseif require("luasnip").expand_or_jumpable() then
-							require("luasnip").expand_or_jump()
+						-- Otherwise, check if a snippet can be expanded or jumped into
+						elseif luasnip.expand_or_jumpable() then
+							-- If a snippet is active, jump to the next placeholder
+							luasnip.expand_or_jump()
 						else
+							-- If none of the above, fall back to the default <Tab> behavior (insert a tab character)
 							fallback()
 						end
 					end, { "i", "s" }),
+					-- Map <S-Tab> (Shift + Tab) for backwards jumps
 					["<S-Tab>"] = cmp.mapping(function(fallback)
 						if cmp.visible() then
 							cmp.select_prev_item()
-						elseif require("luasnip").jumpable(-1) then
-							require("luasnip").jump(-1)
+						elseif luasnip.jumpable(-1) then
+							luasnip.jump(-1)
 						else
 							fallback()
 						end
