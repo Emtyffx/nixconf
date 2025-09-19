@@ -15,6 +15,8 @@ return {
 			servers.vuels = {}
 			servers.svelte = {}
 			servers.neocmake = {}
+			servers.emmet_ls = {}
+			servers.tailwindcss = {}
 			-- the rust-analyzer is enabled via the rustaceanvim plugin
 			for name, opts in pairs(servers) do
 				vim.lsp.enable(name)
@@ -25,6 +27,9 @@ return {
 			-- Execute a code action, usually your cursor needs to be on top of an error
 			-- or a suggestion from your LSP for this to activate.
 			vim.keymap.set({ "n", "x" }, "gra", vim.lsp.buf.code_action, { desc = "[G]oto Code [A]ction" })
+
+			-- another keymap for code action(faster)
+			vim.keymap.set({ "n", "x" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "[C]ode [A]ction" })
 
 			-- Find references for the word under your cursor.
 			vim.keymap.set("n", "grr", require("telescope.builtin").lsp_references, { desc = "[G]oto [R]eferences" })

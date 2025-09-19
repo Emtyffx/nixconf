@@ -24,6 +24,7 @@
   };
   home-manager.extraSpecialArgs = { inherit self inputs; };
   home-manager.useGlobalPkgs = true;
+  home-manager.useUserPackages = true;
   home-manager.users = {
     paul = {
       imports = [

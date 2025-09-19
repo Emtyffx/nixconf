@@ -2,6 +2,7 @@
   config,
   pkgs,
   lib,
+  inputs,
   ...
 }:
 let
@@ -32,9 +33,12 @@ in
       ]
     );
     wayland.windowManager.hyprland = {
+      plugins = [
+        inputs.split-monitor-workspaces.packages.${pkgs.system}.split-monitor-workspaces
+      ];
       enable = true;
+      package = inputs.hyprland.packages.${pkgs.system}.hyprland;
       portalPackage = null;
-      package = null;
       settings = {
         "$mod" = "SUPER";
         "$terminal" = "kitty";
@@ -171,14 +175,14 @@ in
               ws = i + 1;
             in
             [
-              "$mod, code:1${toString i}, workspace, ${toString ws}"
-              "$mod SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
+              "$mod, code:1${toString i}, split-workspace, ${toString ws}"
+              "$mod SHIFT, code:1${toString i}, split-movetoworkspacesilent, ${toString ws}"
             ]
           ) 9
         )
         ++ [
-          "$mod, 0, workspace, 10"
-          "$mod SHIFT, 0, movetoworkspace, 10"
+          "$mod, 0, split-workspace, 10"
+          "$mod SHIFT, 0, split-movetoworkspacesilent, 10"
         ]
         # scratchpad
         ++ [
@@ -228,8 +232,17 @@ in
         };
         workspace = [
           "w[tv1], bordersize:0"
+
         ];
 
+        plugin = {
+          split-monitor-workspaces = {
+            count = 10;
+            keep_focused = 0;
+            enable_notifications = 0;
+            enable_persistent_workspaces = 1;
+          };
+        };
         # submaps
       };
       submaps = {

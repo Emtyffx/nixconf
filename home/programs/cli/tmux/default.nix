@@ -3,7 +3,6 @@
   programs.tmux = {
     enable = true;
     terminal = "xterm-256color";
-    # enable tmuxinator for tmux session management
     tmuxinator.enable = true;
     shell = "${pkgs.zsh}/bin/zsh";
     historyLimit = 100000;
@@ -16,9 +15,9 @@
     ];
     extraConfig = ''
       # Make split keys better
-      unbind % 
+      unbind %
       unbind '"'
-      bind '\' split-window -h -c '#{pane_current_path}'           
+      bind '\' split-window -h -c '#{pane_current_path}'
       bind '-' split-window -v -c '#{pane_current_path}'
 
       # Quickly move through panes with ALT+Arrow Key
@@ -28,7 +27,7 @@
       bind -n M-Down select-pane -D
 
       # Shift arrow to switch windows
-      bind -n S-Left  previous-window
+      bind -n S-Left previous-window
       bind -n S-Right next-window
 
       # r to reload config
@@ -47,11 +46,9 @@
       bind -r h select-pane -L
 
       # configure creating new window
-
       bind -r o neww -c "#{pane_current_path}"
 
       # configure closing all panes
-
       bind -r e kill-pane -a
 
       # Automatically set the window title
@@ -78,33 +75,31 @@
       setw -g monitor-activity off
       set -g bell-action none
 
-      # Status Bar
-      set -g status-left '#[fg=#1F1F28,bg=#DCA561,bold]  #{session_windows} #[bg=#1F1F28,fg=#DCA561,bold] '
-      set -g status-right '#[fg=#1F1F28,bold] [#S]#[fg=#C8C093,bold] %d/%m #[fg=#1F1F28,bg=#2A2A37,bold]#[fg=#C8C093,bg=#2A2A37,bold]  %I:%M %p '
-      set -g status-style fg='#C8C093',bg='#1F1F28'
+      # Status Bar (Gruvbox colors)
+      set -g status-left '#[fg=#282828,bg=#d79921,bold]  #{session_windows} #[bg=#282828,fg=#d79921,bold] '
+      set -g status-right '#[fg=#282828,bold] [#S]#[fg=#ebdbb2,bold] %d/%m #[fg=#282828,bg=#3c3836,bold]#[fg=#ebdbb2,bg=#3c3836,bold] %I:%M %p '
+      set -g status-style fg='#ebdbb2',bg='#282828'
       set-option -g status-position top
 
-      set -g window-status-current-style fg='#E6C384',bg='#1F1F28',bold
+      set -g window-status-current-style fg='#fabd2f',bg='#282828',bold
       setw -g window-status-current-format '  #W '
 
-      set -g window-status-style fg='#C8C093',bg='#49443C'
-      setw -g window-status-format '#[fg=#717C7C,bg=#1F1F28,bold]  #W '
-
+      set -g window-status-style fg='#ebdbb2',bg='#504945'
+      setw -g window-status-format '#[fg=#928374,bg=#282828,bold]  #W '
       setw -g window-status-separator '''
 
-      set -g pane-border-style fg='#1F1F28'
-      set -g pane-active-border-style fg='#C8C093'
+      set -g pane-border-style fg='#282828'
+      set -g pane-active-border-style fg='#ebdbb2'
 
-      set -g message-style fg='#C8C093',bg='#1F1F28'
+      set -g message-style fg='#ebdbb2',bg='#282828'
 
-      set -g display-panes-active-colour '#C8C093'
-      set -g display-panes-colour '#C8C093'
+      set -g display-panes-active-colour '#ebdbb2'
+      set -g display-panes-colour '#ebdbb2'
 
-      set -g clock-mode-colour '#C8C093'
+      set -g clock-mode-colour '#ebdbb2'
+      set -g mode-style fg='#282828',bg='#665c54'
 
-      set -g mode-style fg='#1F1F28',bg='#3D4042'
       TMUX_FZF_LAUNCH_KEY="C-f";
-
     '';
   };
 }

@@ -12,6 +12,11 @@
     # neovim-config.url = "github:Emtyffx/neovim";
     ags.url = "github:aylur/ags";
     astal.url = "github:aylur/astal";
+    hyprland.url = "github:hyprwm/Hyprland";
+    split-monitor-workspaces = {
+      url = "github:Duckonaut/split-monitor-workspaces";
+      inputs.hyprland.follows = "hyprland";
+    };
   };
 
   outputs =

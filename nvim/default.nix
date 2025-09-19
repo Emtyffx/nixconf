@@ -47,6 +47,8 @@ let
     # debuggers
     delve
     vscode-extensions.vadimcn.vscode-lldb.adapter
+    emmet-ls
+    tailwindcss-language-server
   ];
   linuxOnlyReqs =
     if pkgs.stdenv.isDarwin then
