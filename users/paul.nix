@@ -63,6 +63,7 @@
     nerd-fonts.hack
     nerd-fonts.jetbrains-mono
     nerd-fonts.fira-code
+    corefonts
     adwaita-fonts
     obs-studio
     # jetbrains.clion
@@ -87,6 +88,7 @@
     "org.telegram.desktop"
     "com.viber.Viber"
     "com.spotify.Client"
+    "app.zen_browser.zen"
     # replaced with vesktop
     # "com.discordapp.Discord"
   ];
@@ -115,6 +117,24 @@
     XDG_DATA_DIRS = "$XDG_DATA_DIRS:/usr/share:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share";
     SHELL = "zsh";
   };
+
+  xdg.mimeApps = {
+    enable = true;
+
+    defaultApplications =
+      let
+        default_browser = "app.zen_browser.zen.desktop";
+      in
+      {
+        "default-web-browser" = [ default_browser ];
+        "text/html" = [ default_browser ];
+        "x-scheme-handler/http" = [ default_browser ];
+        "x-scheme-handler/https" = [ default_browser ];
+        "x-scheme-handler/about" = [ default_browser ];
+        "x-scheme-handler/unknown" = [ default_browser ];
+      };
+  };
+
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. These will be explicitly sourced when using a
   # shell provided by Home Manager. If you don't want to manage your shell

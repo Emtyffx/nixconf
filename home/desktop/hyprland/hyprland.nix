@@ -44,7 +44,7 @@ in
         "$terminal" = "kitty";
         "$fileManager" = "nautilus";
         "$menu" = "wofi --show drun";
-        "$browser" = "org.chromium.Chromium";
+        "$browser" = "app.zen_browser.zen";
 
         monitor = [
           "DP-4,preferred,0x0,1.25"
