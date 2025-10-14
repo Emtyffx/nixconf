@@ -43,7 +43,7 @@ return {
 		opts = {},
 		config = function(_, opts)
 			require("neo-tree").setup(opts)
-			vim.keymap.set("n", "<leader>e", "<cmd>Neotree toggle<cr>", { desc = "Toggle neotree" })
+			vim.keymap.set("n", "<leader>e", "<cmd>Neotree toggle right<cr>", { desc = "Toggle neotree" })
 		end,
 	},
 	{

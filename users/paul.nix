@@ -116,6 +116,7 @@
     GTK_THEME = "adw-gtk3-dark";
     XDG_DATA_DIRS = "$XDG_DATA_DIRS:/usr/share:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share";
     SHELL = "zsh";
+    # LD_LIBRARY_PATH = "${pkgs.stdenv.cc.cc.lib}/lib";
   };
 
   xdg.mimeApps = {
