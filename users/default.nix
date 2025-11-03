@@ -16,6 +16,8 @@
       "video"
       "libvirtd"
       "docker"
+      "tty"
+      "dialout"
     ];
     packages = with pkgs; [
       #  thunderbird

@@ -31,6 +31,7 @@
       devices = [ "nodev" ];
       enable = true;
       useOSProber = true;
+      gfxmodeEfi = "1280x720";
     };
   };
 
@@ -123,6 +124,8 @@
     enable = true;
     extraPortals = [
       pkgs.xdg-desktop-portal-gtk
+      pkgs.kdePackages.xdg-desktop-portal-kde
+      # pkgs.xdg-desktop-portal-hyprland
     ];
   };
   # }; # enable git
@@ -206,6 +209,8 @@
     extraGroups = [
       "networkmanager"
       "wheel"
+      "tty"
+      "dialout"
     ];
     packages = with pkgs; [
       #  thunderbird
@@ -237,7 +242,7 @@
     shared-mime-info
     desktop-file-utils
     # thorium
-    kdePackages.xwaylandvideobridge
+    # (kdePackages.callPackage ../../custom-pkgs/xwaylandvideobridge.nix { })
     librewolf
     wl-clipboard
     gnome-boxes
