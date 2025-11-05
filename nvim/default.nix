@@ -49,6 +49,7 @@ let
     vscode-extensions.vadimcn.vscode-lldb.adapter
     emmet-ls
     tailwindcss-language-server
+    platformio
   ];
   linuxOnlyReqs =
     if pkgs.stdenv.isDarwin then
