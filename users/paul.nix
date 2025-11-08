@@ -2,6 +2,7 @@
   config,
   pkgs,
   inputs,
+  lib,
   ...
 }:
 
@@ -65,7 +66,7 @@
     nerd-fonts.fira-code
     corefonts
     adwaita-fonts
-    obs-studio
+    # obs-studio
     # jetbrains.clion
     viber
     adw-gtk3
@@ -89,6 +90,7 @@
     "com.viber.Viber"
     "com.spotify.Client"
     "app.zen_browser.zen"
+    "com.obsproject.Studio"
     # replaced with vesktop
     # "com.discordapp.Discord"
   ];
@@ -132,9 +134,9 @@
         "x-scheme-handler/http" = [ default_browser ];
         "x-scheme-handler/https" = [ default_browser ];
         "x-scheme-handler/about" = [ default_browser ];
-        "x-scheme-handler/unknown" = [ default_browser ];
       };
   };
+  xdg.configFile."mimeapps.list" = lib.mkIf config.xdg.mimeApps.enable { force = true; };
 
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. These will be explicitly sourced when using a

@@ -33,8 +33,8 @@
           position = "top";
           output = [
             "!grimblastVD"
-            "DP-4"
-            "DP-5"
+            "DP-1"
+            "DP-2"
           ];
           height = 29;
 
@@ -66,8 +66,8 @@
             };
             "all-outputs" = false;
             "persistent-workspaces" = {
-              "DP-4" = builtins.genList (i: i + 1) 5;
-              "DP-5" = builtins.genList (i: i + 11) 5;
+              "DP-1" = builtins.genList (i: i + 1) 5;
+              "DP-2" = builtins.genList (i: i + 11) 5;
             };
           };
 
