@@ -186,8 +186,8 @@ in
         ]
         # scratchpad
         ++ [
-          "$mod, -, togglespecialworkspace, magic"
-          "$mod SHIFT, -, movetoworkspace, special:magic"
+          "$mod, minus, togglespecialworkspace, magic"
+          "$mod SHIFT, minus, movetoworkspace, special:magic"
         ]
         # scrolling
         ++ [
