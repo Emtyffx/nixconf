@@ -103,13 +103,12 @@ return {
 			end
 			return vim.g.platformioRootDir ~= nil
 		end,
-		config = function()
-			local pio, platformio = pcall(require, "platformio")
 
-			if pio then
+		config = function()
+			local pok, platformio = pcall(require, "platformio")
+			if pok then
 				platformio.setup({
-					lsp = "ccls",
-					menu_name = "PlatformIO",
+					lsp = "clangd",
 				})
 			end
 		end,

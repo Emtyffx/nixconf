@@ -8,15 +8,24 @@ return {
 			servers.nixd = {}
 			servers.gopls = {}
 			servers.vtsls = {}
-			servers.clangd = {}
-			servers.pyright = {}
 			servers.cssls = {}
 			servers.html = {}
 			servers.vuels = {}
 			servers.svelte = {}
 			servers.neocmake = {}
+			servers.pyright = {}
 			servers.emmet_ls = {}
 			servers.tailwindcss = {}
+			-- servers.ccls = {}
+			servers.clangd = {
+
+				mason = false,
+				cmd = {
+					"clangd",
+					"--background-index",
+					"--query-driver=/home/paul/.platformio/packages/toolchain-xtensa-esp32s3/bin/xtensa-esp32s3-elf-gcc*",
+				},
+			}
 			-- the rust-analyzer is enabled via the rustaceanvim plugin
 			for name, opts in pairs(servers) do
 				vim.lsp.enable(name)

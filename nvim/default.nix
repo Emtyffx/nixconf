@@ -50,6 +50,7 @@ let
     emmet-ls
     tailwindcss-language-server
     platformio
+    # ccls
   ];
   linuxOnlyReqs =
     if pkgs.stdenv.isDarwin then
