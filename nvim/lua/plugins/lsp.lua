@@ -23,9 +23,10 @@ return {
 				cmd = {
 					"clangd",
 					"--background-index",
-					"--query-driver=/home/paul/.platformio/packages/toolchain-xtensa-esp32s3/bin/xtensa-esp32s3-elf-gcc*",
 				},
 			}
+
+			servers.arduino_language_server = {}
 			-- the rust-analyzer is enabled via the rustaceanvim plugin
 			for name, opts in pairs(servers) do
 				vim.lsp.enable(name)

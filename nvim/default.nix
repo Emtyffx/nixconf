@@ -1,6 +1,7 @@
 { pkgs, ... }:
 let
   reqs = with pkgs; [
+    arduino-language-server
     git
     gcc
     gnumake

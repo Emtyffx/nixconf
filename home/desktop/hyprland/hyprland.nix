@@ -47,8 +47,8 @@ in
         "$browser" = "app.zen_browser.zen";
 
         monitor = [
-          "DP-1,preferred,0x0,1.25"
-          "DP-2,preferred,-3072x0,1.25"
+          "DP-4,preferred,0x0,1.25"
+          "DP-5,preferred,-3072x0,1.25"
         ];
         env = [
           "XCURSOR_SIZE,24"
