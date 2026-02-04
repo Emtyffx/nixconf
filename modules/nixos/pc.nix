@@ -3,6 +3,9 @@ let
   meta = config.flake.meta;
   homeConfigurations = config.flake.homeConfigurations;
   inherit (config.flake.modules.nixos) base;
+  inherit (config.flake.modules.nixos) hyprland;
+  inherit (config.flake.modules.nixos) nvidia;
+  inherit (config.flake.modules.nixos) printer;
 in
 {
   flake.modules.nixos.pc =
@@ -13,7 +16,12 @@ in
       ...
     }:
     {
-      imports = [ base ];
+      imports = [
+        base
+        hyprland
+        nvidia
+        printer
+      ];
 
       users.users.${meta.owner.username} = {
         isNormalUser = true;
@@ -69,12 +77,17 @@ in
         bibata-cursors
         wl-clipboard
         xfce.thunar
-
+        glib
+        gtk2
+        gtk3
+        gtk4
+        gsettings-desktop-schemas
+        adwaita-icon-theme
       ];
 
       home-manager = {
         useGlobalPkgs = true;
-        # useUserPackages = true;
+        useUserPackages = true;
 
         users.${meta.owner.username} = {
           imports = [
@@ -91,5 +104,11 @@ in
       };
 
       programs.dconf.enable = true;
+
+      services.displayManager.sddm = {
+        enable = true;
+        wayland.enable = true;
+      };
+
     };
 }

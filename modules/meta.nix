@@ -18,7 +18,7 @@
       fileManager = "nautilus";
 
       terminal = "kitty";
-      browser = "helium-browser";
+      browser = "firefox";
 
       timezone = "Europe/Kyiv";
       locale = "en_US.UTF-8";

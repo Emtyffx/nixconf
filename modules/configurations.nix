@@ -44,7 +44,10 @@
       { system, modules }:
       inputs.nixpkgs.lib.nixosSystem {
         inherit system;
-        specialArgs = { inherit inputs; };
+        specialArgs = {
+          inherit inputs;
+          hostName = name;
+        };
         modules = modules ++ [
           inputs.disko.nixosModules.disko
           inputs.home-manager.nixosModules.home-manager

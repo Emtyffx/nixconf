@@ -4,7 +4,12 @@ let
 in
 {
   flake.modules.nixos.base =
-    { pkgs, lib, ... }:
+    {
+      pkgs,
+      lib,
+      hostName,
+      ...
+    }:
     {
       boot.loader = {
         efi.canTouchEfiVariables = true;
@@ -50,6 +55,8 @@ in
       ];
 
       system.stateVersion = lib.mkDefault meta.defaults.stateVersion;
+
+      networking.hostName = hostName;
 
     };
 }

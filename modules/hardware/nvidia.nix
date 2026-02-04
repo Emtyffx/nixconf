@@ -76,9 +76,9 @@
       # ─────────────────────────────────────────────────────────────────────────
       config = {
         # CachyOS kernel for better performance (unless using custom kernel)
-        boot.kernelPackages = lib.mkIf config.nvidia.useCustomKernel (
-          lib.mkDefault pkgs.linuxPackages_cachyos-lto
-        );
+        # boot.kernelPackages = lib.mkIf config.nvidia.useCustomKernel (
+        #   lib.mkDefault pkgs.linuxPackages_cachyos-lto
+        # );
 
         # Preserve VRAM during suspend
         boot.kernelParams = [ "nvidia.NVreg_PreserveVideoMemoryAllocations=1" ];

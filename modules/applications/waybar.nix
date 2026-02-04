@@ -3,6 +3,12 @@
   flake.homeModules.waybar =
     { lib, pkgs, ... }:
     {
+
+      # requirements
+      home.packages = with pkgs; [
+        blueman
+        jq
+      ];
       programs.waybar = {
         enable = true;
         settings = [
@@ -12,6 +18,7 @@
               "!grimblastVD"
               "DP-1"
               "DP-2"
+              "eDP-1"
             ];
             height = 29;
             modules-left = [

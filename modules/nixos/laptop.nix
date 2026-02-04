@@ -13,8 +13,6 @@
         enable = true;
         cpuFreqGovernor = lib.mkDefault "powersave";
       };
-      # required for hibernation
-      # boot.resumeDevice = "/dev/mapper/crypted";
 
       services.logind = {
         settings.Login = {
@@ -41,5 +39,21 @@
         percentageAction = 3;
         criticalPowerAction = "Hibernate";
       };
+
+      # make device discoverable on local network
+      services.avahi = {
+        enable = true;
+        nssmdns4 = true;
+        publish = {
+          enable = true;
+          addresses = true;
+          domain = true;
+          userServices = true;
+          workstation = true;
+        };
+      };
+
+      # sshd server
+      services.openssh.enable = true;
     };
 }

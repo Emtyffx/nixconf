@@ -33,6 +33,7 @@
         hypridle
         hyprlock
         swww
+        swappy
       ];
     };
 }

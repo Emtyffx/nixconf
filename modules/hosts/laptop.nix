@@ -35,8 +35,11 @@ in
             "sd_mod"
           ];
           boot.initrd.kernelModules = [ ];
-          boot.kernelModules = [ ];
-          boot.extraModulePackages = [ ];
+          boot.kernelModules = [
+            "v4l2loopback"
+            "kvm-intel"
+          ];
+          boot.extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ];
 
           # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
           # (the default) this is the recommended approach. When using systemd-networkd it's
@@ -58,7 +61,7 @@ in
                 refreshRate = 60;
                 x = 0;
                 y = 0;
-                scale = 1.25;
+                scale = 1.0;
                 transform = "normal";
                 vrr = 0;
                 hdr = false;

@@ -5,7 +5,11 @@
     import-tree.url = "github:vic/import-tree";
     home-manager.url = "github:nix-community/home-manager";
     disko.url = "github:nix-community/disko";
-
+    hyprland.url = "github:hyprwm/Hyprland";
+    split-monitor-workspaces = {
+      url = "github:Duckonaut/split-monitor-workspaces";
+      inputs.hyprland.follows = "hyprland";
+    };
   };
   outputs =
     inputs:

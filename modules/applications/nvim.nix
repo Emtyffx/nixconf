@@ -32,8 +32,8 @@ in
         lua-language-server
         rust-analyzer
         ruff
-
         nodePackages_latest.nodejs
+        nixd
         deno
         bun
         yarn

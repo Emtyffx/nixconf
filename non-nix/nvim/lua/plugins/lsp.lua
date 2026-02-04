@@ -15,7 +15,7 @@ return {
 			servers.pyright = {}
 			servers.emmet_ls = {}
 			servers.tailwindcss = {}
-			servers.nil_ls = {}
+			servers.nixd = {}
 			-- servers.ccls = {}
 			servers.clangd = {
 
@@ -142,11 +142,11 @@ return {
 		ft = { "c", "cpp", "objc", "objcpp", "cmake" },
 		config = function()
 			require("cmake-tools").setup({
-				cmake_command = "cmake", -- this is used to specify cmake command path
-				ctest_command = "ctest", -- this is used to specify ctest command path
-				cmake_regenerate_on_save = true, -- auto generate when save CMakeLists.txt
+				cmake_command = "cmake",                              -- this is used to specify cmake command path
+				ctest_command = "ctest",                              -- this is used to specify ctest command path
+				cmake_regenerate_on_save = true,                      -- auto generate when save CMakeLists.txt
 				cmake_generate_options = { "-DCMAKE_EXPORT_COMPILE_COMMANDS=1" }, -- this will be passed when invoke `CMakeGenerate`
-				cmake_build_options = {}, -- this will be passed when invoke `CMakeBuild`
+				cmake_build_options = {},                             -- this will be passed when invoke `CMakeBuild`
 				-- support macro expansion:
 				--       ${kit}
 				--       ${kitGenerator}
@@ -154,12 +154,12 @@ return {
 				cmake_build_directory = "out/${variant:buildType}", -- this is used to specify generate directory for cmake, allows macro expansion, relative to vim.loop.cwd()
 				cmake_soft_link_compile_commands = true, -- this will automatically make a soft link from compile commands file to project root dir
 				cmake_compile_commands_from_lsp = false, -- this will automatically set compile commands file location using lsp, to use it, please set `cmake_soft_link_compile_commands` to false
-				cmake_kits_path = nil, -- this is used to specify global cmake kits path, see CMakeKits for detailed usage
+				cmake_kits_path = nil,                  -- this is used to specify global cmake kits path, see CMakeKits for detailed usage
 				cmake_variants_message = {
-					short = { show = true }, -- whether to show short message
+					short = { show = true },            -- whether to show short message
 					long = { show = true, max_length = 40 }, -- whether to show long message
 				},
-				cmake_dap_configuration = { -- debug settings for cmake
+				cmake_dap_configuration = {             -- debug settings for cmake
 					name = "cpp",
 					type = "codelldb",
 					request = "launch",
@@ -167,10 +167,10 @@ return {
 					runInTerminal = true,
 					console = "integratedTerminal",
 				},
-				cmake_executor = { -- executor to use
+				cmake_executor = {     -- executor to use
 					name = "quickfix", -- name of the executor
-					opts = {}, -- the options the executor will get, possible values depend on the executor type. See `default_opts` for possible values.
-					default_opts = { -- a list of default and possible values for executors
+					opts = {},         -- the options the executor will get, possible values depend on the executor type. See `default_opts` for possible values.
+					default_opts = {   -- a list of default and possible values for executors
 						quickfix = {
 							show = "always", -- "always", "only_on_error"
 							position = "belowright", -- "vertical", "horizontal", "leftabove", "aboveleft", "rightbelow", "belowright", "topleft", "botright", use `:h vertical` for example to see help on them
@@ -211,12 +211,12 @@ return {
 							start_insert = false, -- If you want to enter terminal with :startinsert upon using :CMakeRun
 							focus = false, -- Focus on terminal when cmake task is launched.
 							do_not_add_newline = false, -- Do not hit enter on the command inserted when using :CMakeRun, allowing a chance to review or modify the command before hitting enter.
-						}, -- terminal executor uses the values in cmake_terminal
+						},         -- terminal executor uses the values in cmake_terminal
 					},
 				},
 				cmake_runner = { -- runner to use
 					name = "terminal", -- name of the runner
-					opts = {}, -- the options the runner will get, possible values depend on the runner type. See `default_opts` for possible values.
+					opts = {},  -- the options the runner will get, possible values depend on the runner type. See `default_opts` for possible values.
 					default_opts = { -- a list of default and possible values for runners
 						quickfix = {
 							show = "always", -- "always", "only_on_error"
@@ -238,7 +238,7 @@ return {
 									autos_croll = true,
 									quit_on_exit = "success",
 								},
-							}, -- options to pass into the `overseer.new_task` command
+							},           -- options to pass into the `overseer.new_task` command
 							on_new_task = function(task) end, -- a function that gets overseer.Task when it is created, before calling `task:start`
 						},
 						terminal = {
@@ -276,7 +276,8 @@ return {
 			--global vimtex settings
 			vim.g.vimtex_imaps_enabled = 0 --i.e., disable them
 			--vimtex_view_settings
-			vim.g.vimtex_view_method = "general" -- change this, depending on what you want to use..sumatraPDF, or skim, or zathura, or...
+			vim.g.vimtex_view_method =
+			"general"                   -- change this, depending on what you want to use..sumatraPDF, or skim, or zathura, or...
 			-- vim.g.vimtex_view_general_options = "-reuse-instance -forward-search @tex @line @pdf"
 			--quickfix settings
 			vim.g.vimtex_quickfix_open_on_warning = 0 --  don't open quickfix if there are only warnings

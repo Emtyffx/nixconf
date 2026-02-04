@@ -131,6 +131,9 @@ in
         wayland.windowManager.hyprland = {
           enable = true;
           systemd.enable = true;
+          plugins = [
+            inputs.split-monitor-workspaces.packages.${pkgs.system}.split-monitor-workspaces
+          ];
           settings = {
             monitor = map toHyprland config.hyprland.monitors;
 
@@ -200,10 +203,10 @@ in
 
             };
 
-            cursor = {
-              no_hardware_cursor = true;
-
-            };
+            # cursor = {
+            #   no_hardware_cursor = true;
+            #
+            # };
             render = {
               direct_scanout = false;
             };
@@ -223,7 +226,7 @@ in
                 "quick, 0.15, 0, 0.1, 1"
               ];
 
-              animations = [
+              animation = [
                 "global, 1, 10, default"
                 "border, 1, 5.39, easeOutQuint"
                 "windows, 1, 4.79, easeOutQuint"
@@ -240,6 +243,10 @@ in
             dwindle = {
               pseudotile = true;
               preserve_split = true;
+            };
+
+            xwayland = {
+              force_zero_scaling = true;
             };
 
             windowrule = [

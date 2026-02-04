@@ -3,12 +3,12 @@ return {
 		"mfussenegger/nvim-dap",
 		dependencies = {
 			-- "rcarriga/nvim-dap-ui",
-			{
-				"jay-babu/mason-nvim-dap.nvim",
-				opts = {
-					ensure_installed = { "codelldb" },
-				},
-			},
+			-- {
+			-- 	"jay-babu/mason-nvim-dap.nvim",
+			-- 	opts = {
+			-- 		ensure_installed = { "codelldb" },
+			-- 	},
+			-- },
 			{
 				"leoluz/nvim-dap-go",
 				opts = {},

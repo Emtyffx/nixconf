@@ -21,6 +21,7 @@ in
         homeModules.hypridle
         homeModules.waybar
         homeModules.zsh
+        homeModules.development
       ];
       home = {
         username = meta.owner.username;
@@ -28,6 +29,8 @@ in
 
         stateVersion = meta.defaults.stateVersion;
       };
+
+      programs.gh.enable = true;
 
       programs.git = {
         enable = true;
@@ -49,28 +52,68 @@ in
 
       home.packages = with pkgs; [
         wl-clipboard
-        go
-        gnumake
-        cmake
-        bear
+        firefox
+        zoom-us
+        telegram-desktop
+        obs-studio
+        viber
+        discord
+        evince
+        libreoffice
+        obsidian
+        qalculate-gtk
 
-        # llvm.lldb
-        gdb
-
-        clang-tools
-
-        # llvm.libstdcxxClang
-        # llvm.libcxx
-
-        rustc
-        cargo
-
-        yarn
-        pnpm
-        bun
-        nodePackages_latest.nodejs
-
+        gsettings-desktop-schemas
       ];
 
+      home.pointerCursor = {
+        name = "Adwaita";
+        package = pkgs.adwaita-icon-theme;
+        size = 24;
+        gtk.enable = true;
+        x11.enable = true;
+      };
+      # enable themes (gtk, qt)
+      gtk = {
+        enable = true;
+        theme = {
+          name = "Adwaita-dark";
+          package = pkgs.gnome-themes-extra;
+        };
+        cursorTheme = {
+          name = "Adwaita";
+          package = pkgs.adwaita-icon-theme;
+        };
+        gtk3.extraConfig = {
+          gtk-decoration-layout = ":";
+          gtk-application-prefer-dark-theme = 1;
+        };
+        gtk4.extraConfig = {
+          gtk-decoration-layout = ":";
+          gtk-application-prefer-dark-theme = 1;
+        };
+      };
+
+      qt = {
+        enable = true;
+        platformTheme.name = "gtk3";
+        style = {
+          name = "adw-gtk3";
+          package = pkgs.adw-gtk3;
+        };
+      };
+      home.sessionVariables = {
+        QT_QPA_PLATFORMTHEME = "gtk3";
+        QT_QPA_PLATFORM = "wayland;xcb";
+      };
+      dconf = {
+        enable = true;
+        settings = {
+          "org/gnome/desktop/interface" = {
+            color-scheme = "prefer-dark";
+          };
+        };
+      };
     };
+
 }
