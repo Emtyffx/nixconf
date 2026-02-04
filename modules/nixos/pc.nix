@@ -40,6 +40,14 @@ in
         shell = pkgs.${meta.defaults.shell};
 
       };
+
+      networking.firewall = {
+        enable = true;
+        allowedTCPPorts = [
+          22
+          80
+        ];
+      };
       programs.${meta.defaults.shell}.enable = true;
 
       services.pulseaudio.enable = false;

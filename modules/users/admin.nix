@@ -34,9 +34,9 @@ in
 
       programs.git = {
         enable = true;
+        userName = meta.owner.name;
+        userEmail = meta.owner.email;
         settings = {
-          # userName = meta.owner.name;
-          # userEmail = meta.owner.email;
 
           core.editor = meta.defaults.editor;
         };
