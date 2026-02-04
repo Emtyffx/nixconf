@@ -55,6 +55,14 @@
       };
 
       # sshd server
+      services.resolved = {
+        enable = true;
+        extraConfig = ''
+          LLMNR=no
+          ReadEtcHosts=no
+          DNSSEC=no
+        '';
+      };
       services.openssh.enable = true;
     };
 }

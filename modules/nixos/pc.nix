@@ -43,10 +43,6 @@ in
 
       networking.firewall = {
         enable = true;
-        allowedTCPPorts = [
-          22
-          80
-        ];
       };
       programs.${meta.defaults.shell}.enable = true;
 
