@@ -22,7 +22,6 @@ in
         nvidia
         printer
       ];
-
       users.users.${meta.owner.username} = {
         isNormalUser = true;
         home = "/home/${meta.owner.username}";
@@ -45,6 +44,10 @@ in
         enable = true;
       };
       programs.${meta.defaults.shell}.enable = true;
+
+      # enable latest kernel version
+      boot.kernelPackages = pkgs.linuxPackages_latest;
+      hardware.enableRedistributableFirmware = true;
 
       services.pulseaudio.enable = false;
       services.pipewire = {
@@ -81,14 +84,17 @@ in
         bibata-cursors
         wl-clipboard
         xfce.thunar
-        glib
         gtk2
         gtk3
         gtk4
         gsettings-desktop-schemas
         adwaita-icon-theme
+        glib
+        gcc
+        cloudflare-warp
       ];
 
+      services.cloudflare-warp.enable = true;
       home-manager = {
         useGlobalPkgs = true;
         useUserPackages = true;
@@ -98,6 +104,10 @@ in
             homeConfigurations.${meta.owner.username}
           ];
         };
+      };
+
+      environment.variables = {
+        GSETTINGS_SCHEMA_DIR = "${pkgs.gtk3}/share/gsettings-schemas/${pkgs.gtk3.name}/glib-2.0/schemas";
       };
 
       services = {

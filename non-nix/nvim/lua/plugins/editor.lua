@@ -48,7 +48,7 @@ return {
 		opts = {},
 		keys = {
 			{
-				"zk",
+				"s",
 				mode = { "n", "x", "o" },
 				function()
 					require("flash").jump()
@@ -56,7 +56,7 @@ return {
 				desc = "Flash",
 			},
 			{
-				"zl",
+				"S",
 				mode = { "n", "x", "o" },
 				function()
 					require("flash").treesitter()
@@ -124,7 +124,13 @@ return {
 			{ "folke/which-key.nvim" },
 		},
 	},
-	{ "mbbill/undotree", keys = {
-		{ "<leader>u", vim.cmd.UndotreeToggle, desc = "UndoTree" },
-	} },
+	{
+		"mbbill/undotree",
+		keys = {
+			{ "<leader>u", vim.cmd.UndotreeToggle, desc = "UndoTree" },
+		}
+	},
+	{
+
+	}
 }

@@ -22,6 +22,9 @@ in
         homeModules.waybar
         homeModules.zsh
         homeModules.development
+        homeModules.nh
+        homeModules.tmux
+        homeModules.dunst
       ];
       home = {
         username = meta.owner.username;

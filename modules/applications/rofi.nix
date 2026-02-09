@@ -3,6 +3,9 @@
   flake.homeModules.rofi =
     { lib, pkgs, ... }:
     {
+      home.packages = with pkgs; [
+        cliphist
+      ];
       programs.rofi = {
         enable = true;
 
