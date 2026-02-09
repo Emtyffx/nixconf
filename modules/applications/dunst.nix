@@ -32,6 +32,8 @@
             text_icon_padding = 0;
             separator_color = "frame";
 
+            frame_width = 0;
+
             sort = true;
             idle_threshold = 120;
 
