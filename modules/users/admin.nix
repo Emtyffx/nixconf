@@ -56,6 +56,7 @@ in
       home.packages = with pkgs; [
         wl-clipboard
         firefox
+        ffmpeg
         loupe
         zoom-us
         telegram-desktop

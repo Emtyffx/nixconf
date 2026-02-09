@@ -15,7 +15,7 @@
     defaults = {
       shell = "zsh";
       editor = "nvim";
-      fileManager = "nautilus";
+      fileManager = "thunar";
 
       terminal = "kitty";
       browser = "firefox";
