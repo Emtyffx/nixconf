@@ -1,6 +1,6 @@
 { inputs, config, ... }:
 {
-  flake.homeModules =
+  flake.homeModules.texlive =
     { lib, pkgs, ... }:
     {
       programs.texlive = {

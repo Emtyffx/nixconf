@@ -25,6 +25,7 @@ in
         homeModules.nh
         homeModules.tmux
         homeModules.dunst
+        homeModules.texlive
       ];
       home = {
         username = meta.owner.username;
