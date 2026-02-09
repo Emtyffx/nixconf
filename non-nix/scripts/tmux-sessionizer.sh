@@ -3,7 +3,7 @@
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$(find ~/.config ~/projects ~/latex ~/latex/hometasks/ -mindepth 1 -maxdepth 1  -type d | fzf)
+    selected=$(find ~/nixconf ~/.config ~/projects ~/latex ~/latex/hometasks/ -mindepth 0 -maxdepth 1  -type d | fzf)
 fi
 
 if [[ -z $selected ]]; then

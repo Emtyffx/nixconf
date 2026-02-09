@@ -5,7 +5,7 @@
     {
       programs.texlive = {
         enable = true;
-        packageSet = pkgs.texliveFull;
+        extraPackages = tpkgs: { inherit (tpkgs) scheme-full; };
       };
     };
 }
