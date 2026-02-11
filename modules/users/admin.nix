@@ -70,6 +70,7 @@ in
         qalculate-gtk
 
         gsettings-desktop-schemas
+        spotify
       ];
 
       home.pointerCursor = {
