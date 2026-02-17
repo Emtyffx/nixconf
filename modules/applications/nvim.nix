@@ -6,6 +6,7 @@ in
   flake.homeModules.nvim =
     { lib, pkgs, ... }:
     let
+      codelldb = pkgs.callPackage ../../pkgs/codelldb/package.nix { };
       reqs = with pkgs; [
         arduino-language-server
         git
@@ -52,6 +53,7 @@ in
         emmet-ls
         tailwindcss-language-server
         platformio
+        codelldb
 
       ];
       linuxOnlyReqs =
