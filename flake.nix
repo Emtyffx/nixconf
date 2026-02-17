@@ -10,6 +10,9 @@
       url = "github:Duckonaut/split-monitor-workspaces";
       inputs.hyprland.follows = "hyprland";
     };
+    prism-launcher = {
+      url = "github:Diegiwg/PrismLauncher-Cracked";
+    };
   };
   outputs =
     inputs:

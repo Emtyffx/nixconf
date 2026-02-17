@@ -2,10 +2,13 @@
 let
   meta = config.flake.meta;
   homeConfigurations = config.flake.homeConfigurations;
-  inherit (config.flake.modules.nixos) base;
-  inherit (config.flake.modules.nixos) hyprland;
-  inherit (config.flake.modules.nixos) nvidia;
-  inherit (config.flake.modules.nixos) printer;
+  inherit (config.flake.modules.nixos)
+    printer
+    base
+    hyprland
+    nvidia
+    steam
+    ;
 in
 {
   flake.modules.nixos.pc =
@@ -21,6 +24,7 @@ in
         hyprland
         nvidia
         printer
+        steam
       ];
       users.users.${meta.owner.username} = {
         isNormalUser = true;

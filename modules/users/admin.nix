@@ -10,6 +10,9 @@ in
 {
   flake.homeConfigurations.${meta.owner.username} =
     { lib, pkgs, ... }:
+    let
+      figma-linux-font-helper = pkgs.callPackage ../../pkgs/figma-linux-font-helper/package.nix { };
+    in
     {
       imports = [
         homeModules.kitty
@@ -56,6 +59,7 @@ in
 
       home.packages = with pkgs; [
         wl-clipboard
+        inputs.prism-launcher.packages.${pkgs.system}.default
         firefox
         ffmpeg
         loupe
@@ -71,7 +75,18 @@ in
 
         gsettings-desktop-schemas
         spotify
+        figma-linux-font-helper
+        rnote
+
       ];
+
+      # figma font helper service
+      # systemd.user.services.figma-fonthelper = {
+      #   Unit = {
+      #     Description = "Font Helper for Figma";
+      #   };
+      #   Install.WantedBy = [ "graphical-session.target" ];
+      # };
 
       home.pointerCursor = {
         name = "Adwaita";

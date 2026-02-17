@@ -459,6 +459,22 @@
         "type": "github"
       }
     },
+    "libnbtplusplus": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1744811532,
+        "narHash": "sha256-qhmjaRkt+O7A+gu6HjUkl7QzOEb4r8y8vWZMG2R/C6o=",
+        "owner": "PrismLauncher",
+        "repo": "libnbtplusplus",
+        "rev": "531449ba1c930c98e0bcf5d332b237a8566f9d78",
+        "type": "github"
+      },
+      "original": {
+        "owner": "PrismLauncher",
+        "repo": "libnbtplusplus",
+        "type": "github"
+      }
+    },
     "nix-filter": {
       "locked": {
         "lastModified": 1693833173,
@@ -553,6 +569,19 @@
         "type": "github"
       }
     },
+    "nixpkgs_5": {
+      "locked": {
+        "lastModified": 1771043024,
+        "narHash": "sha256-WoiezqWJQ3OHILah+p6rzNXdJceEAmAhyDFZFZ6pZzY=",
+        "rev": "3aadb7ca9eac2891d52a9dec199d9580a6e2bf44",
+        "type": "tarball",
+        "url": "https://releases.nixos.org/nixos/25.11/nixos-25.11.5960.3aadb7ca9eac/nixexprs.tar.xz"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://channels.nixos.org/nixos-25.11/nixexprs.tar.xz"
+      }
+    },
     "pre-commit-hooks": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -576,6 +605,25 @@
         "type": "github"
       }
     },
+    "prism-launcher": {
+      "inputs": {
+        "libnbtplusplus": "libnbtplusplus",
+        "nixpkgs": "nixpkgs_5"
+      },
+      "locked": {
+        "lastModified": 1768437816,
+        "narHash": "sha256-GG+V2g5NfVrypTs8qbtGnUWTXTMkGtohy/uIDa5duI0=",
+        "owner": "Diegiwg",
+        "repo": "PrismLauncher-Cracked",
+        "rev": "e8418b74059bdbe4fcc97522b25dc17373b0cc21",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Diegiwg",
+        "repo": "PrismLauncher-Cracked",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "disko": "disko",
@@ -584,6 +632,7 @@
         "hyprland": "hyprland",
         "import-tree": "import-tree",
         "nixpkgs": "nixpkgs_4",
+        "prism-launcher": "prism-launcher",
         "split-monitor-workspaces": "split-monitor-workspaces"
       }
     },

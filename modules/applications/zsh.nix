@@ -12,6 +12,8 @@ in
   flake.homeModules.zsh =
     { lib, pkgs, ... }:
     {
+      # enable direnv(for project flakes)
+      programs.direnv.enable = true;
       programs.zsh = {
         enable = meta.defaults.shell == "zsh";
         enableCompletion = true;
@@ -68,13 +70,13 @@ in
               echo "Directory \"$1\" already exists!"
               return 1
             fi
-            nix flake new $1 --template ${self}/dev-shells#$2
+            nix flake new $1 --template ${self}#$2
             cd $1
             direnv allow
           }
 
           function finit {
-            nix flake init --template ${self}/dev-shells#$1
+            nix flake init --template ${self}#$1
             direnv allow
           }
 
@@ -87,7 +89,7 @@ in
               echo "Directory \"$1\" already exists!"
               return 1
             fi
-            nix flake new $1 --template ${self}/dev-shells#c-cpp
+            nix flake new $1 --template ${self}/#c-cpp
             cd $1
             cat ~/.config/zsh/templates/ListTemplate.txt >> CMakeLists.txt
             mkdir src

@@ -11,5 +11,6 @@ in
   };
 
   config.flake.customDevShells = devShells;
+  config.flake.templates = devShells;
 
 }
