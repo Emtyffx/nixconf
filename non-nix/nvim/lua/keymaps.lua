@@ -43,3 +43,31 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 		vim.highlight.on_yank()
 	end,
 })
+
+
+vim.keymap.set(
+	"n",
+	"<leader>ie",
+	"oif err != nil {<CR>}<Esc>Oreturn err<Esc>",
+	{ desc = "IfErr(return err)" })
+
+vim.keymap.set(
+	"n",
+	"<leader>ia",
+	"oassert.NoError(err, \"\")<Esc>F\";a",
+	{ desc = "IfErr(assert)" }
+)
+
+vim.keymap.set(
+	"n",
+	"<leader>if",
+	"oif err != nil {<CR>}<Esc>Olog.Fatalf(\"error: %s\\n\", err.Error())<Esc>jj",
+	{ desc = "IfErr(log fatal)" }
+)
+
+vim.keymap.set(
+	"n",
+	"<leader>il",
+	"oif err != nil {<CR>}<Esc>O.logger.Error(\"error\", \"error\", err)<Esc>F.;i",
+	{ desc = "IFErr(logger Error)" }
+)
