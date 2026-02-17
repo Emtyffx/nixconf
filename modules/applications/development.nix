@@ -28,6 +28,7 @@
         bun
         nodePackages_latest.nodejs
 
+        python3
       ];
     };
 }
