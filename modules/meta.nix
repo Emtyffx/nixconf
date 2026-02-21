@@ -18,7 +18,7 @@
       fileManager = "thunar";
 
       terminal = "kitty";
-      browser = "firefox";
+      browser = "zen";
 
       timezone = "Europe/Kyiv";
       locale = "en_US.UTF-8";

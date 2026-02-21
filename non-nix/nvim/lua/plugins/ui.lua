@@ -61,22 +61,40 @@ return {
 			},
 		},
 	},
-	{
-		"nvim-neo-tree/neo-tree.nvim",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"nvim-tree/nvim-web-devicons",
-			"MunifTanjim/nui.nvim",
-		},
+	-- {
+	-- 	"nvim-neo-tree/neo-tree.nvim",
+	-- 	dependencies = {
+	-- 		"nvim-lua/plenary.nvim",
+	-- 		"nvim-tree/nvim-web-devicons",
+	-- 		"MunifTanjim/nui.nvim",
+	-- 	},
+	--
+	-- 	lazy = false,
+	-- 	-- @module "neo-tree"
+	-- 	-- @type neotree.Config?
+	-- 	opts = {},
+	-- 	config = function(_, opts)
+	-- 		require("neo-tree").setup(opts)
+	-- 		vim.keymap.set("n", "<leader>e", "<cmd>Neotree toggle<cr>", { desc = "Toggle neotree" })
+	-- 	end,
+	-- },
 
+	{
+		'stevearc/oil.nvim',
 		lazy = false,
-		-- @module "neo-tree"
-		-- @type neotree.Config?
+		---@module 'oil'
+		---@type oil.SetupOpts
 		opts = {},
-		config = function(_, opts)
-			require("neo-tree").setup(opts)
-			vim.keymap.set("n", "<leader>e", "<cmd>Neotree toggle<cr>", { desc = "Toggle neotree" })
-		end,
+		dependencies = { { 'nvim-mini/mini.icons', opts = {} } },
+		keys = {
+			{
+				'-',
+				'<CMD>Oil --float<CR>',
+				desc = "Toggle oil",
+
+				mode = { "n" }
+			}
+		},
 	},
 	{
 		"kdheepak/lazygit.nvim",

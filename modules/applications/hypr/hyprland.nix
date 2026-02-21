@@ -132,7 +132,7 @@ in
           enable = true;
           systemd.enable = true;
           plugins = [
-            inputs.split-monitor-workspaces.packages.${pkgs.system}.split-monitor-workspaces
+            inputs.split-monitor-workspaces.packages.${pkgs.hostPlatform.system}.split-monitor-workspaces
           ];
           settings = {
             monitor = map toHyprland config.hyprland.monitors;

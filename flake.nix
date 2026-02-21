@@ -13,6 +13,11 @@
     prism-launcher = {
       url = "github:Diegiwg/PrismLauncher-Cracked";
     };
+
+    zen-browser-flake = {
+      url = "github:youwen5/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs =
     inputs:

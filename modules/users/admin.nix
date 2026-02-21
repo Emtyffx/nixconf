@@ -12,6 +12,9 @@ in
     { lib, pkgs, ... }:
     let
       figma-linux-font-helper = pkgs.callPackage ../../pkgs/figma-linux-font-helper/package.nix { };
+      en-croissant = pkgs.callPackage ../../pkgs/en-croissant/package.nix { };
+      prism-launcher = inputs.prism-launcher.packages.${pkgs.hostPlatform.system}.default;
+      zen-browser = inputs.zen-browser-flake.packages.${pkgs.hostPlatform.system}.default;
     in
     {
       imports = [
@@ -59,9 +62,10 @@ in
 
       home.packages = with pkgs; [
         wl-clipboard
-        inputs.prism-launcher.packages.${pkgs.system}.default
         firefox
         ffmpeg
+        prism-launcher
+        zen-browser
         loupe
         zoom-us
         telegram-desktop
@@ -77,6 +81,7 @@ in
         spotify
         figma-linux-font-helper
         rnote
+        en-croissant
 
       ];
 

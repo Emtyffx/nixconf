@@ -32,7 +32,7 @@ return {
 			end, { desc = "Add to harpoon" })
 
 			vim.keymap.set("n", "<leader>sh", function()
-				require("utils").toggle_telescope_for_harpoon(harpoon:list())
+				harpoon.ui:toggle_quick_menu(harpoon:list())
 			end, { desc = "Open harpoon files" })
 			vim.keymap.set("n", "<C-h>", function()
 				harpoon:list():select(1)
