@@ -12,6 +12,8 @@ return {
 				typescript = { "prettierd", "prettier" },
 				typescriptreact = { "prettierd", "prettier" },
 				javascriptreact = { "prettierd", "prettier" },
+				sql = { "pg_format" },
+				postgresql = { "pg_format" }
 			},
 			format_on_save = {
 				timeout_ms = 500,
@@ -143,6 +145,16 @@ return {
 		}
 	},
 	{
+		'rest-nvim/rest.nvim',
+		dependencies = {
+			{
+				'nvim-treesitter/nvim-treesitter',
+				opts = function(_, opts)
+					opts.ensure_installed = opts.ensure_installed or {}
+					table.insert(opts.ensure_installed, "http")
+				end
+			}
+		}
 
 	}
 }

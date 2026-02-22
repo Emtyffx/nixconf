@@ -27,6 +27,7 @@ in
         luajitPackages.luarocks
         rustc
         cargo
+        pgformatter
 
         libxml2
         imagemagick
@@ -54,6 +55,7 @@ in
         tailwindcss-language-server
         platformio
         codelldb
+        sqls
 
       ];
       linuxOnlyReqs =

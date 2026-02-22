@@ -25,8 +25,7 @@ return {
 					"--background-index",
 				},
 			}
-			servers.sqlls = {}
-
+			servers.sqls = {}
 			servers.arduino_language_server = {}
 			-- the rust-analyzer is enabled via the rustaceanvim plugin
 			for name, opts in pairs(servers) do
@@ -277,7 +276,7 @@ return {
 			vim.g.vimtex_imaps_enabled = 0 --i.e., disable them
 			--vimtex_view_settings
 			vim.g.vimtex_view_method =
-			"general"                   -- change this, depending on what you want to use..sumatraPDF, or skim, or zathura, or...
+			"general" -- change this, depending on what you want to use..sumatraPDF, or skim, or zathura, or...
 			-- vim.g.vimtex_view_general_options = "-reuse-instance -forward-search @tex @line @pdf"
 			--quickfix settings
 			vim.g.vimtex_quickfix_open_on_warning = 0 --  don't open quickfix if there are only warnings
