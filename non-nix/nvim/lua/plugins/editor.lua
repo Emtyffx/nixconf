@@ -36,18 +36,11 @@ return {
 			vim.keymap.set("n", "<leader>sh", function()
 				harpoon.ui:toggle_quick_menu(harpoon:list())
 			end, { desc = "Open harpoon files" })
-			vim.keymap.set("n", "<leader>1", function()
-				harpoon:list():select(1)
-			end)
-			vim.keymap.set("n", "<leader>2", function()
-				harpoon:list():select(2)
-			end)
-			vim.keymap.set("n", "<leader>3", function()
-				harpoon:list():select(3)
-			end)
-			vim.keymap.set("n", "<leader>4", function()
-				harpoon:list():select(4)
-			end)
+
+			vim.keymap.set("n", "<leader>1", function() harpoon:list():select(1) end, { desc = "Goto 1 file" })
+			vim.keymap.set("n", "<leader>2", function() harpoon:list():select(2) end, { desc = "Goto 2 file" })
+			vim.keymap.set("n", "<leader>3", function() harpoon:list():select(3) end, { desc = "Goto 3 file" })
+			vim.keymap.set("n", "<leader>4", function() harpoon:list():select(4) end, { desc = "Goto 4 file" })
 		end,
 	},
 	{
