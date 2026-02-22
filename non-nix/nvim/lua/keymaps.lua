@@ -2,10 +2,10 @@ vim.keymap.set("n", "[b", "<cmd>bprev<cr>", { desc = "Previous buffer" })
 vim.keymap.set("n", "]b", "<cmd>bnext<cr>", { desc = "Next buffer" })
 
 -- window navigation
-vim.keymap.set("n", "gh", "<C-w><C-h>", { desc = "Move left" })
-vim.keymap.set("n", "gj", "<C-w><C-j>", { desc = "Move down" })
-vim.keymap.set("n", "gk", "<C-w><C-k>", { desc = "Move up" })
-vim.keymap.set("n", "gl", "<C-w><C-l>", { desc = "Move right" })
+vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move left" })
+vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move down" })
+vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move up" })
+vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move right" })
 
 -- clear search highlights
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<cr>")

@@ -36,16 +36,16 @@ return {
 			vim.keymap.set("n", "<leader>sh", function()
 				harpoon.ui:toggle_quick_menu(harpoon:list())
 			end, { desc = "Open harpoon files" })
-			vim.keymap.set("n", "<C-h>", function()
+			vim.keymap.set("n", "<leader>h", function()
 				harpoon:list():select(1)
 			end)
-			vim.keymap.set("n", "<C-j>", function()
+			vim.keymap.set("n", "<leader>j", function()
 				harpoon:list():select(2)
 			end)
-			vim.keymap.set("n", "<C-k>", function()
+			vim.keymap.set("n", "<leader>k", function()
 				harpoon:list():select(3)
 			end)
-			vim.keymap.set("n", "<C-l>", function()
+			vim.keymap.set("n", "<leader>l", function()
 				harpoon:list():select(4)
 			end)
 		end,
@@ -144,17 +144,37 @@ return {
 			{ "<leader>u", vim.cmd.UndotreeToggle, desc = "UndoTree" },
 		}
 	},
-	{
-		'rest-nvim/rest.nvim',
-		dependencies = {
-			{
-				'nvim-treesitter/nvim-treesitter',
-				opts = function(_, opts)
-					opts.ensure_installed = opts.ensure_installed or {}
-					table.insert(opts.ensure_installed, "http")
-				end
-			}
-		}
 
-	}
+	{
+		"mistweaverco/kulala.nvim",
+		keys = {
+			{
+				"<leader>Rs",
+				function()
+					require('kulala').run()
+				end,
+				desc = "Send request"
+			},
+			{
+				"<leader>Ra",
+				function()
+					require('kulala').run_all()
+				end,
+				desc = "Send all requests"
+			},
+			{
+				"<leader>Rb",
+				function()
+					require('kulala').scratchpad()
+				end,
+				desc = "Open scratchpad"
+			},
+		},
+		ft = { "http", "rest" },
+		opts = {
+			global_keymaps = false,
+			global_keymaps_prefix = "<leader>R",
+			kulala_keymaps_prefix = "",
+		},
+	},
 }
