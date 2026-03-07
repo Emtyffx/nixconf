@@ -11,6 +11,9 @@ in
       ...
     }:
     let
+      wallpaper = meta.defaults.theme.wallpaper;
+      colors = meta.defaults.theme.colors;
+      toHyprlandCol = col: "rgb(${lib.toLower (lib.removePrefix "#" col)})";
       monitorType = lib.types.submodule {
         options = {
           name = lib.mkOption {
@@ -134,6 +137,7 @@ in
           plugins = [
             inputs.split-monitor-workspaces.packages.${pkgs.hostPlatform.system}.split-monitor-workspaces
           ];
+          package = inputs.hyprland.packages.${pkgs.hostPlatform.system}.default;
           settings = {
             monitor = map toHyprland config.hyprland.monitors;
 
@@ -144,16 +148,16 @@ in
 
             exec-once = [
               "${pkgs.polkit_gnome}/bin/polkit-gnome-authentication-agent-1"
+              "swww-daemon"
               "dunst"
+              "swww img ${wallpaper} --transition-step 50 --transition-type center"
               "${../../../non-nix/scripts/hyprland/autostart.sh}"
 
             ];
 
             exec = [
               "wl-paste --watch cliphist store"
-              "swww-daemon"
               "pkill waybar; waybar"
-              "swww img ${../../../non-nix/wallpaper.jpg} --transition-step 50 --transition-type center"
             ];
 
             input = {
@@ -166,8 +170,8 @@ in
               gaps_in = 5;
               gaps_out = 15;
               border_size = 2;
-              "col.active_border" = "0xff8ec07c";
-              "col.inactive_border" = "0xff928374";
+              "col.active_border" = toHyprlandCol colors.aqua;
+              "col.inactive_border" = toHyprlandCol colors.gray;
               resize_on_border = (config.hyprland.isLaptop or false);
 
               allow_tearing = true;
@@ -332,6 +336,14 @@ in
               ",XF86MonBrightnessUp, exec, brightnessctl s 10%+"
               ",XF86MonBrightnessDown, exec, brightnessctl s 10%-"
             ];
+            plugin = {
+              split-monitor-workspaces = {
+                count = 10;
+                keep_focused = 0;
+                enable_notifications = 0;
+                enable_persistent_workspaces = 1;
+              };
+            };
 
           };
           submaps = {

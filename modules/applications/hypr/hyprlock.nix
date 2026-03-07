@@ -1,7 +1,13 @@
 { inputs, config, ... }:
+let
+  meta = config.flake.meta;
+in
 {
   flake.homeModules.hyprlock =
     { lib, pkgs, ... }:
+    let
+      wallpaper = meta.defaults.theme.wallpaper;
+    in
     {
       programs.hyprlock = {
         enable = true;
@@ -27,7 +33,7 @@
             {
               monitor = "";
 
-              path = "${../../../non-nix/wallpaper.jpg}";
+              path = wallpaper;
 
               blur_passes = 2;
               contrast = 1;

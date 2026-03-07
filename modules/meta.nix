@@ -1,4 +1,7 @@
 { lib, ... }:
+let
+  gruvbox = import ../themes/gruvbox.nix;
+in
 {
   options.flake.meta = lib.mkOption {
     type = lib.types.anything;
@@ -24,6 +27,8 @@
       locale = "en_US.UTF-8";
 
       stateVersion = "25.11";
+      wallpaper = "${../non-nix/wallpaper.png}";
+      theme = gruvbox;
 
     };
   };

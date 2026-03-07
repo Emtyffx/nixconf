@@ -8,6 +8,7 @@ let
     hyprland
     nvidia
     steam
+    sddm
     ;
 in
 {
@@ -25,6 +26,8 @@ in
         nvidia
         printer
         steam
+        sddm
+
       ];
       users.users.${meta.owner.username} = {
         isNormalUser = true;
@@ -38,6 +41,7 @@ in
           "libvirtd"
           "tty"
           "dialout"
+          "kvm"
         ];
         initialPassword = "changeme";
         shell = pkgs.${meta.defaults.shell};
@@ -96,6 +100,13 @@ in
         glib
         gcc
         cloudflare-warp
+        qemu
+        qemu_kvm
+        libguestfs
+        qemu-utils
+        quickemu
+        quickgui
+
       ];
 
       services.cloudflare-warp.enable = true;
@@ -111,7 +122,7 @@ in
       };
 
       environment.variables = {
-        GSETTINGS_SCHEMA_DIR = "${pkgs.gtk3}/share/gsettings-schemas/${pkgs.gtk3.name}/glib-2.0/schemas";
+        GSETTINGS_SCHEMA_DIR = lib.mkForce "${pkgs.gtk3}/share/gsettings-schemas/${pkgs.gtk3.name}/glib-2.0/schemas";
       };
 
       services = {
@@ -122,12 +133,8 @@ in
       };
 
       programs.dconf.enable = true;
-
-      services.displayManager.sddm = {
-        enable = true;
-        wayland.enable = true;
-      };
-
+      services.dbus.packages = [ pkgs.gsettings-desktop-schemas ];
+      environment.sessionVariables.GSETTINGS_SCHEMA_DIR = "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}/glib-2.0/schemas";
       # enable postgresql(for development purposes)
 
       services.postgresql = {
@@ -142,5 +149,14 @@ in
       };
       programs.nix-ld.enable = true;
 
+      services.envfs.enable = true;
+      # virtualisation.libvirtd = {
+      #   enable = true;
+      #   qemu = {
+      #     package = pkgs.qemu_kvm;
+      #     runAsRoot = true;
+      #     swtpm.enable = true;
+      #   };
+      # };
     };
 }

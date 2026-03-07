@@ -1,4 +1,7 @@
 { inputs, config, ... }:
+let
+  meta = config.flake.meta;
+in
 {
   flake.homeModules.waybar =
     {
@@ -9,6 +12,7 @@
     }:
     let
       monitorName = monitor: monitor.name;
+      colors = meta.defaults.theme.colors;
     in
     {
 
@@ -65,22 +69,6 @@
                   default = "";
                 };
                 all-outputs = false;
-                persistent-workspaces = {
-                  DP-1 = [
-                    1
-                    2
-                    3
-                    4
-                    5
-                  ];
-                  DP-2 = [
-                    11
-                    12
-                    13
-                    14
-                    15
-                  ];
-                };
               };
               "hyprland/window" = {
                 format = "{initialTitle}";
@@ -209,7 +197,7 @@
             }
           ];
 
-          style = ../../non-nix/waybar_style.css;
+          style = pkgs.replaceVars ../../non-nix/waybar_style.css colors;
         };
       };
     };

@@ -1,42 +1,45 @@
-/*
-*===Color Definitions (Gruvbox Inspired)===*/
-/* Warm colors */
-@define-color flamingo #FB4934;
-@define-color peach #FE8019;
-@define-color red #FB4934;
-@define-color maroon #B16286;
-@define-color yellow #FABD2F;
-@define-color pink #D3869B;
+@define-color red-dim @red-dim@;
+@define-color green-dim @green-dim@;
+@define-color yellow-dim @yellow-dim@;
+@define-color blue-dim @blue-dim@;
+@define-color purple-dim @purple-dim@;
+@define-color aqua-dim @aqua-dim@;
+@define-color gray-dim @gray-dim@;
+@define-color orange-dim @orange-dim@;
 
-/* Cool colors */
-@define-color green #B8BB26;
-@define-color teal #8EC07C;
-@define-color sky #83A598;
-@define-color sapphire #458588;
-@define-color blue #83A598;
+@define-color red @red@;
+@define-color green @green@;
+@define-color yellow @yellow@;
+@define-color blue @blue@;
+@define-color purple @purple@;
+@define-color aqua @aqua@;
+@define-color gray @gray@;
+@define-color orange @orange@;
 
-/* Neutral colors */
-@define-color lavender #EBDBB2;
-@define-color text #EBDBB2;
-@define-color subtext1 #BDAE93;
-@define-color subtext0 #A89984;
-@define-color overlay2 #665C54;
-@define-color overlay1 #504945;
-@define-color overlay0 #3C3836;
-@define-color surface2 #282828;
-@define-color surface1 #1D2021;
-@define-color surface0 #1D2021;
-@define-color base #282828;
-@define-color mantle #1D2021;
-@define-color crust #1D2021;
-@define-color border #83A598;
-/* sky */
+@define-color bg0-h @bg0-h@;
+@define-color bg0-s @bg0-s@;
+
+@define-color bg0 @bg0@;
+@define-color bg1 @bg1@;
+@define-color bg2 @bg2@;
+@define-color bg3 @bg3@;
+@define-color bg4 @bg4@;
+@define-color bg @bg@;
+
+@define-color fg0 @fg0@;
+@define-color fg1 @fg1@;
+@define-color fg2 @fg2@;
+@define-color fg3 @fg3@;
+@define-color fg4 @fg4@;
+@define-color fg @fg@;
+
+@define-color border @bg4;
 
 /* === Waybar Root === */
 
 window#waybar {
   background: none;
-  color: @text;
+  color: @fg;
   font-family: "JetBrainsMono NFP";
   font-size: 14px;
 }
@@ -48,19 +51,19 @@ window#waybar {
 #workspaces,
 #cava,
 #submap {
-  background: @base;
+  background: @bg;
   padding: 0px 10px;
   margin-top: 10px;
   margin-left: 15px;
   margin-right: 15px;
   border-radius: 7px;
-  border: 1px solid alpha(@subtext1, 0.2);
+  border: 1px solid alpha(@border, 0.2);
   /* border: 2px solid @border; */
 }
 
 #cava {
   margin-left: 0;
-  color: @pink;
+  color: @purple;
 }
 
 #submap {
@@ -76,7 +79,7 @@ window#waybar {
 
 #workspaces button {
   padding: 7px;
-  color: @text;
+  color: @fg;
   box-shadow: inherit;
   text-shadow: inherit;
   background: transparent;
@@ -84,7 +87,7 @@ window#waybar {
 }
 
 #workspaces button:not(.active):not(.urgent):hover {
-  color: @subtext0;
+  color: @fg4;
   background: none;
   transition-duration: 0.1s;
 }
@@ -95,11 +98,11 @@ window#waybar {
 }
 
 #workspaces button.urgent {
-  color: @peach;
+  color: @orange;
 }
 
 #network {
-  color: @peach;
+  color: @orange;
 }
 
 #pulseaudio {
@@ -119,7 +122,7 @@ window#waybar {
 }
 
 #bluetooth {
-  color: @sapphire;
+  color: @blue-dim;
 }
 
 #custom-power {
@@ -127,7 +130,7 @@ window#waybar {
 }
 
 #idle_inhibitor {
-  color: @sky;
+  color: @blue;
   padding-right: 12px;
 }
 

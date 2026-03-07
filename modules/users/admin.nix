@@ -15,6 +15,8 @@ in
       en-croissant = pkgs.callPackage ../../pkgs/en-croissant/package.nix { };
       prism-launcher = inputs.prism-launcher.packages.${pkgs.hostPlatform.system}.default;
       zen-browser = inputs.zen-browser-flake.packages.${pkgs.hostPlatform.system}.default;
+      custom-gtk-theme = pkgs.callPackage ../../pkgs/gnome4x-custom/package.nix meta.defaults.theme.gtk-theme-args;
+      custom-icon-theme = pkgs.callPackage ../../pkgs/flat-remix-icon-theme-custom/package.nix meta.defaults.theme.icon-theme-args;
     in
     {
       imports = [
@@ -82,6 +84,9 @@ in
         figma-linux-font-helper
         rnote
         en-croissant
+        gnome-boxes
+        custom-icon-theme
+        custom-gtk-theme
 
       ];
 
@@ -94,8 +99,8 @@ in
       # };
 
       home.pointerCursor = {
-        name = "Adwaita";
-        package = pkgs.adwaita-icon-theme;
+        name = "Flat-Remix-${lib.toSentenceCase meta.defaults.theme.icon-theme-args.name}-Dark";
+        package = custom-icon-theme;
         size = 24;
         gtk.enable = true;
         x11.enable = true;
@@ -104,12 +109,16 @@ in
       gtk = {
         enable = true;
         theme = {
-          name = "Adwaita-dark";
-          package = pkgs.gnome-themes-extra;
+          name = "GNOME-4X-${meta.defaults.theme.gtk-theme-args.name}";
+          package = custom-gtk-theme;
         };
         cursorTheme = {
-          name = "Adwaita";
-          package = pkgs.adwaita-icon-theme;
+          name = "Flat-Remix-${lib.toSentenceCase meta.defaults.theme.icon-theme-args.name}-Dark";
+          package = custom-icon-theme;
+        };
+        iconTheme = {
+          name = "Flat-Remix-${lib.toSentenceCase meta.defaults.theme.icon-theme-args.name}-Dark";
+          package = custom-icon-theme;
         };
         gtk3.extraConfig = {
           gtk-decoration-layout = ":";
@@ -140,6 +149,12 @@ in
             color-scheme = "prefer-dark";
           };
         };
+      };
+
+      xdg.portal.enable = true;
+      xdg.userDirs = {
+        enable = true;
+        createDirectories = true;
       };
     };
 
