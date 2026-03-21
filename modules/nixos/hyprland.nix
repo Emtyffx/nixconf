@@ -24,7 +24,7 @@
         enable = true;
         extraPortals = [
           pkgs.xdg-desktop-portal-hyprland
-          # pkgs.xdg-desktop-portal-gtk
+          pkgs.xdg-desktop-portal-gtk
         ];
         # config.common.default = "*";
         # config.common."org.freedesktop.impl.portal.Settings" = [ "gtk" ];
@@ -38,7 +38,18 @@
         hypridle
         hyprlock
         swww
-        swappy
+        # swappy
+        gradia
+        gsettings-desktop-schemas
+        glib
+        adwaita-icon-theme
       ];
+      environment.sessionVariables = {
+        XDG_DATA_DIRS = [
+          "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}"
+        ];
+        ADW_DISABLE_PORTAL = "1";
+
+      };
     };
 }

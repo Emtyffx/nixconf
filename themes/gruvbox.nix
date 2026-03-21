@@ -50,7 +50,7 @@ rec {
     accent = colors.aqua;
     accent-light = colors.aqua-dim;
 
-    text = colors.fg;
+    text = "#fff";
   };
 
 }

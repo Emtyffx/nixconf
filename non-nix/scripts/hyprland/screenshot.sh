@@ -10,6 +10,7 @@ swpy_dir="${XDG_CONFIG_HOME:-$HOME/.config}/swappy"
 save_dir="${2:-$XDG_PICTURES_DIR/Screenshots}"
 save_file=$(date +'%y%m%d_%Hh%Mm%Ss_screenshot.png')
 temp_screenshot="/tmp/screenshot.png"
+scr_comm="gradia"
 
 mkdir -p $save_dir
 mkdir -p $swpy_dir
@@ -29,13 +30,13 @@ EOF
 
 case $1 in
 p)  # print all outputs
-    GRIMBLAST_HIDE_CURSOR=0 grimblast copysave screen $temp_screenshot && swappy -f $temp_screenshot ;;
+    GRIMBLAST_HIDE_CURSOR=0 grimblast copysave screen $temp_screenshot && $scr_comm $temp_screenshot ;;
 s)  # drag to manually snip an area / click on a window to print it
-    GRIMBLAST_HIDE_CURSOR=0 grimblast copysave area $temp_screenshot && swappy -f $temp_screenshot ;;
+    GRIMBLAST_HIDE_CURSOR=0 grimblast copysave area $temp_screenshot && $scr_comm $temp_screenshot ;;
 sf)  # frozen screen, drag to manually snip an area / click on a window to print it
-    GRIMBLAST_HIDE_CURSOR=0 grimblast --freeze copysave area $temp_screenshot && swappy -f $temp_screenshot ;;
+    GRIMBLAST_HIDE_CURSOR=0 grimblast --freeze copysave area $temp_screenshot && $scr_comm $temp_screenshot ;;
 m)  # print focused monitor
-    GRIMBLAST_HIDE_CURSOR=0 grimblast copysave output $temp_screenshot && swappy -f $temp_screenshot ;;
+    GRIMBLAST_HIDE_CURSOR=0 grimblast copysave output $temp_screenshot && $scr_comm $temp_screenshot ;;
 *)  # invalid option
     print_error ;;
 esac

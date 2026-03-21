@@ -149,6 +149,11 @@ in
           fd
           tree
           fastfetch
+          unrar
+          cabextract
+          p7zip
+          gnutar
+
         ]
       );
     };

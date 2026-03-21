@@ -82,7 +82,7 @@ in
         gsettings-desktop-schemas
         spotify
         figma-linux-font-helper
-        rnote
+        logseq
         en-croissant
         gnome-boxes
         custom-icon-theme

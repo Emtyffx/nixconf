@@ -158,5 +158,7 @@ in
       #     swtpm.enable = true;
       #   };
       # };
+
+      services.gvfs.enable = true;
     };
 }

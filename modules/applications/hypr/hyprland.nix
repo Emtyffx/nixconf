@@ -131,6 +131,21 @@ in
         };
       };
       config = {
+        systemd.user.services.polkit-gnome-authentication-agent-1 = {
+          Unit = {
+            Description = "polkit-gnome-authentication-agent-1";
+            Wants = [ "graphical-session.target" ];
+            After = [ "graphical-session.target" ];
+          };
+          Install.WantedBy = [ "graphical-session.target" ];
+          Service = {
+            Type = "simple";
+            ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+            Restart = "on-failure";
+            RestartSec = 1;
+            TimeoutStopSec = 10;
+          };
+        };
         wayland.windowManager.hyprland = {
           enable = true;
           systemd.enable = true;
@@ -147,7 +162,8 @@ in
             "$browser" = meta.defaults.browser;
 
             exec-once = [
-              "${pkgs.polkit_gnome}/bin/polkit-gnome-authentication-agent-1"
+              "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+              # "${pkgs.polkit_gnome}/bin/polkit-gnome-authentication-agent-1"
               "swww-daemon"
               "dunst"
               "swww img ${wallpaper} --transition-step 50 --transition-type center"
@@ -258,9 +274,11 @@ in
               "no_focus 1,match:class ^$,match:title ^$,match:xwayland 1,match:float 1,match:fullscreen 0,match:pin 0"
               "stay_focused 1,match:class zoom,match:title ^(menu window|Send chat to(\.\.\.|.*)?|Toolbar Menu)$"
               "float 1,match:title ^Qalculate!"
+              "float 1, match:class ^.*gradia$"
               "border_size 2, match:float 1"
               "no_blur 1, match:class zoom"
               "opacity 1.0 override 1.0 override, match:class ^(obs)$"
+
             ];
             workspace = [
               "w[tv1],  bordersize:0"
@@ -362,5 +380,6 @@ in
           };
         };
       };
+
     };
 }
