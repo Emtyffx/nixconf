@@ -39,7 +39,7 @@
         hyprlock
         swww
         # swappy
-        gradia
+        satty
         gsettings-desktop-schemas
         glib
         adwaita-icon-theme

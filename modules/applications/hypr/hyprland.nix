@@ -274,7 +274,7 @@ in
               "no_focus 1,match:class ^$,match:title ^$,match:xwayland 1,match:float 1,match:fullscreen 0,match:pin 0"
               "stay_focused 1,match:class zoom,match:title ^(menu window|Send chat to(\.\.\.|.*)?|Toolbar Menu)$"
               "float 1,match:title ^Qalculate!"
-              "float 1, match:class ^.*gradia$"
+              "float 1, match:class ^.*satty$"
               "border_size 2, match:float 1"
               "no_blur 1, match:class zoom"
               "opacity 1.0 override 1.0 override, match:class ^(obs)$"
