@@ -24,13 +24,13 @@
         };
       };
 
-      systemd.sleep.extraConfig = ''
-        AllowSuspend=yes
-        AllowHibernation=yes
-        AllowSuspendThenHibernate=yes
-        AllowHybridSleep=yes
-        HibernateDelaySec=30min
-      '';
+      # systemd.sleep.settings.Sleep = ''
+      #   AllowSuspend=yes
+      #   AllowHibernation=yes
+      #   AllowSuspendThenHibernate=yes
+      #   AllowHybridSleep=yes
+      #   HibernateDelaySec=30min
+      # '';
 
       services.upower = {
         enable = true;
@@ -55,14 +55,14 @@
       };
 
       # sshd server
-      services.resolved = {
-        enable = true;
-        extraConfig = ''
-          LLMNR=no
-          ReadEtcHosts=no
-          DNSSEC=no
-        '';
-      };
+      # services.resolved = {
+      #   enable = true;
+      #   extraConfig = ''
+      #     LLMNR=no
+      #     ReadEtcHosts=no
+      #     DNSSEC=no
+      #   '';
+      # };
       services.openssh.enable = true;
     };
 }

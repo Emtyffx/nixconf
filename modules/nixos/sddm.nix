@@ -119,7 +119,7 @@ in
       services.displayManager = {
         sddm = {
           enable = true;
-          wayland.enable = false;
+          wayland.enable = true;
           theme = "${sddm-astronaut-theme}/share/sddm/themes/sddm-astronaut-theme";
           extraPackages = with pkgs; [
             sddm-astronaut-theme

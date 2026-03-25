@@ -296,7 +296,7 @@ in
               "$mod, Q, exec, ${../../../non-nix/scripts/hyprland/rofi.sh} calc"
               "$mod SHIFT, R, exec, ${../../../non-nix/scripts/hyprland/rofi.sh} emoji"
               "$mod, P, pseudo,"
-              "$mod, S, togglesplit,"
+              # "$mod, S, togglesplit,"
               "$mod, F, fullscreen,"
               "$mod SHIFT, L, exec, hyprlock"
               "$mod, Print, exec, ${../../../non-nix/scripts/hyprland/screenshot.sh} m"
