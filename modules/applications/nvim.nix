@@ -25,14 +25,14 @@ in
         nodePackages.prettier
         python3
         luajitPackages.luarocks
-		lua51Packages.lua
-		luajitPackages.nvim-nio
-		luajitPackages.tree-sitter-http
-		luajit
+        lua51Packages.lua
+        luajitPackages.nvim-nio
+        luajitPackages.tree-sitter-http
+        luajit
         rustc
+        rustfmt
         cargo
         pgformatter
-
 
         libxml2
         imagemagick
