@@ -134,6 +134,7 @@ in
           }
 
           clear
+          tmux
           fastfetch
         '';
         shellAliases = {

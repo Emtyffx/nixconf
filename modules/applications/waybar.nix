@@ -48,6 +48,8 @@ in
                 "bluetooth"
                 "memory"
                 "cpu"
+                (lib.mkIf config.hyprland.isLaptop "battery")
+
                 "custom/ddcutil"
                 "hyprland/language"
                 "tray"
@@ -194,6 +196,36 @@ in
                 default-submap = "default";
                 tooltip = false;
               };
+              battery = {
+                format = "{icon} {capacity}%";
+                format-icons = {
+                  default = [
+                    "󰁺"
+                    "󰁻"
+                    "󰁼"
+                    "󰁽"
+                    "󰁾"
+                    "󰁿"
+                    "󰂀"
+                    "󰂁"
+                    "󰂂"
+                    "󰁹"
+                  ];
+                  charging = [
+                    "󰢜"
+                    "󰂆"
+                    "󰂇"
+                    "󰂈"
+                    "󰢝"
+                    "󰂉"
+                    "󰢞"
+                    "󰂊"
+                    "󰂋"
+                    "󰂅"
+                  ];
+                };
+              };
+
             }
           ];
 

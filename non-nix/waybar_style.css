@@ -134,6 +134,10 @@ window#waybar {
   padding-right: 12px;
 }
 
+#battery {
+  color: @yellow;
+}
+
 /* === Universal Padding for Right Modules === */
 
 #network,
@@ -144,6 +148,7 @@ window#waybar {
 #custom-power,
 #custom-ddcutil,
 #tray,
+#battery,
 #language {
   padding: 0 10px;
 }

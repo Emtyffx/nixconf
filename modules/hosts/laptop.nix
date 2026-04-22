@@ -52,6 +52,7 @@ in
           hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
           home-manager.users.${meta.owner.username} = {
+            hyprland.isLaptop = true;
 
             hyprland.monitors = [
               {
