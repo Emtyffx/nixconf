@@ -1,7 +1,14 @@
 { inputs, config, ... }:
+let
+  meta = config.flake.meta;
+in
 {
   flake.homeModules.tmux =
     { pkgs, ... }:
+    let
+      accent = meta.defaults.theme.gtk-theme-args.accent;
+      colors = meta.defaults.theme.colors;
+    in
     {
       programs.tmux = {
         enable = true;
@@ -63,27 +70,27 @@
           set -g monitor-activity off
           set -g bell-action none
 
-          set -g status-left '#[fg=#282828,bg=#8ec07c,bold]  #{session_windows} #[bg=#282828,fg=#8ec07c,bold] '
-          set -g status-right '#[fg=#8ec07c,bold] [#S]#[fg=#ebdbb2,bold] %d/%m #[fg=#282828,bg=#8ec07c,bold] %I:%M %p '
-          set -g status-style fg='#ebdbb2',bg='#282828'
+          set -g status-left '#[fg=${colors.bg},bg=${accent},bold]  #{session_windows} #[bg=${colors.bg},fg=${accent},bold] '
+          set -g status-right '#[fg=${accent},bold] [#S]#[fg=${colors.fg},bold] %d/%m #[fg=${colors.bg},bg=${accent},bold] %I:%M %p '
+          set -g status-style fg='${colors.fg}',bg='${colors.bg}'
 
-          set -g window-status-current-style fg='#8ec07c',bg='#282828',bold
+          set -g window-status-current-style fg='${accent}',bg='${colors.bg}',bold
           setw -g window-status-current-format '  #W '
 
-          set -g window-status-style fg='#ebdbb2',bg='#3c3836'
-          setw -g window-status-format '#[fg=#928374,bg=#282828,bold]  #W '
+          set -g window-status-style fg='${colors.fg}',bg='${colors.bg1}'
+          setw -g window-status-format '#[fg=${colors.fg1},bg=${colors.bg},bold]  #W '
           setw -g window-status-separator '''
 
-          set -g pane-border-style fg='#3c3836'
-          set -g pane-active-border-style fg='#8ec07c'
+          set -g pane-border-style fg='${colors.bg1}'
+          set -g pane-active-border-style fg='${accent}'
 
-          set -g message-style fg='#ebdbb2',bg='#282828'
+          set -g message-style fg='${colors.fg}',bg='${colors.bg}'
 
-          set -g display-panes-active-colour '#8ec07c'
-          set -g display-panes-colour '#3c3836'
+          set -g display-panes-active-colour '${accent}'
+          set -g display-panes-colour '${colors.bg1}'
 
-          set -g clock-mode-colour '#8ec07c'
-          set -g mode-style fg='#282828',bg='#8ec07c'
+          set -g clock-mode-colour '${accent}'
+          set -g mode-style fg='${colors.bg}',bg='${accent}'
 
           TMUX_FZF_LAUNCH_KEY="C-f"
         '';

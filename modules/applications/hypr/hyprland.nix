@@ -13,6 +13,7 @@ in
     let
       wallpaper = meta.defaults.theme.wallpaper;
       colors = meta.defaults.theme.colors;
+      accent = meta.defaults.theme.gtk-theme-args.accent;
       toHyprlandCol = col: "rgb(${lib.toLower (lib.removePrefix "#" col)})";
       monitorType = lib.types.submodule {
         options = {
@@ -186,7 +187,7 @@ in
               gaps_in = 5;
               gaps_out = 15;
               border_size = 2;
-              "col.active_border" = toHyprlandCol colors.aqua;
+              "col.active_border" = toHyprlandCol accent;
               "col.inactive_border" = toHyprlandCol colors.gray;
               resize_on_border = (config.hyprland.isLaptop or false);
 
