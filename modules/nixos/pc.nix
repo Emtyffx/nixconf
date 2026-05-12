@@ -42,6 +42,7 @@ in
           "tty"
           "dialout"
           "kvm"
+          "i2c"
         ];
         initialPassword = "changeme";
         shell = pkgs.${meta.defaults.shell};
@@ -106,6 +107,7 @@ in
         qemu-utils
         quickemu
         quickgui
+        clightd
 
       ];
 
@@ -160,5 +162,13 @@ in
       # };
 
       services.gvfs.enable = true;
+
+      hardware.i2c.enable = true;
+      virtualisation.libvirtd.enable = true;
+      virtualisation.spiceUSBRedirection.enable = true;
+
+      programs.virt-manager.enable = true;
+
     };
+
 }

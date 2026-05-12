@@ -43,6 +43,7 @@
         gsettings-desktop-schemas
         glib
         adwaita-icon-theme
+        ddcutil
       ];
       environment.sessionVariables = {
         XDG_DATA_DIRS = [

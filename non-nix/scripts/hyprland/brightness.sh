@@ -14,6 +14,8 @@ elif [[ "$1" == "dec" ]]; then
         ddcutil --bus "$bus" setvcp 10 - 5 & 
     done
     wait
+elif [[ "$1" == "lapinc" ]]; then
+    
 else
     # Fetching brightness from the first bus in the list
     brightness=$(ddcutil --bus "${buses[0]}" getvcp 10 --terse | awk '{print $4}')

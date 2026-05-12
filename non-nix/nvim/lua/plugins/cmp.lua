@@ -71,7 +71,7 @@ return {
 			"saadparwaiz1/cmp_luasnip",
 			"L3MON4D3/LuaSnip",
 			"hrsh7th/cmp-emoji",
-			{ "windwp/nvim-autopairs", opts = {} },
+			{ "windwp/nvim-autopairs",    opts = {} },
 			{ "ray-x/lsp_signature.nvim", event = "InsertEnter", opts = {} },
 		},
 		config = function()
@@ -109,7 +109,7 @@ return {
 						if cmp.visible() then
 							-- If so, select the next item
 							cmp.select_next_item()
-						-- Otherwise, check if a snippet can be expanded or jumped into
+							-- Otherwise, check if a snippet can be expanded or jumped into
 						elseif luasnip.expand_or_jumpable() then
 							-- If a snippet is active, jump to the next placeholder
 							luasnip.expand_or_jump()

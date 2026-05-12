@@ -1,5 +1,5 @@
 rec {
-  wallpaper = "${../non-nix/wall_malenia.jpg}";
+  wallpaper = "${../non-nix/wallpaper.other.jpg}";
   colors = rec {
     red-dim = "#cc241d";
     green-dim = "#98971a";
@@ -41,14 +41,14 @@ rec {
 
   gtk-theme-args = {
     name = "gruvbox_aqua";
-    accent = colors.orange;
+    accent = colors.aqua;
     text = colors.bg0;
   };
 
   icon-theme-args = {
     name = "gruvboxaqua";
-    accent = colors.orange;
-    accent-light = colors.orange-dim;
+    accent = colors.aqua;
+    accent-light = colors.aqua-dim;
 
     text = "#fff";
   };

@@ -35,7 +35,7 @@ games)
   ;;
 
 calc)
-  r_override="entry{placeholder:'Calculate...';}listview{lines:15;}"
+  r_override="entry{placeholder:'Calculate...';}listview{lines:9;}"
   rofi_theme="${XDG_CONFIG_HOME:-$HOME/.config}/rofi/launchers/type-1/style-5.rasi"
 
   pkill rofi || rofi -show calc -modi calc -no-show-match -theme "${rofi_theme}" -theme-str "$r_override"

@@ -7,13 +7,26 @@ return {
 			servers.lua_ls = {}
 			servers.gopls = {}
 			servers.vtsls = {}
-			servers.cssls = {}
+			servers.cssls = {
+				scss = {
+					validate = true,
+				},
+				css = {
+					validate = true,
+				},
+				less = {
+					validate = true
+				},
+				filetypes = { "css", "scss", "sass", "less" }
+			}
 			servers.html = {}
 			servers.vuels = {}
 			servers.svelte = {}
 			servers.neocmake = {}
 			servers.pyright = {}
-			servers.emmet_ls = {}
+			servers.emmet_ls = {
+				filetypes = { "html", "typescriptreact", "javascriptreact", },
+			}
 			servers.tailwindcss = {}
 			servers.nixd = {}
 			-- servers.ccls = {}

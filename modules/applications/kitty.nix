@@ -37,6 +37,8 @@ in
 
             window_padding_width = 6;
 
+            cursor = meta.defaults.theme.gtk-theme-args.accent;
+
           };
 
           font.name = "Fira Code";

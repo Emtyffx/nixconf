@@ -1,7 +1,7 @@
 { inputs, config, ... }:
 {
   flake.modules.nixos.laptop =
-    { lib, ... }:
+    { lib, pkgs, ... }:
     {
       imports = [
         config.flake.modules.nixos.pc
@@ -24,13 +24,13 @@
         };
       };
 
-      # systemd.sleep.settings.Sleep = ''
-      #   AllowSuspend=yes
-      #   AllowHibernation=yes
-      #   AllowSuspendThenHibernate=yes
-      #   AllowHybridSleep=yes
-      #   HibernateDelaySec=30min
-      # '';
+      systemd.sleep.settings.Sleep = {
+        AllowSuspend = true;
+        AllowHibernation = true;
+        AllowSuspendThenHibernate = true;
+        AllowHybridSleep = true;
+        HibernateDelaySec = "30min";
+      };
 
       services.upower = {
         enable = true;
@@ -64,5 +64,7 @@
       #   '';
       # };
       services.openssh.enable = true;
+
+      environment.systemPackages = with pkgs; [ brightnessctl ];
     };
 }

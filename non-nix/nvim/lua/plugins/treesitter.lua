@@ -47,6 +47,7 @@ return {
 				"vue",
 				"svelte",
 				"nix",
+				"scss",
 			},
 			-- auto_install = true,
 			highlight = { enable = true },

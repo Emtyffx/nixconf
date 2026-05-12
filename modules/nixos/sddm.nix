@@ -137,6 +137,7 @@ in
       environment.systemPackages = with pkgs; [
         sddm-astronaut-theme
         nerd-fonts.jetbrains-mono
+        nerd-fonts.fira-code
         kdePackages.qtbase
         kdePackages.qtdeclarative
         kdePackages.qtmultimedia
