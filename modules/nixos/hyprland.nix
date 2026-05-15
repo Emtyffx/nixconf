@@ -38,8 +38,8 @@
         hypridle
         hyprlock
         swww
-        # swappy
-        satty
+        swappy
+        # satty
         gsettings-desktop-schemas
         glib
         adwaita-icon-theme
