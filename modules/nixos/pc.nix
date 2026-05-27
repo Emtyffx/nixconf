@@ -49,9 +49,9 @@ in
 
       };
 
-      networking.firewall = {
-        enable = true;
-      };
+      # networking.firewall = {
+      #   enable = true;
+      # };
       programs.${meta.defaults.shell}.enable = true;
 
       # enable latest kernel version
@@ -169,6 +169,8 @@ in
 
       programs.virt-manager.enable = true;
 
+      virtualisation.docker.enable = true;
+      virtualisation.docker.storageDriver = "btrfs";
     };
 
 }
