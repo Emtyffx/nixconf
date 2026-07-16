@@ -45,7 +45,7 @@ in
           font.size = 12;
 
           keybindings = {
-            "ctrl+f" = "launch --type=overlay ${tmuxSessionizerScript}";
+            "ctrl+f" = "launch --type=overlay ${meta.defaults.shell} -c \"${tmuxSessionizerScript}\"";
           };
 
           shellIntegration = {

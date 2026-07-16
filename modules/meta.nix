@@ -26,7 +26,7 @@ in
       timezone = "Europe/Kyiv";
       locale = "en_US.UTF-8";
 
-      stateVersion = "25.11";
+      stateVersion = "26.05";
       wallpaper = "${../non-nix/wallpaper.png}";
       theme = gruvbox;
 

@@ -21,9 +21,10 @@ in
         fd
         fzf
         lazygit
-        nodePackages.npm
-        nodePackages.prettier
+        prettier
         python3
+        python3Packages.jupyter-client
+        python3Packages.pynvim
         luajitPackages.luarocks
         lua51Packages.lua
         luajitPackages.nvim-nio
@@ -39,13 +40,13 @@ in
         lua-language-server
         rust-analyzer
         ruff
-        nodePackages_latest.nodejs
+        nodejs_latest
         nixd
         deno
         bun
         yarn
-        pnpm
-        nixfmt-rfc-style
+        # pnpm
+        nixfmt
         vtsls
         pyright
         gopls
@@ -61,7 +62,6 @@ in
         platformio
         codelldb
         sqls
-
       ];
       linuxOnlyReqs =
         if pkgs.stdenv.isDarwin then

@@ -44,7 +44,15 @@ in
         };
       };
 
-      nixpkgs.config.allowUnfree = true;
+      nixpkgs.config = {
+        allowUnfree = true;
+        permittedInsecurePackages = [
+
+          "pnpm-10.34.0"
+          "electron-39.8.10"
+
+        ];
+      };
 
       environment.systemPackages = with pkgs; [
         curl
@@ -57,6 +65,5 @@ in
       system.stateVersion = lib.mkDefault meta.defaults.stateVersion;
 
       networking.hostName = hostName;
-
     };
 }

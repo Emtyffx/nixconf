@@ -9,12 +9,17 @@ let
 in
 {
   flake.homeConfigurations.${meta.owner.username} =
-    { lib, pkgs, ... }:
+    {
+      lib,
+      config,
+      pkgs,
+      ...
+    }:
     let
       figma-linux-font-helper = pkgs.callPackage ../../pkgs/figma-linux-font-helper/package.nix { };
       en-croissant = pkgs.callPackage ../../pkgs/en-croissant/package.nix { };
-      prism-launcher = inputs.prism-launcher.packages.${pkgs.hostPlatform.system}.default;
-      zen-browser = inputs.zen-browser-flake.packages.${pkgs.hostPlatform.system}.default;
+      prism-launcher = inputs.prism-launcher.packages.${pkgs.stdenv.hostPlatform.system}.default;
+      zen-browser = inputs.zen-browser-flake.packages.${pkgs.stdenv.hostPlatform.system}.default;
       custom-gtk-theme = pkgs.callPackage ../../pkgs/gnome4x-custom/package.nix meta.defaults.theme.gtk-theme-args;
       custom-icon-theme = pkgs.callPackage ../../pkgs/flat-remix-icon-theme-custom/package.nix meta.defaults.theme.icon-theme-args;
     in
@@ -46,9 +51,12 @@ in
 
       programs.git = {
         enable = true;
-        userName = meta.owner.name;
-        userEmail = meta.owner.email;
         settings = {
+          user = {
+            name = meta.owner.name;
+            email = meta.owner.email;
+
+          };
 
           core.editor = meta.defaults.editor;
         };
@@ -87,6 +95,7 @@ in
         gnome-boxes
         custom-icon-theme
         custom-gtk-theme
+        corefonts
 
       ];
 
@@ -128,6 +137,7 @@ in
           gtk-decoration-layout = ":";
           gtk-application-prefer-dark-theme = 1;
         };
+        gtk4.theme = config.gtk.theme;
       };
 
       qt = {
@@ -142,6 +152,7 @@ in
         QT_QPA_PLATFORMTHEME = "gtk3";
         QT_QPA_PLATFORM = "wayland;xcb";
       };
+      fonts.fontconfig.enable = true;
       dconf = {
         enable = true;
         settings = {
@@ -155,7 +166,16 @@ in
       xdg.userDirs = {
         enable = true;
         createDirectories = true;
+        setSessionVariables = true;
       };
+
+      nixpkgs.config = {
+        # allowUnfree = true;
+        permittedInsecurePackages = [
+          "pnpm-10.34.0"
+        ];
+      };
+
     };
 
 }

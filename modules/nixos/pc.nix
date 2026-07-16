@@ -49,9 +49,17 @@ in
 
       };
 
-      # networking.firewall = {
-      #   enable = true;
-      # };
+      networking.firewall = {
+        enable = true;
+
+        trustedInterfaces = [ "CloudflareWARP" ];
+        checkReversePath = "loose";
+
+      };
+
+      services.resolved = {
+        enable = true;
+      };
       programs.${meta.defaults.shell}.enable = true;
 
       # enable latest kernel version
@@ -85,6 +93,7 @@ in
         nerd-fonts.jetbrains-mono
         noto-fonts
         noto-fonts-color-emoji
+        corefonts
       ];
 
       environment.systemPackages = with pkgs; [
@@ -92,7 +101,7 @@ in
         pamixer
         bibata-cursors
         wl-clipboard
-        xfce.thunar
+        thunar
         gtk2
         gtk3
         gtk4
@@ -108,6 +117,7 @@ in
         quickemu
         quickgui
         clightd
+        onlyoffice-desktopeditors
 
       ];
 

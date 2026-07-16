@@ -16,6 +16,7 @@
 
       };
     };
+
     overlays = lib.mkOption {
       type = lib.types.listOf lib.types.unspecified;
 
@@ -32,6 +33,7 @@
         inherit system;
         config = {
           allowUnfree = true;
+
           inherit (config.nixpkgs.config) allowUnfreePredicate;
         };
         inherit (config.nixpkgs) overlays;

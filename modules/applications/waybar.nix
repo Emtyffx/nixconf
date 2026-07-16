@@ -33,6 +33,10 @@ in
 
               ]
               ++ map monitorName config.hyprland.monitors;
+
+              margin-top = 10;
+              margin-left = 15;
+              margin-right = 15;
               height = 29;
               modules-left = [
                 "hyprland/workspaces"
@@ -65,11 +69,11 @@ in
                 return-type = "json";
               };
               "hyprland/workspaces" = {
-                format = "{icon}";
-                format-icons = {
-                  active = "";
-                  default = "";
-                };
+                format = "{name}";
+                # format-icons = {
+                #   active = "";
+                #   default = "";
+                # };
                 all-outputs = false;
               };
               "hyprland/window" = {

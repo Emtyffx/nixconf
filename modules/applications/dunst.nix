@@ -53,7 +53,7 @@
             icon_position = "left";
             min_icon_size = 0;
             max_icon_size = 64;
-            icon_path = "${pkgs.adwaita-icon-theme}/share/icons/Adwaita/16x16/status/:${pkgs.adwaita-icon-theme}/share/icons/Adwaita/16x16/devices/";
+            icon_path = lib.mkForce "${pkgs.adwaita-icon-theme}/share/icons/Adwaita/16x16/status/:${pkgs.adwaita-icon-theme}/share/icons/Adwaita/16x16/devices/";
 
             sticky_history = true;
             history_length = 20;

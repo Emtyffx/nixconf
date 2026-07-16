@@ -17,7 +17,7 @@ in
       programs.zsh = {
         enable = meta.defaults.shell == "zsh";
         enableCompletion = true;
-        enableAutosuggestions = true;
+        autosuggestion.enable = true;
         oh-my-zsh = {
           enable = true;
           plugins = [

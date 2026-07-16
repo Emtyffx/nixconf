@@ -37,6 +37,8 @@ rec {
 
     bg = bg0;
 
+    accent = colors.aqua;
+
   };
 
   gtk-theme-args = {

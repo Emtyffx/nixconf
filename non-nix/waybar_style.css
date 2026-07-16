@@ -35,30 +35,43 @@
 
 @define-color border @bg4;
 
+@define-color accent @accent@;
+
 /* === Waybar Root === */
 
 window#waybar {
-  background: none;
+  background: @bg;
   color: @fg;
   font-family: "JetBrainsMono NFP";
   font-size: 14px;
+
+  border-radius: 7px;
+  padding: 5px 10px;
+  padding-top: 10px;
+  border: 1px solid alpha(@border, 0.2);
 }
 
 /* === Module Containers === */
 .modules-center,
 .modules-right,
 #window,
-#workspaces,
+/* #workspaces, */
 #cava,
 #submap {
-  background: @bg;
+  background: @bg1;
   padding: 0px 10px;
-  margin-top: 10px;
+  /* margin-top: 10px; */
   margin-left: 15px;
   margin-right: 15px;
   border-radius: 7px;
-  border: 1px solid alpha(@border, 0.2);
+  margin-top: 10px;
+  margin-bottom: 10px;
+  /* border: 1px solid alpha(@border, 0.2); */
   /* border: 2px solid @border; */
+}
+
+#workspaces {
+  margin: 10px;
 }
 
 #cava {
@@ -74,31 +87,38 @@ window#waybar {
 
 #clock {
   padding: 0px 10px;
-  color: @yellow;
+  /* color: @yellow; */
 }
 
 #workspaces button {
-  padding: 7px;
+  padding: 7px 15px;
   color: @fg;
   box-shadow: inherit;
   text-shadow: inherit;
-  background: transparent;
+  background: @bg1;
+  border-radius: 7px;
   border: 1px solid rgba(0, 0, 0, 0);
+  margin: 0px 5px;
+}
+
+#workspaces button.active {
+  background: @accent;
+  color: @bg1;
 }
 
 #workspaces button:not(.active):not(.urgent):hover {
-  color: @fg4;
-  background: none;
+  color: @fg3;
+  background: @bg;
   transition-duration: 0.1s;
 }
 
-#workspaces button.active:hover,
-#workspaces button.urgent:hover {
-  background: none;
-}
+/* #workspaces button.active:hover, */
+/* #workspaces button.urgent:hover { */
+/*   background: none; */
+/* } */
 
 #workspaces button.urgent {
-  color: @orange;
+  background: @orange;
 }
 
 #network {
@@ -130,12 +150,12 @@ window#waybar {
 }
 
 #idle_inhibitor {
-  color: @blue;
+  color: @accent;
   padding-right: 12px;
 }
 
 #battery {
-  color: @yellow;
+  /* color: @yellow; */
 }
 
 /* === Universal Padding for Right Modules === */
@@ -161,12 +181,12 @@ window#waybar {
 
 tooltip {
   /* Using the default Catppuccin Mocha colors for tooltip as they were hardcoded */
-  background: #1e1e2e;
+  background: @bg1;
   border-radius: 8px;
 }
 
 tooltip label {
-  color: #cad3f5;
+  color: @fg;
   margin-right: 5px;
   margin-left: 5px;
 }

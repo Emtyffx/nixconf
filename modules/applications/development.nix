@@ -24,9 +24,9 @@
         cargo
 
         yarn
-        pnpm
+        # pnpm
         bun
-        nodePackages_latest.nodejs
+        nodejs_latest
 
         python3
       ];
