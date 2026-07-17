@@ -53,7 +53,17 @@ window#waybar {
 
 /* === Module Containers === */
 .modules-center,
-.modules-right,
+/* .modules-right, */
+
+#network,
+#pulseaudio,
+#cpu,
+#memory,
+#custom-ddcutil,
+#bluetooth,
+#custom-power,
+#battery,
+#language,
 #window,
 /* #workspaces, */
 #cava,
@@ -72,6 +82,7 @@ window#waybar {
 
 #workspaces {
   margin: 10px;
+  margin-left: 5px;
 }
 
 #cava {
@@ -118,35 +129,35 @@ window#waybar {
 /* } */
 
 #workspaces button.urgent {
-  background: @orange;
+  background: @yellow-dim;
 }
 
 #network {
-  color: @orange;
+  /* color: @orange; */
 }
 
 #pulseaudio {
-  color: @red;
+  /* color: @red; */
 }
 
 #cpu {
-  color: @blue;
+  /* color: @blue; */
 }
 
 #memory {
-  color: @green;
+  /* color: @green; */
 }
 
 #custom-ddcutil {
-  color: @yellow;
+  /* color: @yellow; */
 }
 
 #bluetooth {
-  color: @blue-dim;
+  /* color: @blue-dim; */
 }
 
 #custom-power {
-  color: @red;
+  /* color: @red; */
 }
 
 #idle_inhibitor {
@@ -170,11 +181,16 @@ window#waybar {
 #tray,
 #battery,
 #language {
-  padding: 0 10px;
+  padding: 7px 15px;
+  margin: 10px 5px;
 }
 
 #idle_inhibitor {
   padding: 0 7px;
+}
+
+.modules-right:last-child {
+  margin-right: 5px;
 }
 
 /* === Tooltip === */
