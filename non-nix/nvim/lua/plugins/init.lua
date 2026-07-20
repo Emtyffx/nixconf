@@ -1,1 +1,6 @@
-return {}
+return {
+	{
+		"nvim-mini/mini.statusline",
+		opts = {},
+	},
+}

@@ -44,6 +44,7 @@ in
         nixd
         deno
         bun
+        stylua
         yarn
         # pnpm
         nixfmt
@@ -95,9 +96,9 @@ in
       };
 
       xdg = {
-        configFile."nvim".source = ../../non-nix/nvim;
-        configFile."nvim".recursive = true;
-        configFile."nvim".target = "nvim";
+         configFile."nvim".source = ../../non-nix/nvim;
+         configFile."nvim".recursive = true;
+         configFile."nvim".target = "nvim";
 
         desktopEntries."nvim" = lib.mkIf pkgs.stdenv.isLinux {
           name = "Neovim";

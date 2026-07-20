@@ -144,7 +144,6 @@ in
         kdePackages.qtsvg
         kdePackages.qtwayland # Essential if you use Wayland
         kdePackages.qt5compat # Often needed for older themes ported to Qt6
-
       ];
 
     };

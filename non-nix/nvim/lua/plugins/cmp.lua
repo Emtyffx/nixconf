@@ -1,103 +1,22 @@
 return {
 	{
-		"folke/lazydev.nvim",
-		ft = "lua", -- only load on lua files
-		opts = {
-			library = {
-				-- See the configuration section for more details
-				-- Load luvit types when the `vim.uv` word is found
-				{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
-			},
-		},
-	},
-	{
-		"micangl/cmp-vimtex",
-		ft = "tex",
-		config = function()
-			require("cmp_vimtex").setup({})
-		end,
-	},
-	{
-		"L3MON4D3/LuaSnip",
-
-		version = "2.*",
-		event = "VeryLazy",
-		build = "make install_jsregexp",
-		dependencies = {
-			-- `friendly-snippets` contains a variety of premade snippets.
-			--    See the README about individual language/framework/plugin snippets:
-			--    https://github.com/rafamadriz/friendly-snippets
-			{
-				"rafamadriz/friendly-snippets",
-				config = function()
-					require("luasnip.loaders.from_vscode").lazy_load()
-				end,
-			},
-			"Emtyffx/luasnip-latex-snippets.nvim",
-		},
-		config = function()
-			local ls = require("luasnip")
-			ls.config.set_config({
-				update_events = { "TextChanged", "TextChangedI" },
-				enable_autosnippets = true,
-				store_selection_keys = "<Tab>",
-			})
-			require("luasnip.loaders.from_lua").lazy_load({
-				paths = { vim.fn.stdpath("config") .. "/lua/luasnip/" },
-			})
-			vim.keymap.set({ "i" }, "<C-k>", function()
-				ls.expand()
-			end, { silent = true, desc = "expand autocomplete" })
-			vim.keymap.set({ "i", "s" }, "<C-j>", function()
-				ls.jump(1)
-			end, { silent = true, desc = "next autocomplete" })
-			vim.keymap.set({ "i", "s" }, "<C-L>", function()
-				ls.jump(-1)
-			end, { silent = true, desc = "previous autocomplete" })
-			vim.keymap.set({ "i", "s" }, "<C-E>", function()
-				if ls.choice_active() then
-					ls.change_choice(1)
-				end
-			end, { silent = true, desc = "select autocomplete" })
-		end,
-	},
-	{
 		"hrsh7th/nvim-cmp",
 		event = "InsertEnter",
 		dependencies = {
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-path",
-			"saadparwaiz1/cmp_luasnip",
+			"hrsh7th/cmp-cmdline",
 			"L3MON4D3/LuaSnip",
-			"hrsh7th/cmp-emoji",
-			{ "windwp/nvim-autopairs",    opts = {} },
-			{ "ray-x/lsp_signature.nvim", event = "InsertEnter", opts = {} },
 		},
+
 		config = function()
 			local cmp = require("cmp")
 			local luasnip = require("luasnip")
 			cmp.setup({
-				snippet = {
-					-- REQUIRED - you must specify a snippet engine
-					expand = function(args)
-						-- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-						require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
-						-- require('snippy').expand_snippet(args.body) -- For `snippy` users.
-						-- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
-						-- vim.snippet.expand(args.body) -- For native neovim snippets (Neovim v0.10+)
-
-						-- For `mini.snippets` users:
-						-- local insert = MiniSnippets.config.expand.insert or MiniSnippets.default_insert
-						-- insert({ body = args.body }) -- Insert at cursor
-						-- cmp.resubscribe({ "TextChangedI", "TextChangedP" })
-						-- require("cmp.config").set_onetime({ sources = {} })
-					end,
-				},
-				window = {
-					-- completion = cmp.config.window.bordered(),
-					-- documentation = cmp.config.window.bordered(),
-				},
+				expand = function(args)
+					require("luasnip").lsp_expand(args.body)
+				end,
 				mapping = cmp.mapping.preset.insert({
 					["<C-b>"] = cmp.mapping.scroll_docs(-4),
 					["<C-f>"] = cmp.mapping.scroll_docs(4),
@@ -142,16 +61,6 @@ return {
 					{ name = "buffer" },
 				}),
 			})
-
-			-- local capabilities = require("cmp_nvim_lsp").default_capabilities()
-			-- for name, opts in pairs(vim.lsp._enabled_configs) do
-			-- 	vim.lsp.config[name].setup({
-			-- 		capabilities = capabilities,
-			-- 	})
-			-- end
-
-			local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-			cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 		end,
 	},
 }

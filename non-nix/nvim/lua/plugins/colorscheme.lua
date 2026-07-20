@@ -1,23 +1,4 @@
 return {
-	-- {
-	-- 	"AlexvZyl/nordic.nvim",
-	-- 	lazy = false,
-	-- 	priority = 1000,
-	-- 	config = function()
-	-- 		require("nordic").setup({
-	-- 			transparent = {
-	-- 				bg = true,
-	-- 			},
-	-- 		})
-	-- 		require("nordic").load()
-	-- 	end,
-	-- },
-	-- {
-	-- 	"morhetz/gruvbox",
-	-- 	config = function()
-	-- 		vim.cmd.colorscheme("gruvbox")
-	-- 	end,
-	-- },
 	{
 		"ellisonleao/gruvbox.nvim",
 		priority = 1000,

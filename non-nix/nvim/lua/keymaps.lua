@@ -34,8 +34,8 @@ vim.keymap.set("n", "<leader>k", "<cmd>lprev<CR>zz")
 
 vim.keymap.set("n", "<leader>j", "<cmd>lnext<CR>zz")
 
-vim.keymap.set("n", "<C-k>", "<cmd>cprev<CR>zz")
-vim.keymap.set("n", "<C-j>", "<cmd>cnext<CR>zz")
+-- vim.keymap.set("n", "<C-k>", "<cmd>cprev<CR>zz")
+-- vim.keymap.set("n", "<C-j>", "<cmd>cnext<CR>zz")
 
 --setup yank highlighting
 vim.api.nvim_create_autocmd("TextYankPost", {
@@ -44,30 +44,20 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
+vim.keymap.set("n", "<leader>ie", "oif err != nil {<CR>}<Esc>Oreturn err<Esc>", { desc = "IfErr(return err)" })
 
-vim.keymap.set(
-	"n",
-	"<leader>ie",
-	"oif err != nil {<CR>}<Esc>Oreturn err<Esc>",
-	{ desc = "IfErr(return err)" })
-
-vim.keymap.set(
-	"n",
-	"<leader>ia",
-	"oassert.NoError(err, \"\")<Esc>F\";a",
-	{ desc = "IfErr(assert)" }
-)
+vim.keymap.set("n", "<leader>ia", 'oassert.NoError(err, "")<Esc>F";a', { desc = "IfErr(assert)" })
 
 vim.keymap.set(
 	"n",
 	"<leader>if",
-	"oif err != nil {<CR>}<Esc>Olog.Fatalf(\"error: %s\\n\", err.Error())<Esc>jj",
+	'oif err != nil {<CR>}<Esc>Olog.Fatalf("error: %s\\n", err.Error())<Esc>jj',
 	{ desc = "IfErr(log fatal)" }
 )
 
 vim.keymap.set(
 	"n",
 	"<leader>il",
-	"oif err != nil {<CR>}<Esc>O.logger.Error(\"error\", \"error\", err)<Esc>F.;i",
+	'oif err != nil {<CR>}<Esc>O.logger.Error("error", "error", err)<Esc>F.;i',
 	{ desc = "IFErr(logger Error)" }
 )
