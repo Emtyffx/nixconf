@@ -41,7 +41,7 @@ in
 
           };
 
-          font.name = "Fira Code";
+          font.name = "Fira Code Nerd Font";
           font.size = 12;
 
           keybindings = {
