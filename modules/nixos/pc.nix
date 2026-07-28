@@ -119,6 +119,9 @@ in
         quickgui
         clightd
         onlyoffice-desktopeditors
+        openssl
+        openssl.dev
+        pkg-config
 
       ];
 
