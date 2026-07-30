@@ -45,6 +45,7 @@ in
 
           nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
           hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+          boot.loader.grub.gfxmodeEfi = "1280x720";
           home-manager.users.${meta.owner.username} = {
 
             hyprland.monitors = [
