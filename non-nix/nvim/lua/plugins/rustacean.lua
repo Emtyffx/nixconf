@@ -15,6 +15,35 @@ return {
 									enable = true,
 								},
 							},
+							cargo = {
+								buildScripts = {
+									enable = true,
+								},
+								features = "all",
+							},
+							procMacro = {
+								enable = true,
+							},
+							inlayHints = {
+								bindingModeHints = {
+									enable = false,
+								},
+								chainingHints = {
+									enable = true,
+								},
+								closingBraceHints = {
+									enable = true,
+								},
+								parameterHints = {
+									enable = true,
+								},
+								typeHints = {
+									enable = true,
+								},
+							},
+							-- completion = {
+							-- 	autoimport = { enable = true },
+							-- },
 						},
 					},
 				},

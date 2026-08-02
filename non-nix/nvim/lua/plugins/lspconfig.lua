@@ -1,7 +1,17 @@
 return {
 	{
 		"neovim/nvim-lspconfig",
+		dependencies = {
+			"hrsh7th/nvim-cmp",
+		},
 		config = function()
+			-- local cmp_lsp = require("cmp_nvim_lsp")
+			-- local capabilities = vim.tbl_deep_extend(
+			-- 	"force",
+			-- 	{},
+			-- 	vim.lsp.protocol.make_client_capabilities(),
+			-- 	cmp_lsp.default_capabilities()
+			-- )
 			local servers = {}
 			servers.lua_ls = {}
 			servers.gopls = {}
@@ -40,10 +50,14 @@ return {
 			servers.sqls = {}
 			servers.arduino_language_server = {}
 			-- the rust-analyzer is enabled via the rustaceanvim plugin
+			--
+			--
+
 			for name, opts in pairs(servers) do
 				vim.lsp.enable(name)
 				vim.lsp.config(name, opts)
 			end
+
 			vim.keymap.set("n", "grn", vim.lsp.buf.rename, { desc = "[R]e[n]ame" })
 
 			-- Execute a code action, usually your cursor needs to be on top of an error

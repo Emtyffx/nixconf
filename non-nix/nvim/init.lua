@@ -1,4 +1,4 @@
--- setup options and keybinds
+--setup options and keybinds
 require("options")
 require("keymaps")
 -- Bootstrap lazy.nvim
